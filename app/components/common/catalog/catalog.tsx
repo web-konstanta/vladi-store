@@ -4,6 +4,7 @@ import { Product } from "@/app/lib/types";
 import useEmblaCarousel from "embla-carousel-react";
 import React, { useCallback } from "react";
 import ProductList from "./product/product-list";
+import CategoryList from "./category/category-list";
 
 const products: Product[] = [
   {
@@ -20,7 +21,7 @@ const products: Product[] = [
     description:
       "Warm plaid with traditional Scottish pattern. The combination of natural and deep shades emphasizes the nobility of the material.",
     image: "/images/product/marcel.png",
-    subCategoryId: "1"
+    subCategoryId: "2"
   },
   {
     id: "3",
@@ -28,7 +29,7 @@ const products: Product[] = [
     description:
       "Elegant plaid with different colors on each side – gray-blue and graphite. Versatile, suitable for home.",
     image: "/images/product/modena.png",
-    subCategoryId: "1"
+    subCategoryId: "3"
   },
   {
     id: "4",
@@ -44,7 +45,7 @@ const products: Product[] = [
     description:
       "Elegant plaid with different colors on each side – gray-blue and graphite. Versatile, suitable for home.",
     image: "/images/product/modena.png",
-    subCategoryId: "1"
+    subCategoryId: "2"
   },
   {
     id: "6",
@@ -52,7 +53,7 @@ const products: Product[] = [
     description:
       "Warm plaid with traditional Scottish pattern. The combination of natural and deep shades emphasizes the nobility of the material.",
     image: "/images/product/marcel.png",
-    subCategoryId: "1"
+    subCategoryId: "3"
   }
 ];
 
@@ -68,7 +69,7 @@ const Catalog = () => {
   }, [emblaApi]);
 
   return (
-    <div className="bg=[#E8E2DB] py-8">
+    <div className="bg-[#E8E2DB] py-8">
       <div className="mx-auto max-w-6xl">
         <div className="mb-6">
           <h2 className="mb-2 text-center font-serif text-[56px] tracking-tight md:text-[72px]">
@@ -78,6 +79,7 @@ const Catalog = () => {
             We offer products that are proven over time
           </p>
         </div>
+        <CategoryList />
         <div className="overflow-x-hidden" ref={emblaRef}>
           <ProductList products={products} />
         </div>
