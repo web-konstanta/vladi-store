@@ -15,9 +15,9 @@ const Hero = () => {
         />
       </div>
 
-      <div className="relative z-10 mx-auto max-h-[660px] w-full max-w-xl px-2 text-center sm:px-4">
+      <div className="relative z-10 mx-auto max-h-[660px] px-2 text-center sm:px-4">
         <h1 className="text-5xl font-bold tracking-widest text-white sm:text-[180px]">VLADI</h1>
-        <p className="mx-auto max-w-[90vw] text-lg text-white sm:max-w-[460px]">
+        <p className="mx-auto max-w-[90vw] text-center text-lg text-white sm:max-w-[460px]">
           Natural blankets and plaids from Ukraine. Discover our collection, created with love and
           care.
         </p>

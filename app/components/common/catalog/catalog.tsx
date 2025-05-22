@@ -76,8 +76,8 @@ const Catalog = () => {
   };
 
   return (
-    <div className="bg-[#E8E2DB] py-8">
-      <div className="mx-auto max-w-6xl">
+    <div className="bg-[#E8E2DB] py-8" id="products">
+      <div className="container mx-auto">
         <div className="mb-6">
           <h2 className="mb-2 text-center font-serif text-[56px] tracking-tight md:text-[72px]">
             OUR CATALOG
