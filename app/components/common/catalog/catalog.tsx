@@ -2,7 +2,7 @@
 
 import { Product } from "@/app/lib/types";
 import useEmblaCarousel from "embla-carousel-react";
-import React, { useCallback, useMemo, useState } from "react";
+import React, { useCallback, useState } from "react";
 import ProductList from "./product/product-list";
 import CategoryList from "./category/category-list";
 
