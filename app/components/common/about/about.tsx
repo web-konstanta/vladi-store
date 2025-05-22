@@ -3,7 +3,7 @@ import React from "react";
 
 const About = () => {
   return (
-    <div className="px-5">
+    <div className="container m-auto px-5">
       <h1 className="mt-[60px] mb-[32px] text-center text-[48px] md:mt-[120px] md:mb-[48px] md:text-[86px]">
         ABOUT VLADI
       </h1>

@@ -26,20 +26,19 @@ const Header = () => {
         </button>
         <nav className="hidden items-center gap-8 md:flex">
           <a href="#" className="px-2 py-1 text-base font-semibold">
+            ABOUT US
+          </a>
+          <a href="#" className="px-2 py-1 text-base font-semibold">
             PRODUCTS
           </a>
           <a href="#" className="px-2 py-1 text-base font-semibold">
             SERVICES
-          </a>
-          <a href="#" className="px-2 py-1 text-base font-semibold">
-            ABOUT US
           </a>
         </nav>
         <button className="ml-4 hidden cursor-pointer rounded-xl bg-[#333231] px-8 py-2 text-white md:block">
           CONTACT US
         </button>
       </div>
-      {/* Мобильное меню с плавным появлением */}
       <div
         className={`overflow-hidden transition-all duration-300 md:hidden ${
           open ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
@@ -48,13 +47,13 @@ const Header = () => {
         <div className="px-4 pb-4">
           <nav className="flex flex-col gap-2">
             <a href="#" className="px-2 py-2 font-semibold">
+              ABOUT US
+            </a>
+            <a href="#" className="px-2 py-2 font-semibold">
               PRODUCTS
             </a>
             <a href="#" className="px-2 py-2 font-semibold">
               SERVICES
-            </a>
-            <a href="#" className="px-2 py-2 font-semibold">
-              ABOUT US
             </a>
             <button className="mt-2 cursor-pointer rounded-xl bg-[#333231] px-8 py-2 text-white">
               CONTACT US
