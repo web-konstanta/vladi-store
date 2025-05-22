@@ -60,11 +60,16 @@ let subCategories: SubCategory[] = [
   }
 ];
 
-const CategoryList = () => {
+const CategoryList = ({ filterProducts }: { filterProducts: (categodyId: string) => void }) => {
   return (
     <div className="mx-auto flex max-w-[650px] flex-wrap justify-center">
       {categories.map((category) => (
-        <CategoryItem key={category.id} category={category} subCategories={subCategories} />
+        <CategoryItem
+          key={category.id}
+          category={category}
+          subCategories={subCategories}
+          filterProducts={filterProducts}
+        />
       ))}
     </div>
   );

@@ -1,12 +1,28 @@
 import { Category, SubCategory } from "@/app/lib/types";
 import React, { useState, useRef, useEffect } from "react";
 
-const CategoryItem = ({ category, subCategories }: { category: Category; subCategories: SubCategory[] }) => {
+const CategoryItem = ({
+  category,
+  subCategories,
+  filterProducts
+}: {
+  category: Category;
+  subCategories: SubCategory[];
+  filterProducts: (categoryId: string) => void;
+}) => {
   const [open, setOpen] = useState(false);
-  const [selected, setSelected] = useState(subCategories[0]);
+  const [selected, setSelected] = useState<SubCategory | null>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  subCategories = subCategories.filter((subCategory) => subCategory.categoryId == category.id);
+  const filteredSubCategories = subCategories.filter(
+    (subCategory) => subCategory.categoryId == category.id
+  );
+
+  useEffect(() => {
+    if (selected) {
+      filterProducts(selected.id);
+    }
+  }, [selected]);
 
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {
@@ -33,7 +49,7 @@ const CategoryItem = ({ category, subCategories }: { category: Category; subCate
         </button>
         {open && (
           <div className="absolute top-[110%] left-0 z-10 mt-2 w-48 rounded-lg border bg-white shadow-lg">
-            {subCategories.map((subCategory) => (
+            {filteredSubCategories.map((subCategory) => (
               <div
                 key={subCategory.id}
                 className={`w-48 cursor-pointer px-4 py-3 text-center transition duration-[600ms] hover:bg-gray-100 ${
