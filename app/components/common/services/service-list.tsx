@@ -34,7 +34,7 @@ const ServiceList = () => {
   const [activeId, setActiveId] = useState<number | null>(null);
 
   return (
-    <div className="container m-auto">
+    <div className="container m-auto" id="services">
       <div className="mt-[120px] flex flex-col items-center justify-between gap-10 lg:flex-row">
         <div className="max-w-[424px]">
           <h2 className="text-[56px] leading-none md:text-[72px]">VLADI SERVICES</h2>
