@@ -17,7 +17,7 @@ const categories: Category[] = [
   }
 ];
 
-let subCategories: SubCategory[] = [
+const subCategories: SubCategory[] = [
   {
     id: "1",
     title: "Cashmere",
