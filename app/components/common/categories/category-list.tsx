@@ -1,7 +1,7 @@
 "use client";
 
 import { Category } from "@/app/lib/types";
-import React, { useCallback } from "react";
+import React from "react";
 import CategoryItem from "./category-item";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
