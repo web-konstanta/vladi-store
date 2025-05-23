@@ -34,7 +34,7 @@ const Catalog = () => {
       image: "/images/product/marcel.png",
       subCategoryId: "2"
     },
-    {
+    { 
       id: "3",
       title: "Modena",
       description:
