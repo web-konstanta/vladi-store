@@ -19,8 +19,8 @@ const ServiceItem = ({
       }`}
     >
       <div
-        className={`flex h-[55px] w-[55px] items-center justify-center rounded-full text-center text-[30px] text-white ${
-          isActive ? "border-2 border-white bg-[#DBD0BF]" : "bg-[#DBD0BF]"
+        className={`flex h-[55px] w-[55px] items-center justify-center rounded-full text-center text-[30px] transition duration-300 ${
+          isActive ? "border-2 border-black bg-[#DBD0BF] text-black" : "bg-[#DBD0BF] text-white"
         }`}
       >
         {service.id}
