@@ -34,7 +34,7 @@ const Catalog = () => {
       image: "/images/product/marcel.png",
       subCategoryId: "2"
     },
-    { 
+    {
       id: "3",
       title: "Modena",
       description:
@@ -70,6 +70,10 @@ const Catalog = () => {
 
   const [products, setProducts] = useState<Product[]>(allProducts);
 
+  const getAllProducts = () => {
+    setProducts(allProducts);
+  };
+
   const filterProducts = (subCategoryId: string) => {
     const filterProducts = allProducts.filter((product) => product.subCategoryId === subCategoryId);
     setProducts(filterProducts);
@@ -86,26 +90,28 @@ const Catalog = () => {
             We offer products that are proven over time
           </p>
         </div>
-        <CategoryList filterProducts={filterProducts} />
+        <CategoryList filterProducts={filterProducts} getAllProducts={getAllProducts} />
         {products.length > 0 ? (
           <>
             <div className="overflow-x-hidden" ref={emblaRef}>
               <ProductList products={products} />
             </div>
-            <div className="mt-6 flex justify-center gap-4">
-              <button
-                className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-gray-800 bg-[#DBD0BF] transition duration-[600ms] hover:bg-gray-100"
-                onClick={scrollPrev}
-              >
-                <span className="text-2xl">&#8592;</span>
-              </button>
-              <button
-                className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-gray-800 bg-[#DBD0BF] transition duration-[600ms] hover:bg-gray-100"
-                onClick={scrollNext}
-              >
-                <span className="text-2xl">&#8594;</span>
-              </button>
-            </div>
+            {products.length > 5 && (
+              <div className="mt-6 flex justify-center gap-4">
+                <button
+                  className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-gray-800 bg-[#DBD0BF] transition duration-[600ms] hover:bg-gray-100"
+                  onClick={scrollPrev}
+                >
+                  <span className="text-2xl">&#8592;</span>
+                </button>
+                <button
+                  className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-gray-800 bg-[#DBD0BF] transition duration-[600ms] hover:bg-gray-100"
+                  onClick={scrollNext}
+                >
+                  <span className="text-2xl">&#8594;</span>
+                </button>
+              </div>
+            )}
           </>
         ) : (
           <div className="mt-5 text-center text-lg text-gray-600">
