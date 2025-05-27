@@ -18,3 +18,8 @@ export type Category = {
   title: string;
   image?: string;
 };
+
+export type PartnerImage = {
+  src: string;
+  alt: string;
+};

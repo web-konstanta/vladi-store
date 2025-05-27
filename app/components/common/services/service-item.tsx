@@ -5,21 +5,21 @@ import React from "react";
 const ServiceItem = ({
   service,
   isActive,
-  onClick
+  onMouseEnter
 }: {
   service: { id: number; title: string; description: string };
   isActive: boolean;
-  onClick: () => void;
+  onMouseEnter: () => void;
 }) => {
   return (
     <div
-      onClick={onClick}
-      className={`m-2 max-h-[320px] max-w-[400px] cursor-pointer rounded-lg border border-black p-5 transition duration-300 ${
+      onMouseEnter={onMouseEnter}
+      className={`m-2 max-h-[320px] max-w-[400px] cursor-pointer rounded-lg border border-black p-5 transition duration-600 ${
         isActive ? "bg-[#DBD0BF]" : "bg-white"
       }`}
     >
       <div
-        className={`flex h-[55px] w-[55px] items-center justify-center rounded-full text-center text-[30px] transition duration-300 ${
+        className={`flex h-[55px] w-[55px] items-center justify-center rounded-full text-center text-[30px] transition duration-600 ${
           isActive ? "border-2 border-black bg-[#DBD0BF] text-black" : "bg-[#DBD0BF] text-white"
         }`}
       >

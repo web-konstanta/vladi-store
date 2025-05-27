@@ -42,13 +42,16 @@ const ServiceList = () => {
             We offer unique product customization options to meet your corporate requirements
           </div>
         </div>
-        <div className="m-auto flex max-w-[872px] flex-wrap justify-center">
+        <div
+          className="m-auto flex max-w-[872px] flex-wrap justify-center"
+          onMouseLeave={() => setActiveId(null)}
+        >
           {services.map((service) => (
             <ServiceItem
               key={service.id}
               service={service}
               isActive={activeId === service.id}
-              onClick={() => setActiveId(service.id)}
+              onMouseEnter={() => setActiveId(service.id)}
             />
           ))}
         </div>
