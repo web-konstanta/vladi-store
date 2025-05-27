@@ -6,9 +6,7 @@ const Partners = () => {
     <div className="bg-[#E8E2DB] px-[60px] py-[64px]">
       <div className="container m-auto">
         <div>
-          <h1 className="text-center text-[50px] md:text-[72px] lg:text-[86px]">
-            PARTNERS
-          </h1>
+          <h1 className="text-center text-[50px] md:text-[72px] lg:text-[86px]">PARTNERS</h1>
           <div className="text-center text-[18px]">
             Companies already appreciate the quality of VLADI
           </div>
@@ -21,6 +19,7 @@ const Partners = () => {
           ))}
         </div>
       </div>
+      <div className="text-center text-[18px]">Companies already appreciate the quality of VLADI</div>
     </div>
   );
 };

@@ -6,6 +6,7 @@ import Catalog from "./components/common/catalog/catalog";
 import ServiceList from "./components/common/services/service-list";
 import CategoryList from "./components/common/categories/category-list";
 import Partners from "./components/common/partners/partners";
+import Contact from "./components/common/contact/contact";
 
 export default function HomePage() {
   return (
@@ -19,6 +20,7 @@ export default function HomePage() {
         <ServiceList />
         <CategoryList />
         <Partners />
+        <Contact />
       </main>
 
       <Footer />
