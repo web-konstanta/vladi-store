@@ -1,7 +1,12 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import Image from "next/image";
+import Faq from "../../ui/modal/faq";
 
 const Hero = () => {
+  const [showModal, setShowModal] = useState(false);
+
   return (
     <div className="relative flex min-h-[660px] items-center justify-center">
       <div className="absolute inset-0 z-0">
@@ -21,10 +26,15 @@ const Hero = () => {
           Natural blankets and plaids from Ukraine. Discover our collection, created with love and
           care.
         </p>
-        <button className="mt-5 cursor-pointer rounded-lg border border-white px-6 py-2 text-white sm:px-10">
+        <button
+          onClick={() => setShowModal(true)}
+          className="mt-5 cursor-pointer rounded-lg border border-white px-6 py-2 text-white sm:px-10"
+        >
           CONTACT US
         </button>
       </div>
+
+      <Faq isOpen={showModal} onClose={() => setShowModal(false)} />
     </div>
   );
 };
