@@ -20,7 +20,6 @@ const Footer = () => {
               SERVICES
             </a>
           </nav>
-
           <div className="text-[14px] font-semibold">© VLADI, Inc. All Rights Reserved</div>
         </div>
       </div>
