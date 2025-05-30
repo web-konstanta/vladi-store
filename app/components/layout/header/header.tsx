@@ -1,14 +1,24 @@
 "use client";
 
 import { useState } from "react";
+import Faq from "../../ui/modal/faq";
+import ScrollToTop from "../../ui/scroll-to-top/scroll-to-top";
+import { Playfair_Display } from "next/font/google";
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-playfair"
+});
 
 const Header = () => {
+  const [showModal, setShowModal] = useState(false);
   const [open, setOpen] = useState(false);
 
   return (
     <header className="bg-white shadow-md">
       <div className="container mx-auto flex items-center justify-between px-4 py-4">
-        <h1 className="text-2xl font-semibold text-gray-800 md:text-4xl">VLADI</h1>
+        <h1 className={`${playfair.className} md:text-4xl text-2xl text-gray-800`}>VLADI</h1>
         <button
           className="flex h-10 w-10 flex-col items-center justify-center md:hidden"
           onClick={() => setOpen(!open)}
@@ -25,17 +35,20 @@ const Header = () => {
           />
         </button>
         <nav className="hidden items-center gap-8 md:flex">
-          <a href="#about" className="px-2 py-1 text-base font-semibold">
+          <a href="#about" className="px-2 py-1 text-base">
             ABOUT US
           </a>
-          <a href="#products" className="px-2 py-1 text-base font-semibold">
+          <a href="#products" className="px-2 py-1 text-base">
             PRODUCTS
           </a>
-          <a href="#services" className="px-2 py-1 text-base font-semibold">
+          <a href="#services" className="px-2 py-1 text-base">
             SERVICES
           </a>
         </nav>
-        <button className="ml-4 hidden cursor-pointer rounded-xl bg-[#333231] px-8 py-2 text-white md:block">
+        <button
+          onClick={() => setShowModal(true)}
+          className="ml-4 hidden cursor-pointer rounded-[6px] border border-black px-8 py-2 text-base text-black md:block"
+        >
           CONTACT US
         </button>
       </div>
@@ -61,6 +74,9 @@ const Header = () => {
           </nav>
         </div>
       </div>
+
+      <ScrollToTop />
+      <Faq isOpen={showModal} onClose={() => setShowModal(false)} />
     </header>
   );
 };

@@ -81,7 +81,7 @@ const CategoryList = ({
   }, [open]);
 
   return (
-    <div className="mx-auto flex flex-wrap justify-center">
+    <div className="m-auto flex w-[192px] flex-wrap justify-center lg:w-full">
       <div className="mr-5 mb-8 flex justify-center" ref={dropdownRef}>
         <button
           className={`w-48 rounded-lg border px-8 py-2 text-center font-medium transition duration-[600ms] ${

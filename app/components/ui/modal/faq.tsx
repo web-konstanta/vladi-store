@@ -1,4 +1,11 @@
 import React, { useEffect, useRef } from "react";
+import { Lora } from "next/font/google";
+
+const lora = Lora({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-playfair"
+});
 
 interface FaqProps {
   isOpen: boolean;
@@ -36,16 +43,20 @@ const Faq: React.FC<FaqProps> = ({ isOpen, onClose }) => {
         className="relative flex w-full max-w-3xl overflow-hidden rounded-lg bg-white shadow-lg md:flex"
       >
         <div className="flex flex-col justify-center p-8">
-          <h2 className="mb-4 text-center text-lg font-semibold">FORM</h2>
-          <h3 className="mb-4 text-center text-2xl font-bold">Unique offers await you</h3>
-          <form className="space-y-4 max-w-[354px]">
+          <div className="max-w-[354px]">
+            <h2 className={`${lora.className} mb-4 text-center text-[40px] font-semibold`}>FORM</h2>
+            <h3 className={`${lora.className} mt-[40px] mb-4 text-center text-[40px] font-bold`}>
+              Unique offers await you
+            </h3>
+          </div>
+          <form className="mt-[24px] max-w-[354px] space-y-4">
             <input type="email" placeholder="Email" className="w-full rounded border px-4 py-2" />
             <input
               type="text"
               placeholder="First Name"
               className="w-full rounded border px-4 py-2"
             />
-            <button type="submit" className="w-full rounded bg-black px-4 py-2 text-white">
+            <button type="submit" className="w-full rounded-[10px] bg-[#333231] px-4 py-2 text-white">
               COUNT ME IN
             </button>
           </form>

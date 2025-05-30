@@ -1,10 +1,19 @@
 import Image from "next/image";
 import React from "react";
+import { Playfair_Display } from "next/font/google";
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-playfair"
+});
 
 const About = () => {
   return (
     <div className="container m-auto px-5" id="about">
-      <h1 className="mt-[60px] mb-[32px] text-center text-[48px] md:mt-[120px] md:mb-[48px] md:text-[86px]">
+      <h1
+        className={`${playfair.className} mt-[60px] mb-[32px] text-center text-[48px] md:mt-[120px] md:mb-[48px] md:text-[86px]`}
+      >
         ABOUT VLADI
       </h1>
       <div className="mx-auto flex max-w-[1320px] flex-col items-center gap-8 lg:flex-row lg:items-start">

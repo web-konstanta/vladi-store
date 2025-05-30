@@ -5,6 +5,13 @@ import useEmblaCarousel from "embla-carousel-react";
 import React, { useCallback, useState } from "react";
 import ProductList from "./product/product-list";
 import CategoryList from "./category/category-list";
+import { Playfair_Display } from "next/font/google";
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-playfair"
+});
 
 const Catalog = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
@@ -80,10 +87,10 @@ const Catalog = () => {
   };
 
   return (
-    <div className="bg-[#E8E2DB] py-8" id="products">
+    <div className="mt-[120px] bg-[#E8E2DB] py-8" id="products">
       <div className="container mx-auto">
         <div className="mb-6">
-          <h2 className="mb-2 text-center font-serif text-[56px] tracking-tight md:text-[72px]">
+          <h2 className={`${playfair.className} mb-2 text-center font-serif text-[56px] tracking-tight md:text-[72px]`}>
             OUR CATALOG
           </h2>
           <p className="mb-8 text-center text-lg text-gray-700">
