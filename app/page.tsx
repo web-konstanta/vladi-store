@@ -7,6 +7,7 @@ import ServiceList from "./components/common/services/service-list";
 import CategoryList from "./components/common/categories/category-list";
 import Partners from "./components/common/partners/partners";
 import Contact from "./components/common/contact/contact";
+import Videos from "./components/common/videos/videos";
 
 export default function HomePage() {
   return (
@@ -19,6 +20,7 @@ export default function HomePage() {
         <Catalog />
         <ServiceList />
         <CategoryList />
+        <Videos />
         <Partners />
         <Contact />
       </main>

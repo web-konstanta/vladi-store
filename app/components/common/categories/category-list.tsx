@@ -3,8 +3,6 @@
 import { Category } from "@/app/lib/types";
 import React from "react";
 import CategoryItem from "./category-item";
-import useEmblaCarousel from "embla-carousel-react";
-import Autoplay from "embla-carousel-autoplay";
 
 const categories: Category[] = [
   {
@@ -50,12 +48,10 @@ const categories: Category[] = [
 ];
 
 const CategoryList = () => {
-  const [emblaRef] = useEmblaCarousel({ loop: true }, [Autoplay({ delay: 1000 })]);
-
   return (
     <div className="container m-auto">
-      <div className="mt-[120px] overflow-x-hidden" ref={emblaRef}>
-        <div className="flex gap-4 pr-4 pl-4">
+      <div className="mt-[120px] overflow-x-hidden">
+        <div className="animate-carousel flex gap-4 pr-4 pl-4">
           {categories.map((category) => (
             <div key={category.id} className="w-[320px] flex-shrink-0">
               <CategoryItem category={category} />

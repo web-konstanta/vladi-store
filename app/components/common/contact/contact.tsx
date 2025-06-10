@@ -8,7 +8,7 @@ const Contact = () => {
   const [showModal, setShowModal] = useState(false);
 
   return (
-    <div className="relative flex min-h-[480px] items-center justify-center">
+    <div className="relative mt-[60px] flex min-h-[480px] items-center justify-center">
       <div className="absolute inset-0 z-0">
         <Image
           src="/images/contact.png"
