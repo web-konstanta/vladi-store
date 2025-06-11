@@ -1,11 +1,11 @@
 "use client";
 
-import { Product } from "@/app/lib/types";
 import useEmblaCarousel from "embla-carousel-react";
-import React, { useCallback, useState } from "react";
+import React, { useCallback } from "react";
 import ProductList from "./product/product-list";
 import CategoryList from "./category/category-list";
 import { Playfair_Display } from "next/font/google";
+import { useCatalog } from "@/app/context/catalog-context";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -15,6 +15,7 @@ const playfair = Playfair_Display({
 
 const Catalog = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
+  const { products, filterProducts, getAllProducts } = useCatalog();
 
   const scrollPrev = useCallback(() => {
     if (emblaApi) emblaApi.scrollPrev();
@@ -24,73 +25,13 @@ const Catalog = () => {
     if (emblaApi) emblaApi.scrollNext();
   }, [emblaApi]);
 
-  const [allProducts] = useState<Product[]>([
-    {
-      id: "1",
-      title: "Valencia",
-      description:
-        "Soft and light plaid made of 100% cashmere in a neutral beige shade. Ideal for minimalistic interiors and cozy evenings.",
-      image: "/images/product/valencia.png",
-      subCategoryId: "1"
-    },
-    {
-      id: "2",
-      title: "Marcel",
-      description:
-        "Warm plaid with traditional Scottish pattern. The combination of natural and deep shades emphasizes the nobility of the material.",
-      image: "/images/product/marcel.png",
-      subCategoryId: "2"
-    },
-    {
-      id: "3",
-      title: "Modena",
-      description:
-        "Elegant plaid with different colors on each side – gray-blue and graphite. Versatile, suitable for home.",
-      image: "/images/product/modena.png",
-      subCategoryId: "3"
-    },
-    {
-      id: "4",
-      title: "Ontario",
-      description:
-        "Soft and light plaid made of 100% cashmere, made in a neutral beige shade. Ideal for minimalistic interiors and cozy evenings.",
-      image: "/images/product/ontario.png",
-      subCategoryId: "4"
-    },
-    {
-      id: "5",
-      title: "Modena",
-      description:
-        "Elegant plaid with different colors on each side – gray-blue and graphite. Versatile, suitable for home.",
-      image: "/images/product/modena.png",
-      subCategoryId: "5"
-    },
-    {
-      id: "6",
-      title: "Marcel",
-      description:
-        "Warm plaid with traditional Scottish pattern. The combination of natural and deep shades emphasizes the nobility of the material.",
-      image: "/images/product/marcel.png",
-      subCategoryId: "6"
-    }
-  ]);
-
-  const [products, setProducts] = useState<Product[]>(allProducts);
-
-  const getAllProducts = () => {
-    setProducts(allProducts);
-  };
-
-  const filterProducts = (subCategoryId: string) => {
-    const filterProducts = allProducts.filter((product) => product.subCategoryId === subCategoryId);
-    setProducts(filterProducts);
-  };
-
   return (
     <div className="mt-[120px] bg-[#E8E2DB] py-8" id="products">
       <div className="container mx-auto">
         <div className="mb-6">
-          <h2 className={`${playfair.className} mb-2 text-center font-serif text-[56px] tracking-tight md:text-[72px]`}>
+          <h2
+            className={`${playfair.className} mb-2 text-center font-serif text-[56px] tracking-tight md:text-[72px]`}
+          >
             OUR CATALOG
           </h2>
           <p className="mb-8 text-center text-lg text-gray-700">

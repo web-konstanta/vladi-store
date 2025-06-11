@@ -3,6 +3,7 @@
 import { Category } from "@/app/lib/types";
 import React from "react";
 import CategoryItem from "./category-item";
+import { useCatalog } from "@/app/context/catalog-context";
 
 const categories: Category[] = [
   {
@@ -48,14 +49,21 @@ const categories: Category[] = [
 ];
 
 const CategoryList = () => {
+  const { filterProducts } = useCatalog();
+
   return (
     <div className="container m-auto">
       <div className="mt-[120px] overflow-x-hidden">
         <div className="animate-carousel flex gap-4 pr-4 pl-4">
           {categories.map((category) => (
-            <div key={category.id} className="w-[320px] flex-shrink-0">
+            <a
+              href="#products"
+              onClick={() => filterProducts(category.id)}
+              key={category.id}
+              className="w-[320px] flex-shrink-0"
+            >
               <CategoryItem category={category} />
-            </div>
+            </a>
           ))}
         </div>
       </div>

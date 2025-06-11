@@ -4,6 +4,7 @@ import { useState } from "react";
 import Faq from "../../ui/modal/faq";
 import ScrollToTop from "../../ui/scroll-to-top/scroll-to-top";
 import { Playfair_Display } from "next/font/google";
+import Image from "next/image";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -18,7 +19,9 @@ const Header = () => {
   return (
     <header className="bg-white shadow-md">
       <div className="container mx-auto flex items-center justify-between px-4 py-4">
-        <h1 className={`${playfair.className} md:text-4xl text-2xl text-gray-800`}>VLADI</h1>
+        <h1 className={`${playfair.className} text-2xl text-gray-800 md:text-4xl`}>
+          <Image src="/images/logo.png" alt="logo" width={108} height={70} />
+        </h1>
         <button
           className="flex h-10 w-10 flex-col items-center justify-center md:hidden"
           onClick={() => setOpen(!open)}
