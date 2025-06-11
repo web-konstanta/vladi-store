@@ -5,7 +5,7 @@ import React, { useCallback } from "react";
 import ProductList from "./product/product-list";
 import CategoryList from "./category/category-list";
 import { Playfair_Display } from "next/font/google";
-import { useCatalog } from "@/app/context/catalog-context";
+import { useCatalog } from "@/context/catalog-context";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],

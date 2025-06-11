@@ -1,4 +1,4 @@
-import { Category, SubCategory } from "@/app/lib/types";
+import { Category, SubCategory } from "@/lib/types";
 import React, { useState, useRef, useEffect } from "react";
 
 const CategoryItem = ({

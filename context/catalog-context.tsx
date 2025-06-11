@@ -1,6 +1,6 @@
 "use client";
 
-import { Product } from "@/app/lib/types";
+import { Product } from "@/lib/types";
 import React, { createContext, useContext, useState, ReactNode } from "react";
 
 interface CatalogContextType {

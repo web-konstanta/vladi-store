@@ -1,4 +1,4 @@
-import { partners } from "@/app/lib/constants";
+import { partners } from "@/lib/constants";
 import React from "react";
 import { Playfair_Display } from "next/font/google";
 
@@ -10,7 +10,7 @@ const playfair = Playfair_Display({
 
 const Partners = () => {
   return (
-    <div className="mt-[60px] bg-[#E8E2DB] md:bg-inherit px-[60px] py-[64px]">
+    <div className="mt-[60px] bg-[#E8E2DB] px-[60px] py-[64px] md:bg-inherit">
       <div className="container m-auto bg-[#E8E2DB]">
         <div>
           <h1

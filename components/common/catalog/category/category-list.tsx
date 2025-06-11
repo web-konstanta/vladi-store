@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import CategoryItem from "./category-item";
-import { Category, SubCategory } from "@/app/lib/types";
+import { Category, SubCategory } from "@/lib/types";
 
 const categories: Category[] = [
   {

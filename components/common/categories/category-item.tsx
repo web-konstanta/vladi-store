@@ -1,4 +1,4 @@
-import { Category } from "@/app/lib/types";
+import { Category } from "@/lib/types";
 import React from "react";
 import Image from "next/image";
 

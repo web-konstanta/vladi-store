@@ -1,9 +1,9 @@
 "use client";
 
-import { Category } from "@/app/lib/types";
+import { Category } from "@/lib/types";
 import React from "react";
 import CategoryItem from "./category-item";
-import { useCatalog } from "@/app/context/catalog-context";
+import { useCatalog } from "@/context/catalog-context";
 
 const categories: Category[] = [
   {
