@@ -3,6 +3,13 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Faq from "../../ui/modal/faq";
+import { Playfair_Display } from "next/font/google";
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-playfair"
+});
 
 const Contact = () => {
   const [showModal, setShowModal] = useState(false);
@@ -21,7 +28,9 @@ const Contact = () => {
       </div>
 
       <div className="relative z-10 mx-auto max-h-[660px] px-2 text-center sm:px-4">
-        <p className="mx-auto max-w-[460px] text-center text-[24px] text-white sm:max-w-[635px] lg:text-[32px]">
+        <p
+          className={`${playfair.className} mx-auto max-w-[460px] text-center text-[24px] text-white sm:max-w-[635px] lg:text-[32px]`}
+        >
           We are always ready to consider cooperation and offer the best conditions for our work
           together care.
         </p>

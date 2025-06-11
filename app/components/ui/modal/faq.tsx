@@ -44,25 +44,37 @@ const Faq: React.FC<FaqProps> = ({ isOpen, onClose }) => {
       >
         <div className="flex flex-col justify-center p-8">
           <div className="max-w-[354px]">
-            <h2 className={`${lora.className} mb-4 text-center text-[40px] font-semibold`}>FORM</h2>
-            <h3 className={`${lora.className} mt-[40px] mb-4 text-center text-[40px] font-bold`}>
-              Unique offers await you
-            </h3>
+            <h2 className={`${lora.className} mb-4 text-center text-[64px] font-semibold`}>FORM</h2>
           </div>
-          <form className="mt-[24px] max-w-[354px] space-y-4">
-            <input type="email" placeholder="Email" className="w-full rounded border px-4 py-2" />
+          <form className="max-w-[354px] space-y-4">
+            <input
+              type="email"
+              placeholder="Email"
+              className="w-full rounded border border-black px-4 py-4"
+            />
             <input
               type="text"
               placeholder="First Name"
-              className="w-full rounded border px-4 py-2"
+              className="w-full rounded border px-4 py-4"
             />
-            <button type="submit" className="w-full rounded-[10px] bg-[#333231] px-4 py-2 text-white">
-              COUNT ME IN
+            <textarea
+              className="w-full rounded border px-4 py-4"
+              placeholder="Write suggestions or questions and we'll get back to you:)"
+              rows={6}
+            ></textarea>
+            <button type="submit" className="w-full rounded bg-[#27241F] px-4 py-4 text-white">
+              CONTACT US
             </button>
           </form>
         </div>
-        <div className="hidden w-1/2 md:block">
+        <div className="relative hidden w-1/2 md:block">
           <img src="/images/faq.png" alt="form" className="h-full w-full object-cover" />
+          <button
+            onClick={onClose}
+            className="absolute top-7 right-7 cursor-pointer text-2xl text-white"
+          >
+            &#10005;
+          </button>
         </div>
       </div>
     </div>
