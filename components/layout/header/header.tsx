@@ -71,7 +71,7 @@ const Header = () => {
             <a href="#services" className="px-2 py-1 text-base font-semibold">
               SERVICES
             </a>
-            <button className="mt-2 cursor-pointer rounded-xl bg-[#333231] px-8 py-2 text-white">
+            <button onClick={() => setShowModal(true)} className="mt-2 cursor-pointer rounded-xl bg-[#333231] px-8 py-2 text-white">
               CONTACT US
             </button>
           </nav>
