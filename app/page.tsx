@@ -1,13 +1,13 @@
 import Header from "../components/layout/header/header";
 import Footer from "../components/layout/footer/footer";
-import Hero from "../components/common/hero/hero";
-import About from "../components/common/about/about";
-import Catalog from "../components/common/catalog/catalog";
-import ServiceList from "../components/common/services/service-list";
-import CategoryList from "../components/common/categories/category-list";
-import Partners from "../components/common/partners/partners";
-import Contact from "../components/common/contact/contact";
-import Videos from "../components/common/videos/videos";
+import Hero from "../components/common/home/hero/hero";
+import About from "../components/common/home/about/about";
+import Catalog from "../components/common/home/catalog/catalog";
+import ServiceList from "../components/common/home/services/service-list";
+import CategoryList from "../components/common/home/categories/category-list";
+import Partners from "../components/common/home/partners/partners";
+import Contact from "../components/common/home/contact/contact";
+import Videos from "../components/common/home/videos/videos";
 
 export default function HomePage() {
   return (

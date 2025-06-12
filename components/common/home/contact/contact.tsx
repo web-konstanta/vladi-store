@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import Faq from "../../ui/modal/faq";
+import Faq from "../../../ui/modal/faq";
 import { Playfair_Display } from "next/font/google";
 
 const playfair = Playfair_Display({
