@@ -2,23 +2,23 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import Faq from "../../ui/modal/faq";
+import Faq from "../../../ui/modal/faq";
 import { Playfair_Display } from "next/font/google";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
-  weight: ["400", "700"],
+  weight: "400",
   variable: "--font-playfair"
 });
 
-const Hero = () => {
+const Contact = () => {
   const [showModal, setShowModal] = useState(false);
 
   return (
-    <div className="relative flex min-h-[660px] items-center justify-center">
+    <div className="relative mt-[60px] flex min-h-[480px] items-center justify-center">
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/hero.png"
+          src="/images/contact.png"
           alt="Анимация"
           fill
           unoptimized
@@ -28,18 +28,15 @@ const Hero = () => {
       </div>
 
       <div className="relative z-10 mx-auto max-h-[660px] px-2 text-center sm:px-4">
-        <h1
-          className={`${playfair.className} mb-[32px] text-5xl tracking-widest text-white sm:text-[180px]`}
+        <p
+          className={`${playfair.className} mx-auto max-w-[460px] text-center text-[24px] text-white sm:max-w-[635px] lg:text-[32px]`}
         >
-          VLADI
-        </h1>
-        <p className="mx-auto max-w-[90vw] text-center text-lg text-white sm:max-w-[460px]">
-          Natural blankets and plaids from Ukraine. Discover our collection, created with love and
-          care.
+          We are always ready to consider cooperation and offer the best conditions for our work
+          together care.
         </p>
         <button
           onClick={() => setShowModal(true)}
-          className="mt-[32px] cursor-pointer rounded-lg border border-white px-6 py-2 text-white sm:px-10"
+          className="mt-5 cursor-pointer rounded-lg border border-white px-6 py-2 text-white sm:px-10"
         >
           CONTACT US
         </button>
@@ -50,4 +47,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default Contact;
