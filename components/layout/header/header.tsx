@@ -3,15 +3,8 @@
 import { useState } from "react";
 import Faq from "../../ui/modal/faq";
 import ScrollToTop from "../../ui/scroll-to-top/scroll-to-top";
-import { Playfair_Display } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
-
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  weight: "400",
-  variable: "--font-playfair"
-});
 
 const Header = () => {
   const [showModal, setShowModal] = useState(false);

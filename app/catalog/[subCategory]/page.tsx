@@ -120,8 +120,8 @@ function capitalizeFirstLetter(str: string): string {
 export default function Catalog({ params }: CatalogPageProps) {
   const { subCategory: title } = params;
 
-  const subCategoryItem = subCategories.find((subCategory) => subCategory.title === title);
-  const filteredProducts = allProducts.filter((product) => product.subCategoryId === subCategoryItem?.title);
+  // const subCategoryItem = subCategories.find((subCategory) => subCategory.title === title);
+  // const filteredProducts = allProducts.filter((product) => product.subCategoryId === subCategoryItem?.title);
 
   return (
     <div className="flex min-h-screen flex-col">
