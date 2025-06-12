@@ -1,5 +1,5 @@
 import Header from "@/components/layout/header/header";
-import { Product, SubCategory } from "@/lib/types";
+import { Product } from "@/lib/types";
 import { Playfair_Display } from "next/font/google";
 import Link from "next/link";
 import ProductItem from "@/components/common/catalog/product-item";
@@ -9,49 +9,6 @@ const playfair = Playfair_Display({
   weight: "400",
   variable: "--font-playfair"
 });
-
-const subCategories: SubCategory[] = [
-  {
-    id: "1",
-    title: "Cashmere",
-    categoryId: "1"
-  },
-  {
-    id: "2",
-    title: "Wool",
-    categoryId: "1"
-  },
-  {
-    id: "3",
-    title: "Semi-Cotton",
-    categoryId: "1"
-  },
-  {
-    id: "4",
-    title: "Cotton",
-    categoryId: "1"
-  },
-  {
-    id: "5",
-    title: "Silk",
-    categoryId: "2"
-  },
-  {
-    id: "6",
-    title: "Jute",
-    categoryId: "2"
-  },
-  {
-    id: "7",
-    title: "Coir",
-    categoryId: "3"
-  },
-  {
-    id: "8",
-    title: "Sisal",
-    categoryId: "3"
-  }
-];
 
 const allProducts: Product[] = [
   {
