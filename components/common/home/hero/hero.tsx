@@ -14,24 +14,32 @@ const playfair = Playfair_Display({
 const Hero = () => {
   const [showModal, setShowModal] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
-
-  const handleScroll = () => {
-    setScrollPosition(window.pageYOffset);
-  };
+  const [windowWidth, setWindowWidth] = useState(0);
 
   useEffect(() => {
+    const handleScroll = () => {
+      setScrollPosition(window.pageYOffset);
+    };    
+
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    handleResize();
     window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleResize);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
-  const initialOffset = 150;
-  const transformX = initialOffset - scrollPosition * 0.3;
+  const percentOffsetPx = windowWidth * 0.06;
+  const transformX = percentOffsetPx - scrollPosition * 0.3;
 
   return (
-    <div className="relative flex min-h-[660px] overflow-hidden items-center justify-center">
+    <div className="relative flex min-h-[660px] items-center justify-center overflow-hidden">
       <div className="absolute inset-0 z-0">
         <Image
           src="/images/hero.png"
@@ -62,15 +70,15 @@ const Hero = () => {
       </div>
 
       <div
-        className="absolute bottom-0 left-1/2 z-5 flex h-[80px] w-[2000px] -translate-x-1/2 justify-center"
-        style={{ transform: `translateX(calc(+2.5% + ${transformX}px))` }}
+        className="absolute bottom-0 left-[-6%] z-5 flex h-[80px] w-[2000px] justify-start"
+        style={{ transform: `translateX(${transformX}px)` }}
       >
         <Image
           src="/images/hero-active.png"
           alt="Making your wildest dreams come true"
           fill
           unoptimized
-          className="object-cover object-bottom"
+          className="object-bottom"
         />
       </div>
 

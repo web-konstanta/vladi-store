@@ -10,12 +10,6 @@ const playfair = Playfair_Display({
   variable: "--font-playfair"
 });
 
-interface CatalogPageProps {
-  params: {
-    subCategory: string;
-  };
-}
-
 const subCategories: SubCategory[] = [
   {
     id: "1",
@@ -117,7 +111,7 @@ function capitalizeFirstLetter(str: string): string {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
-export default function Catalog({ params }: CatalogPageProps) {
+export default function Catalog({ params }: { params: { subCategory: string } }) {
   const { subCategory: title } = params;
 
   // const subCategoryItem = subCategories.find((subCategory) => subCategory.title === title);
