@@ -19,7 +19,7 @@ const Hero = () => {
   useEffect(() => {
     const handleScroll = () => {
       setScrollPosition(window.pageYOffset);
-    };    
+    };
 
     const handleResize = () => {
       setWindowWidth(window.innerWidth);

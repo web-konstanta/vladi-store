@@ -13,10 +13,51 @@ const playfair = Playfair_Display({
 const allProducts: Product[] = [
   {
     id: "1",
-    title: "Valencia",
-    description: "Soft and light plaid made of 100% cashmere in a neutral beige shade.",
+    title: "Valencia Terra",
+    description:
+      "Soft and light plaid made of 100% cashmere in a neutral beige shade. Ideal for minimalistic interiors and cozy evenings.",
     image: "/images/product/valencia.png",
-    subCategoryId: "valencia"
+    subCategoryId: "1"
+  },
+  {
+    id: "2",
+    title: "Marcel Terra",
+    description:
+      "Warm plaid with traditional Scottish pattern. The combination of natural and deep shades emphasizes the nobility of the material.",
+    image: "/images/product/marcel.png",
+    subCategoryId: "2"
+  },
+  {
+    id: "3",
+    title: "Modena Terra",
+    description:
+      "Elegant plaid with different colors on each side – gray-blue and graphite. Versatile, suitable for home.",
+    image: "/images/product/modena.png",
+    subCategoryId: "3"
+  },
+  {
+    id: "4",
+    title: "Ontario Terra",
+    description:
+      "Soft and light plaid made of 100% cashmere, made in a neutral beige shade. Ideal for minimalistic interiors and cozy evenings.",
+    image: "/images/product/ontario.png",
+    subCategoryId: "4"
+  },
+  {
+    id: "5",
+    title: "Modena Terra",
+    description:
+      "Elegant plaid with different colors on each side – gray-blue and graphite. Versatile, suitable for home.",
+    image: "/images/product/modena.png",
+    subCategoryId: "5"
+  },
+  {
+    id: "6",
+    title: "Marcel Terra",
+    description:
+      "Warm plaid with traditional Scottish pattern. The combination of natural and deep shades emphasizes the nobility of the material.",
+    image: "/images/product/marcel.png",
+    subCategoryId: "6"
   }
 ];
 
@@ -24,12 +65,12 @@ function capitalizeFirstLetter(str: string): string {
   return str.length ? str.charAt(0).toUpperCase() + str.slice(1) : "";
 }
 
-export default async function Catalog({ params }: any) {
-  const { subCategory } = params;
+const Catalog = () => {
+  const subCategory = 'valencia'
 
-  const filteredProducts = allProducts.filter(
-    (product) => product.subCategoryId.toLowerCase() === subCategory.toLowerCase()
-  );
+  // const filteredProducts = allProducts.filter(
+  //   (product) => product.subCategoryId.toLowerCase() === subCategory.toLowerCase()
+  // );
 
   return (
     <div className="flex min-h-screen flex-col">
@@ -52,8 +93,8 @@ export default async function Catalog({ params }: any) {
           </h1>
 
           <div className="grid grid-cols-1 gap-6 pb-12 sm:grid-cols-2 lg:grid-cols-4">
-            {filteredProducts.length > 0 ? (
-              filteredProducts.map((product) => <ProductItem key={product.id} product={product} />)
+            {allProducts.length > 0 ? (
+              allProducts.map((product) => <ProductItem key={product.id} product={product} />)
             ) : (
               <div className="col-span-full mt-5 text-center text-lg text-gray-600">
                 No products found for this category.
@@ -64,4 +105,6 @@ export default async function Catalog({ params }: any) {
       </main>
     </div>
   );
-}
+};
+
+export default Catalog;

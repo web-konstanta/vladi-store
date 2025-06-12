@@ -59,7 +59,7 @@ const ProductCategory = () => {
 
             <div className="flex max-w-[536px] m-auto flex-col">
               <h1
-                className={`${playfair.className} mb-6 mt-[-20px] text-center text-[45px] leading-[1.1] font-semibold tracking-tight text-[#27241F] uppercase md:text-left md:text-[86px]`}
+                className={`${playfair.className} mb-6 mt-5 md:mt-[-20px] text-center text-[45px] leading-[1.1] font-semibold tracking-tight text-[#27241F] uppercase md:text-left md:text-[86px]`}
               >
                 {product.title}
               </h1>
