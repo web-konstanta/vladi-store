@@ -18,7 +18,7 @@ const Header = () => {
 
   return (
     <header className="bg-white shadow-md">
-      <div className="container mx-auto flex items-center justify-between px-4 py-4">
+      <div className="container mx-auto flex items-center justify-between px-4">
         <h1 className={`${playfair.className} text-2xl text-gray-800 md:text-4xl`}>
           <Image src="/images/logo.png" alt="logo" width={108} height={70} />
         </h1>
