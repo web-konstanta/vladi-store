@@ -20,6 +20,7 @@ const mockProduct = {
   category: "Valencia"
 };
 
+//TODO: Implement dynamic props params
 const ProductCategory = () => {
   // const { id } = params;
   const product = mockProduct;

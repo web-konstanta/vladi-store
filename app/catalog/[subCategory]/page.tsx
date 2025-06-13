@@ -65,6 +65,7 @@ function capitalizeFirstLetter(str: string): string {
   return str.length ? str.charAt(0).toUpperCase() + str.slice(1) : "";
 }
 
+//TODO: Implement dynamic props params
 const Catalog = () => {
   const subCategory = 'valencia'
 

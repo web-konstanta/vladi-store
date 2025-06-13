@@ -19,7 +19,7 @@ export default function HomePage() {
         <About />
         <Catalog />
         <ServiceList />
-        <CategoryList />
+        {/* <CategoryList /> */}
         <Videos />
         <Partners />
         <Contact />
