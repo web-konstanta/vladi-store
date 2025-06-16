@@ -41,30 +41,32 @@ const ServiceList = () => {
   const [activeId, setActiveId] = useState<number | null>(null);
 
   return (
-    <div className="container m-auto" id="services">
-      <div className="mt-[120px] flex flex-col items-center justify-between gap-10 lg:flex-row">
-        <div className="max-w-[424px]">
-          <h2
-            className={`${playfair.className} text-center text-[56px] leading-none md:text-[72px] lg:text-left`}
-          >
-            VLADI SERVICES
-          </h2>
-          <div className="mt-3 text-center lg:text-left">
-            We offer unique product customization options to meet your corporate requirements
+    <div className="mt-[120px] bg-[#E8E2DB] py-[64px]" id="services">
+      <div className="container m-auto">
+        <div className="flex flex-col justify-between gap-10 lg:flex-row">
+          <div className="max-w-[424px]">
+            <h2
+              className={`${playfair.className} text-center text-[56px] leading-none md:text-[72px] lg:text-left`}
+            >
+              VLADI SERVICES
+            </h2>
+            <div className="mt-3 text-center lg:text-left">
+              We offer unique product customization options to meet your corporate requirements
+            </div>
           </div>
-        </div>
-        <div
-          className="m-auto flex max-w-[872px] flex-wrap justify-center"
-          onMouseLeave={() => setActiveId(null)}
-        >
-          {services.map((service) => (
-            <ServiceItem
-              key={service.id}
-              service={service}
-              isActive={activeId === service.id}
-              onMouseEnter={() => setActiveId(service.id)}
-            />
-          ))}
+          <div
+            className="m-auto flex max-w-[872px] flex-wrap justify-center"
+            onMouseLeave={() => setActiveId(null)}
+          >
+            {services.map((service) => (
+              <ServiceItem
+                key={service.id}
+                service={service}
+                isActive={activeId === service.id}
+                onMouseEnter={() => setActiveId(service.id)}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </div>

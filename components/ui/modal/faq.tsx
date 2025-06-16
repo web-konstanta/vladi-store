@@ -35,7 +35,7 @@ const Faq: React.FC<FaqProps> = ({ isOpen, onClose }) => {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/50"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm"
       onClick={handleOverlayClick}
     >
       <div
@@ -44,7 +44,17 @@ const Faq: React.FC<FaqProps> = ({ isOpen, onClose }) => {
       >
         <div className="flex flex-col justify-center p-8">
           <div className="max-w-[354px]">
-            <h2 className={`${lora.className} mb-4 text-center text-[64px] font-semibold`}>FORM</h2>
+            <div className="relative">
+              <h2 className={`${lora.className} mb-4 text-center text-[64px] font-semibold`}>
+                FORM
+              </h2>
+              <button
+                onClick={onClose}
+                className="absolute top-0 -right-2 cursor-pointer text-2xl md:hidden"
+              >
+                &#10005;
+              </button>
+            </div>
           </div>
           <form className="max-w-[354px] space-y-4">
             <input

@@ -52,11 +52,9 @@ const Hero = () => {
       </div>
 
       <div className="relative z-10 mx-auto max-h-[660px] px-2 text-center sm:px-4">
-        <h1
-          className={`${playfair.className} mb-[32px] text-5xl tracking-widest text-white sm:text-[180px]`}
-        >
-          VLADI
-        </h1>
+        <div className="mb-[32px] text-5xl tracking-widest text-white sm:text-[180px]">
+          <img src="/images/hero-logo.png" alt="Hero Logo" />
+        </div>
         <p className="mx-auto max-w-[90vw] text-center text-lg text-white sm:max-w-[460px]">
           Natural blankets and plaids from Ukraine. Discover our collection, created with love and
           care.

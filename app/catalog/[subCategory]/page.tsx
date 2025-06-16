@@ -67,7 +67,7 @@ function capitalizeFirstLetter(str: string): string {
 
 //TODO: Implement dynamic props params
 const Catalog = () => {
-  const subCategory = 'valencia'
+  const subCategory = "valencia";
 
   // const filteredProducts = allProducts.filter(
   //   (product) => product.subCategoryId.toLowerCase() === subCategory.toLowerCase()
@@ -95,7 +95,11 @@ const Catalog = () => {
 
           <div className="grid grid-cols-1 gap-6 pb-12 sm:grid-cols-2 lg:grid-cols-4">
             {allProducts.length > 0 ? (
-              allProducts.map((product) => <ProductItem key={product.id} product={product} />)
+              allProducts.map((product) => (
+                <Link key={product.id} href={`/catalog/product/${product.id}`}>
+                  <ProductItem product={product} />
+                </Link>
+              ))
             ) : (
               <div className="col-span-full mt-5 text-center text-lg text-gray-600">
                 No products found for this category.
