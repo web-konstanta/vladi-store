@@ -9,7 +9,7 @@ const ProductList = ({ products }: { products: Product[] }) => {
   return (
     <div className={`${justifyClass} flex gap-4 pr-4 pl-4`}>
       {products.map((product, index) => (
-        <Link href={`/catalog/${product.title.toLocaleLowerCase()}`} key={index} className="w-[320px] flex-shrink-0 bg-[#E8E2DB]">
+        <Link href={`/catalog/${product.title.toLocaleLowerCase()}`} key={index} className="w-[320px] flex-shrink-0 bg-white">
           <ProductItem product={product} />
         </Link>
       ))}

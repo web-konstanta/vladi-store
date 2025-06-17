@@ -31,7 +31,7 @@ const Header = () => {
             className={`block h-0.5 w-6 origin-center bg-gray-800 transition-all duration-300 ${open ? "-translate-y-1.5 -rotate-45" : ""}`}
           />
         </button>
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-[48px] md:flex">
           <a href="#about" className="px-2 py-1 text-base">
             ABOUT US
           </a>
@@ -44,7 +44,7 @@ const Header = () => {
         </nav>
         <button
           onClick={() => setShowModal(true)}
-          className="ml-4 hidden cursor-pointer rounded-[6px] border border-black px-8 py-2 text-base text-black md:block"
+          className="ml-4 hidden h-[48px] w-[200px] cursor-pointer rounded-[6px] border border-black px-[48] py-2 text-base text-black md:block"
         >
           CONTACT US
         </button>
@@ -65,7 +65,10 @@ const Header = () => {
             <a href="#services" className="px-2 py-1 text-base font-semibold">
               SERVICES
             </a>
-            <button onClick={() => setShowModal(true)} className="mt-2 cursor-pointer rounded-xl bg-[#333231] px-8 py-2 text-white">
+            <button
+              onClick={() => setShowModal(true)}
+              className="mt-2 cursor-pointer rounded-xl bg-[#333231] px-8 py-2 text-white"
+            >
               CONTACT US
             </button>
           </nav>

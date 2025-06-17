@@ -11,12 +11,12 @@ const ProductItem = ({ product }: { product: Product }) => {
           alt={product.title}
           height={312}
           width={312}
-          className="max-h-full max-w-full rounded-t-lg"
+          className="max-h-full max-w-full rounded-lg"
         />
       </div>
-      <div className="p-4">
-        <h3 className="mb-1 text-lg font-semibold">{product.title}</h3>
-        <p className="text-sm text-gray-700">{product.description}</p>
+      <div className="py-4">
+        <h3 className="mb-1 text-[24px]">{product.title}</h3>
+        <p className="text-[14px] mt-[8px] leading-[25px] text-gray-700">{product.description}</p>
       </div>
     </div>
   );

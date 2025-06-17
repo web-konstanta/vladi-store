@@ -3,6 +3,7 @@ import { Product } from "@/lib/types";
 import { Playfair_Display } from "next/font/google";
 import Link from "next/link";
 import ProductItem from "@/components/common/catalog/product-item";
+import Footer from "@/components/layout/footer/footer";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -79,16 +80,16 @@ const Catalog = () => {
 
       <main className="flex-1 bg-[#E8E2DB] pt-8">
         <div className="container mx-auto px-4">
-          <div className="mt-[50px] mb-4 text-[18px] text-gray-600">
+          <div className="mt-[45px] mb-4 flex max-w-[160px] items-center justify-between gap-[8px] text-[18px] text-gray-600">
             <Link href="/">
-              <span className="opacity-50 hover:underline">Home</span>
+              <span className="text-[#9D978D] opacity-50 hover:underline">Home</span>
             </Link>
-            {" / "}
+            <div className="text-[#9D978D] opacity-50">{" / "}</div>
             <span>{capitalizeFirstLetter(subCategory)}</span>
           </div>
 
           <h1
-            className={`${playfair.className} mt-[20px] mb-6 text-[80px] font-semibold tracking-tight text-[#27241F]`}
+            className={`${playfair.className} mt-[20px] mb-6 text-[86px] font-semibold tracking-tight text-[#27241F] uppercase`}
           >
             {capitalizeFirstLetter(subCategory)}
           </h1>

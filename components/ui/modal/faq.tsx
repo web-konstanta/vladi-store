@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
-import { Lora } from "next/font/google";
+import { Playfair_Display } from "next/font/google";
 
-const lora = Lora({
+const playfair = Playfair_Display({
   subsets: ["latin"],
   weight: "400",
   variable: "--font-playfair"
@@ -45,7 +45,7 @@ const Faq: React.FC<FaqProps> = ({ isOpen, onClose }) => {
         <div className="flex flex-col justify-center p-8">
           <div className="max-w-[354px]">
             <div className="relative">
-              <h2 className={`${lora.className} mb-4 text-center text-[64px] font-semibold`}>
+              <h2 className={`${playfair.className} mb-4 text-center text-[64px] font-semibold`}>
                 FORM
               </h2>
               <button

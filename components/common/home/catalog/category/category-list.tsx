@@ -90,14 +90,14 @@ const CategoryList = ({
           className={`w-48 rounded-lg border px-8 py-2 text-center font-medium transition duration-[600ms] ${
             open
               ? "border-black bg-[#d6c7b5] text-black shadow"
-              : "border-gray-400 bg-[#e8e2db] text-black"
+              : "border-gray-400 bg-white text-black"
           }`}
           onClick={() => {
             setOpen((p) => !p);
             getAllProducts();
           }}
         >
-          All products
+          All categories
         </button>
       </div>
 

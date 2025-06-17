@@ -4,9 +4,7 @@ import Hero from "../components/common/home/hero/hero";
 import About from "../components/common/home/about/about";
 import Catalog from "../components/common/home/catalog/catalog";
 import ServiceList from "../components/common/home/services/service-list";
-import CategoryList from "../components/common/home/categories/category-list";
 import Partners from "../components/common/home/partners/partners";
-import Contact from "../components/common/home/contact/contact";
 import Videos from "../components/common/home/videos/videos";
 
 export default function HomePage() {

@@ -17,15 +17,15 @@ const Videos = () => {
       <div className="container mx-auto px-4 md:px-0">
         <div className="mb-4 md:mb-6">
           <h2
-            className={`${playfair.className} mb-2 text-center font-serif text-[36px] tracking-tight md:text-[56px] lg:text-[72px]`}
+            className={`${playfair.className} mb-2 mt-[24px] text-center font-serif text-[36px] tracking-tight md:text-[56px] lg:text-[86px]`}
           >
             OUR VIDEOS
           </h2>
-          <p className="mb-6 text-center text-base text-gray-700 md:mb-8 md:text-lg">
+          <p className="mb-6 text-center text-[18px] text-gray-700 md:mb-8 md:text-lg">
             Take a deeper look into our production
           </p>
         </div>
-        <div className="mt-[32px] flex flex-col items-center justify-between gap-2 md:mt-[48px] lg:flex-row lg:gap-1">
+        <div className="mt-[32px] mb-[44px] flex flex-col items-center justify-between gap-2 md:mt-[48px] lg:flex-row lg:gap-1">
           <div className="w-full lg:mr-[24px]">
             <div className="max-h-[300px] w-full md:max-h-[400px] lg:max-h-[510px]">
               <Image
@@ -36,7 +36,7 @@ const Videos = () => {
                 className="h-full w-full object-cover"
               />
             </div>
-            <h3 className="mt-[16px] text-[20px] text-[#27241F] md:mt-[24px] md:text-[24px]">
+            <h3 className="mt-[16px] text-[24px] text-[#27241F] md:mt-[24px] md:text-[24px]">
               Production Process and Product Creation
             </h3>
             <p className="mt-[8px] max-w-full text-[14px] md:text-base lg:max-w-[536px]">
@@ -56,7 +56,7 @@ const Videos = () => {
                 className="h-full w-full object-cover"
               />
             </div>
-            <h3 className="mt-[16px] text-[20px] text-[#27241F] md:mt-[24px] md:text-[24px]">
+            <h3 className="mt-[16px] text-[24px] text-[#27241F] md:mt-[24px] md:text-[24px]">
               Material and Color Selection
             </h3>
             <p className="mt-[8px] max-w-full text-[14px] md:text-base lg:max-w-[536px]">

@@ -46,11 +46,11 @@ const ServiceList = () => {
         <div className="flex flex-col justify-between gap-10 lg:flex-row">
           <div className="max-w-[424px]">
             <h2
-              className={`${playfair.className} text-center text-[56px] leading-none md:text-[72px] lg:text-left`}
+              className={`${playfair.className} text-center text-[56px] leading-none md:text-[86px] lg:text-left`}
             >
               VLADI SERVICES
             </h2>
-            <div className="mt-3 text-center lg:text-left">
+            <div className="mt-[24px] text-center lg:text-left text-[18px]">
               We offer unique product customization options to meet your corporate requirements
             </div>
           </div>

@@ -61,9 +61,9 @@ const Hero = () => {
         </p>
         <button
           onClick={() => setShowModal(true)}
-          className="mt-[32px] cursor-pointer rounded-lg border border-white px-6 py-2 text-white sm:px-10"
+          className="mt-[32px] h-[52px] w-[222px] cursor-pointer rounded-lg border border-white px-6 py-2 text-base leading-[24px] text-white sm:px-10"
         >
-          CONTACT US
+          START NOW
         </button>
       </div>
 
