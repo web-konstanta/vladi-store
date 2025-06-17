@@ -65,9 +65,8 @@ function capitalizeFirstLetter(str: string): string {
   return str.length ? str.charAt(0).toUpperCase() + str.slice(1) : "";
 }
 
-//TODO: Implement dynamic props params
 const Catalog = () => {
-  const subCategory = "valencia";
+  const subCategory = 'valencia'
 
   // const filteredProducts = allProducts.filter(
   //   (product) => product.subCategoryId.toLowerCase() === subCategory.toLowerCase()
@@ -79,27 +78,23 @@ const Catalog = () => {
 
       <main className="flex-1 bg-[#E8E2DB] pt-8">
         <div className="container mx-auto px-4">
-          <div className="mt-[45px] mb-4 flex max-w-[160px] items-center justify-between gap-[8px] text-[18px] text-gray-600">
+          <div className="mt-[50px] mb-4 text-[18px] text-gray-600">
             <Link href="/">
-              <span className="text-[#9D978D] opacity-50 hover:underline">Home</span>
+              <span className="opacity-50 hover:underline">Home</span>
             </Link>
-            <div className="text-[#9D978D] opacity-50">{" / "}</div>
+            {" / "}
             <span>{capitalizeFirstLetter(subCategory)}</span>
           </div>
 
           <h1
-            className={`${playfair.className} mt-[20px] mb-6 text-[86px] font-semibold tracking-tight text-[#27241F] uppercase`}
+            className={`${playfair.className} mt-[20px] mb-6 text-[80px] font-semibold tracking-tight text-[#27241F]`}
           >
             {capitalizeFirstLetter(subCategory)}
           </h1>
 
           <div className="grid grid-cols-1 gap-6 pb-12 sm:grid-cols-2 lg:grid-cols-4">
             {allProducts.length > 0 ? (
-              allProducts.map((product) => (
-                <Link key={product.id} href={`/catalog/product/${product.id}`}>
-                  <ProductItem product={product} />
-                </Link>
-              ))
+              allProducts.map((product) => <ProductItem key={product.id} product={product} />)
             ) : (
               <div className="col-span-full mt-5 text-center text-lg text-gray-600">
                 No products found for this category.

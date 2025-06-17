@@ -1,11 +1,42 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Faq from "../../../ui/modal/faq";
+import { Playfair_Display } from "next/font/google";
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-playfair"
+});
 
 const Hero = () => {
   const [showModal, setShowModal] = useState(false);
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const [windowWidth, setWindowWidth] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollPosition(window.pageYOffset);
+    };
+
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    handleResize();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  const percentOffsetPx = windowWidth * 0.06;
+  const transformX = percentOffsetPx - scrollPosition * 0.3;
 
   return (
     <div className="relative flex min-h-[660px] items-center justify-center overflow-hidden">
@@ -21,22 +52,24 @@ const Hero = () => {
       </div>
 
       <div className="relative z-10 mx-auto max-h-[660px] px-2 text-center sm:px-4">
-        <div className="mb-[32px] text-5xl tracking-widest text-white sm:text-[180px]">
-          <img src="/images/hero-logo.png" alt="Hero Logo" />
-        </div>
+        <h1
+          className={`${playfair.className} mb-[32px] text-5xl tracking-widest text-white sm:text-[180px]`}
+        >
+          VLADI
+        </h1>
         <p className="mx-auto max-w-[90vw] text-center text-lg text-white sm:max-w-[460px]">
           Natural blankets and plaids from Ukraine. Discover our collection, created with love and
           care.
         </p>
         <button
           onClick={() => setShowModal(true)}
-          className="mt-[32px] h-[52px] w-[222px] cursor-pointer rounded-lg border border-white px-6 py-2 text-base leading-[24px] text-white sm:px-10"
+          className="mt-[32px] cursor-pointer rounded-lg border border-white px-6 py-2 text-white sm:px-10"
         >
-          START NOW
+          CONTACT US
         </button>
       </div>
 
-      {/* <div
+      <div
         className="absolute bottom-0 left-[-6%] z-5 flex h-[80px] w-[2000px] justify-start"
         style={{ transform: `translateX(${transformX}px)` }}
       >
@@ -47,7 +80,7 @@ const Hero = () => {
           unoptimized
           className="object-bottom"
         />
-      </div> */}
+      </div>
 
       <Faq isOpen={showModal} onClose={() => setShowModal(false)} />
     </div>

@@ -17,10 +17,8 @@ export default function HomePage() {
         <About />
         <ServiceList />
         <Catalog />
-        {/* <CategoryList /> */}
         <Videos />
         <Partners />
-        {/* <Contact /> */}
       </main>
 
       <Footer />

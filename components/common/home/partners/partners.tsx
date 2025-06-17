@@ -22,7 +22,7 @@ const Partners = () => {
             Companies already appreciate the quality of VLADI
           </div>
         </div>
-        <div className="m-auto flex max-w-[1300px] flex-wrap justify-center gap-[20px] md:justify-between md:overflow-visible md:p-[60px]">
+        <div className="flex flex-wrap p-0 justify-center md:p-[60px] md:justify-between">
           {partners.map((partner, index) => (
             <div
               key={index}
