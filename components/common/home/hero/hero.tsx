@@ -67,7 +67,7 @@ const Hero = () => {
         </button>
       </div>
 
-      <div
+      {/* <div
         className="absolute bottom-0 left-[-6%] z-5 flex h-[80px] w-[2000px] justify-start"
         style={{ transform: `translateX(${transformX}px)` }}
       >
@@ -78,7 +78,7 @@ const Hero = () => {
           unoptimized
           className="object-bottom"
         />
-      </div>
+      </div> */}
 
       <Faq isOpen={showModal} onClose={() => setShowModal(false)} />
     </div>

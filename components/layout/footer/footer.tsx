@@ -30,7 +30,7 @@ const Footer = () => {
 
         <div className="relative z-10 mx-auto max-h-[660px] px-2 text-center sm:px-4">
           <p
-            className={`${playfair.className} mx-auto max-w-[460px] text-center text-[32px] leading-[52px] font-light text-white sm:max-w-[635px] lg:text-[32px]`}
+            className={`${playfair.className} mx-auto md:max-w-[460px] text-center text-base md:text-[32px] leading-[32px] md:leading-[52px] font-light text-white sm:max-w-[635px]`}
           >
             We are always ready to consider cooperation and offer the best conditions for our work
             together care.
