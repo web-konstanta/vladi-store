@@ -34,16 +34,16 @@ const ProductCategory = () => {
 
       <main className="flex-1 bg-[#E8E2DB] pt-8 pb-10 md:pb-[153px]">
         <div className="container mx-auto px-4">
-          <div className="mt-[50px] mb-4 text-[18px] text-gray-600">
+          <div className="mt-[50px] mb-4 flex max-w-[310px] justify-between text-[18px] text-[#9D978D]">
             <Link href="/">
               <span className="opacity-50 hover:underline">Home</span>
             </Link>
-            {" / "}
+            <div className="opacity-50">{" / "}</div>
             <Link href="/catalog/valencia" className="opacity-50 hover:underline">
               <span>{product.category}</span>
             </Link>
-            {" / "}
-            <span>{product.title}</span>
+            <div className="opacity-50">{" / "}</div>
+            <span className="text-[#27241F]">{product.title}</span>
           </div>
 
           <div className="mt-[40px] grid grid-cols-1 items-start md:grid-cols-2">
@@ -57,13 +57,13 @@ const ProductCategory = () => {
               />
             </div>
 
-            <div className="flex max-w-[536px] m-auto flex-col">
+            <div className="m-auto flex max-w-[536px] flex-col">
               <h1
-                className={`${playfair.className} mb-6 mt-5 md:mt-[-20px] text-center text-[45px] leading-[1.1] font-semibold tracking-tight text-[#27241F] uppercase md:text-left md:text-[86px]`}
+                className={`${playfair.className} mt-5 mb-6 text-center text-[45px] leading-[1.1] font-semibold tracking-tight text-[#27241F] uppercase md:mt-[-20px] md:text-left md:text-[86px]`}
               >
                 {product.title}
               </h1>
-              <p className="mb-6 mt-2 text-lg text-gray-700">{product.description}</p>
+              <p className="mt-2 mb-6 text-lg text-gray-700">{product.description}</p>
 
               <h2 className="mb-3 text-xl font-semibold text-[#27241F]">Product composition</h2>
               <ul className="mb-6 list-inside list-disc text-lg text-gray-700">
@@ -71,18 +71,18 @@ const ProductCategory = () => {
                   <li key={index}>{item}</li>
                 ))}
               </ul>
-              <h2 className="mb-3 text-xl font-semibold text-[#27241F] mt-2">Size</h2>
+              <h2 className="mt-2 mb-3 text-xl font-semibold text-[#27241F]">Size</h2>
               <div className="mb-6 flex flex-wrap gap-3">
                 {product.sizes.map((size, index) => (
                   <button
                     key={index}
-                    className="rounded-lg border border-black px-6 py-3 text-gray-700 transition-colors duration-500 hover:bg-gray-100"
+                    className="rounded-lg border-none bg-white px-6 py-3 text-gray-700 transition-colors duration-500 hover:bg-[#DBD0BF]"
                   >
                     {size}
                   </button>
                 ))}
               </div>
-              <button className="mt-2 w-full rounded-lg border border-black bg-inherit px-8 py-4 text-lg font-medium text-[#27241F] transition-colors duration-500 hover:bg-white sm:max-w-none">
+              <button className="mt-2 w-full rounded-lg border border-black bg-inherit px-8 py-4 text-lg font-medium text-[#27241F] transition-colors duration-500 hover:bg-[#27241F] hover:text-white sm:max-w-none">
                 LEARN MORE
               </button>
             </div>

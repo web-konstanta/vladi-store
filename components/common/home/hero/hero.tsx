@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import Faq from "../../../ui/modal/faq";
 import { Playfair_Display } from "next/font/google";
@@ -13,30 +13,6 @@ const playfair = Playfair_Display({
 
 const Hero = () => {
   const [showModal, setShowModal] = useState(false);
-  const [scrollPosition, setScrollPosition] = useState(0);
-  const [windowWidth, setWindowWidth] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollPosition(window.pageYOffset);
-    };
-
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
-
-    handleResize();
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
-  const percentOffsetPx = windowWidth * 0.06;
-  const transformX = percentOffsetPx - scrollPosition * 0.3;
 
   return (
     <div className="relative flex min-h-[660px] items-center justify-center overflow-hidden">
@@ -67,19 +43,6 @@ const Hero = () => {
         >
           CONTACT US
         </button>
-      </div>
-
-      <div
-        className="absolute bottom-0 left-[-6%] z-5 flex h-[80px] w-[2000px] justify-start"
-        style={{ transform: `translateX(${transformX}px)` }}
-      >
-        <Image
-          src="/images/hero-active.png"
-          alt="Making your wildest dreams come true"
-          fill
-          unoptimized
-          className="object-bottom"
-        />
       </div>
 
       <Faq isOpen={showModal} onClose={() => setShowModal(false)} />

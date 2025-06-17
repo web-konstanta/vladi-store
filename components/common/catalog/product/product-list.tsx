@@ -8,7 +8,7 @@ const ProductList = ({ products }: { products: Product[] }) => {
   return (
     <div className={`flex ${justifyClass} gap-4 pr-4 pl-4`}>
       {products.map((product, index) => (
-        <div key={index} className="w-[320px] flex-shrink-0 bg-[#E8E2DB]">
+        <div key={index} className="w-[320px] flex-shrink-0">
           <ProductItem product={product} />
         </div>
       ))}

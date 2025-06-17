@@ -1,6 +1,5 @@
 import React from "react";
 import { Product } from "@/lib/types";
-import Link from "next/link";
 import Image from "next/image";
 
 interface ProductItemProps {
@@ -18,11 +17,9 @@ const ProductItem: React.FC<ProductItemProps> = ({ product }) => {
           <h3 className="mb-2 text-2xl text-[#27241F]">{product.title}</h3>
           <p className="mb-4 text-base leading-relaxed text-gray-700">{product.description}</p>
         </div>
-        <Link href={`/catalog/product/${product.id}`}>
-          <button className="w-full cursor-pointer rounded-md border border-black px-6 py-3 text-sm font-medium text-black transition-colors duration-200 hover:bg-gray-100">
-            VIEW MORE
-          </button>
-        </Link>
+        <button className="w-full cursor-pointer rounded-md border border-black px-6 py-3 text-sm font-medium text-black transition-colors duration-200 hover:bg-gray-100">
+          VIEW MORE
+        </button>
       </div>
     </div>
   );
