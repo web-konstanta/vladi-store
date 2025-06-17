@@ -1,6 +1,5 @@
 import React from "react";
 import { Product } from "@/lib/types";
-import Link from "next/link";
 import Image from "next/image";
 
 interface ProductItemProps {

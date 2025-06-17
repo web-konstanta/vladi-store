@@ -3,7 +3,6 @@ import { Product } from "@/lib/types";
 import { Playfair_Display } from "next/font/google";
 import Link from "next/link";
 import ProductItem from "@/components/common/catalog/product-item";
-import Footer from "@/components/layout/footer/footer";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
