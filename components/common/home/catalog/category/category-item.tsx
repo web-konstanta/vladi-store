@@ -44,7 +44,7 @@ const CategoryItem = ({
     <div className="mr-5 mb-8 flex justify-center" ref={dropdownRef}>
       <div className="relative inline-block">
         <button
-          className={`w-48 rounded-lg border px-8 py-3 text-center font-medium transition duration-[600ms] ${
+          className={`w-50 rounded-lg border px-8 py-3 text-center text-base font-medium transition duration-[600ms] ${
             open
               ? "border-black bg-[#d6c7b5] text-black shadow"
               : "border-gray-400 bg-white text-black"
@@ -54,11 +54,11 @@ const CategoryItem = ({
           {category.title}
         </button>
         {open && (
-          <div className="absolute top-[84%] left-0 z-10 mt-2 w-48 rounded-lg border bg-white shadow-lg">
+          <div className="absolute top-[84%] left-0 z-10 mt-2 w-50 rounded-lg border bg-white shadow-lg">
             {filteredSubCategories.map((subCategory) => (
               <div
                 key={subCategory.id}
-                className={`w-48 cursor-pointer rounded-lg px-4 py-3 text-center transition duration-[600ms] hover:bg-gray-100 ${
+                className={`w-full cursor-pointer rounded-lg px-4 py-3 text-center transition duration-[600ms] hover:bg-gray-100 ${
                   selected === subCategory ? "font-bold" : ""
                 }`}
                 onClick={() => {
