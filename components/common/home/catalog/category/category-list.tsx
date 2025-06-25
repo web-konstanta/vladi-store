@@ -5,15 +5,19 @@ import { Category, SubCategory } from "@/lib/types";
 const categories: Category[] = [
   {
     id: "1",
-    title: "Plaids"
+    title: "Throws"
   },
   {
     id: "2",
-    title: "Kovdry"
+    title: "Blankets"
   },
   {
     id: "3",
-    title: "Lythe blanket"
+    title: "Bedspreads"
+  },
+  {
+    id: "4",
+    title: "Quilted Blankets"
   }
 ];
 
@@ -25,38 +29,58 @@ const subCategories: SubCategory[] = [
   },
   {
     id: "2",
-    title: "Wool",
+    title: "Merino",
     categoryId: "1"
   },
   {
     id: "3",
-    title: "Semi-Cotton",
+    title: "Wool Throws",
     categoryId: "1"
   },
   {
     id: "4",
-    title: "Cotton",
+    title: "Wool Blend",
     categoryId: "1"
   },
   {
     id: "5",
-    title: "Silk",
-    categoryId: "2"
+    title: "Cotton",
+    categoryId: "1"
   },
   {
     id: "6",
-    title: "Jute",
+    title: "Cashmere",
     categoryId: "2"
   },
   {
     id: "7",
-    title: "Coir",
-    categoryId: "3"
+    title: "Merino",
+    categoryId: "2"
   },
   {
     id: "8",
-    title: "Sisal",
+    title: "Wool Throws",
+    categoryId: "2"
+  },
+  {
+    id: "9",
+    title: "Wool Blend",
+    categoryId: "2"
+  },
+  {
+    id: "10",
+    title: "Cotton",
     categoryId: "3"
+  },
+  {
+    id: "11",
+    title: "Wool Throws",
+    categoryId: "4"
+  },
+  {
+    id: "12",
+    title: "Siliconized",
+    categoryId: "4"
   }
 ];
 

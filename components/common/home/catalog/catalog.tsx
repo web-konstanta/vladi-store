@@ -44,7 +44,7 @@ const Catalog = () => {
             <div className="overflow-x-hidden mt-[20px]" ref={emblaRef}>
               <ProductList products={products} />
             </div>
-            {products.length > 5 && (
+            {products.length > 4 && (
               <div className="mt-6 flex justify-center gap-4">
                 <button
                   className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-gray-800 bg-white transition duration-[600ms] hover:bg-gray-100"

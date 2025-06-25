@@ -14,9 +14,14 @@ const ProductItem = ({ product }: { product: Product }) => {
           className="max-h-full max-w-full rounded-t-lg"
         />
       </div>
-      <div className="p-4">
-        <h3 className="mb-1 text-lg font-semibold">{product.title}</h3>
-        <p className="text-sm text-gray-700">{product.description}</p>
+      <div className="group relative">
+        <h3 className="mb-1 mt-3 text-[24px]">{product.title}</h3>
+        <p
+          className="max-h-[100px] cursor-pointer overflow-hidden text-sm leading-[25px] text-gray-700 transition-all duration-300 group-hover:max-h-[500px]"
+          title={product.description}
+        >
+          {product.description}
+        </p>
       </div>
     </div>
   );
