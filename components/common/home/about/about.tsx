@@ -1,4 +1,3 @@
-import Image from "next/image";
 import React from "react";
 import { Playfair_Display } from "next/font/google";
 
@@ -14,50 +13,56 @@ const About = () => {
       <h1
         className={`${playfair.className} mt-[60px] mb-[32px] text-center text-[48px] md:mt-[120px] md:mb-[48px] md:text-[86px]`}
       >
-        ABOUT VLADI
+        ПРО КОМПАНІЮ
       </h1>
-      <div className="mx-auto flex max-w-[1320px] flex-col items-center gap-8 lg:flex-row">
-        <div className="w-full leading-relaxed lg:w-1/2">
-          <div className="text-[20px] text-[#363431] md:text-[20px]">
-            VLADI is one of the leading European manufacturers of plaids and blankets of the highest
-            quality. The company combines traditional textile craftsmanship with modern technologies
-            to create products that give warmth, comfort and coziness every day.
-          </div>
-          <div className="mt-[24px] flex items-start gap-3 md:mt-[24px]">
-            <span className="mt-1 h-[40px] w-[40px] flex-shrink-0 rounded-full bg-[#DCCFBF]"></span>
-            <div className="pt-2 pl-[10px]">
-              <h3 className="text-[16px] md:text-[18px]">Time-tested quality</h3>
-              <div className="mt-[4px] text-[14px] md:text-[18px]">
-                Our products are made of selected cashmere, merino, fine and superfine New Zealand
-                wool, cotton. Our range includes bedspreads, quilted and classic blankets, plaids
-                made of pure wool, semi-sheer and cotton.
-              </div>
-            </div>
-          </div>
-          <div className="mt-[32px] flex items-start gap-3 md:mt-[24px]">
-            <span className="mt-1 h-[40px] w-[40px] flex-shrink-0 rounded-full bg-[#B19F89]"></span>
-            <div className="pt-2 pl-[10px]">
-              <h3 className="text-[16px] md:text-[18px]">
-                Customized solutions for business
-              </h3>
-              <div className="mt-[4px] text-[14px] md:text-[16px]">
-                VLADI offers corporate clients and advertising agencies exclusive products for
-                gifts, promotions and branded campaigns.
-              </div>
-            </div>
-          </div>
+      <div className="mx-auto">
+        <div>
+          <img src="/images/about.png" alt="About company image" />
         </div>
-        <div className="w-full flex-shrink-0 lg:w-1/2">
-          <Image
-            src="/images/about.png"
-            alt="Анимация"
-            width={760}
-            height={534}
-            unoptimized
-            priority
-            className="h-auto w-full object-cover"
-          />
-        </div>
+        <ul className="mt-[32px] flex flex-wrap justify-center gap-5">
+          <li className="max-w-[400px] text-2xl leading-10">
+            <span className="font-extrabold">Компанiя VLADI</span> - один з провідних європейських
+            виробників пледів і ковдр вищої якості. Компанія об'єднує традиційну текстильну
+            майстерність із сучасними технологіями, щоб створювати вироби, що дарують тепло, комфорт
+            і затишок щодня.
+          </li>
+          <li className="max-w-[400px]">
+            <div className="mb-[24px]">
+              <h3 className="text-lg font-extrabold">Якість, перевірена часом</h3>
+              <p className="text-base leading-6">
+                Наші вироби виготовляються з добірного кашеміру, мериноса, тонкої та надтонкої
+                новозеландської вовни, бавовни. Наш асортимент включає покривала, стьобані та
+                класичні ковдри, пледи з чистої вовни, напівпрозорої вовни та бавовни.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-lg font-extrabold">Індивідуальні рішення для бізнесу</h3>
+              <p className="text-base leading-6">
+                Комапанія VLADI пропонує корпоративним клієнтам та рекламним агенціям ексклюзивну
+                продукцію для подарунків, промо-акцій та брендованих кампаній.
+              </p>
+            </div>
+          </li>
+          <li className="max-w-[400px]">
+            <div className="mb-[24px]">
+              <h3 className="text-lg font-extrabold">Де купити</h3>
+              <p className="text-base leading-6">
+                Продукція VLADI представлена в провідних торгових мережах по всій Україні, а також
+                доступна через наших офіційних партнерів.
+              </p>
+              <p className="text-base leading-6">
+                В асортименті - покривала, стьобані та класичні ковдри, пледи з чистої вовни,
+                напіввовни та бавовни.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-lg font-extrabold">Колекції на будь-який смак</h3>
+              <p className="text-base leading-6">
+                Ми розробили три лінійки, щоб кожен наш клієнт міг обрати ідеальне рішення.
+              </p>
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
   );
