@@ -11,13 +11,13 @@ const playfair = Playfair_Display({
 const Videos = () => {
   return (
     <div
-      className="mt-[60px] bg-[#E8E2DB] py-4 md:mt-[80px] md:py-6 lg:mt-[120px] lg:py-8"
+      className="mt-[60px] bg-[#E8E2DB] bg-[url('/images/waves.png')] bg-cover bg-center bg-no-repeat py-4 md:mt-[80px] md:py-6 lg:mt-[120px] lg:py-8"
       id="products"
     >
       <div className="container mx-auto px-4 md:px-0">
         <div className="mb-4 md:mb-6">
           <h2
-            className={`${playfair.className} mb-2 mt-[24px] text-center font-serif text-[36px] tracking-tight md:text-[56px] lg:text-[86px]`}
+            className={`${playfair.className} mt-[24px] mb-2 text-center font-serif text-[36px] tracking-tight md:text-[56px] lg:text-[86px]`}
           >
             OUR VIDEOS
           </h2>

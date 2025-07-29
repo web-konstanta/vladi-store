@@ -1,5 +1,6 @@
 import React from "react";
 import { Playfair_Display } from "next/font/google";
+import CheckIcon from "@/components/icons/check";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -27,39 +28,51 @@ const About = () => {
             і затишок щодня.
           </li>
           <li className="max-w-[400px]">
-            <div className="mb-[24px]">
-              <h3 className="text-lg font-extrabold">Якість, перевірена часом</h3>
-              <p className="text-base leading-6">
-                Наші вироби виготовляються з добірного кашеміру, мериноса, тонкої та надтонкої
-                новозеландської вовни, бавовни. Наш асортимент включає покривала, стьобані та
-                класичні ковдри, пледи з чистої вовни, напівпрозорої вовни та бавовни.
-              </p>
+            <div className="flex">
+              <CheckIcon />
+              <div className="mb-[24px] ml-3">
+                <h3 className="text-lg font-extrabold">Якість, перевірена часом</h3>
+                <p className="mt-[4px] text-sm leading-6">
+                  Наші вироби виготовляються з добірного кашеміру, мериноса, тонкої та надтонкої
+                  новозеландської вовни, бавовни. Наш асортимент включає покривала, стьобані та
+                  класичні ковдри, пледи з чистої вовни, напівпрозорої вовни та бавовни.
+                </p>
+              </div>
             </div>
-            <div>
-              <h3 className="text-lg font-extrabold">Індивідуальні рішення для бізнесу</h3>
-              <p className="text-base leading-6">
-                Комапанія VLADI пропонує корпоративним клієнтам та рекламним агенціям ексклюзивну
-                продукцію для подарунків, промо-акцій та брендованих кампаній.
-              </p>
+            <div className="flex">
+              <CheckIcon />
+              <div className="ml-3">
+                <h3 className="text-lg font-extrabold">Індивідуальні рішення для бізнесу</h3>
+                <p className="mt-[4px] text-sm leading-6">
+                  Комапанія VLADI пропонує корпоративним клієнтам та рекламним агенціям ексклюзивну
+                  продукцію для подарунків, промо-акцій та брендованих кампаній.
+                </p>
+              </div>
             </div>
           </li>
           <li className="max-w-[400px]">
-            <div className="mb-[24px]">
-              <h3 className="text-lg font-extrabold">Де купити</h3>
-              <p className="text-base leading-6">
-                Продукція VLADI представлена в провідних торгових мережах по всій Україні, а також
-                доступна через наших офіційних партнерів.
-              </p>
-              <p className="text-base leading-6">
-                В асортименті - покривала, стьобані та класичні ковдри, пледи з чистої вовни,
-                напіввовни та бавовни.
-              </p>
+            <div className="flex">
+              <CheckIcon />
+              <div className="mb-[24px] ml-3">
+                <h3 className="text-lg font-extrabold">Де купити</h3>
+                <p className="mt-[4px] text-sm leading-6">
+                  Продукція VLADI представлена в провідних торгових мережах по всій Україні, а також
+                  доступна через наших офіційних партнерів.
+                </p>
+                <p className="text-sm leading-6">
+                  В асортименті - покривала, стьобані та класичні ковдри, пледи з чистої вовни,
+                  напіввовни та бавовни.
+                </p>
+              </div>
             </div>
-            <div>
-              <h3 className="text-lg font-extrabold">Колекції на будь-який смак</h3>
-              <p className="text-base leading-6">
-                Ми розробили три лінійки, щоб кожен наш клієнт міг обрати ідеальне рішення.
-              </p>
+            <div className="flex">
+              <CheckIcon />
+              <div className="ml-3">
+                <h3 className="text-lg font-extrabold">Колекції на будь-який смак</h3>
+                <p className="mt-[4px] text-sm leading-6">
+                  Ми розробили три лінійки, щоб кожен наш клієнт міг обрати ідеальне рішення.
+                </p>
+              </div>
             </div>
           </li>
         </ul>

@@ -10,8 +10,8 @@ const playfair = Playfair_Display({
 
 const Partners = () => {
   return (
-    <div className="mt-[60px] bg-[#E8E2DB] py-[64px] md:bg-inherit">
-      <div className="container m-auto bg-[#E8E2DB] py-[34px]">
+    <div className="mt-[60px] bg-[#E8E2DB] bg-[url('/images/waves.png')] bg-cover bg-center bg-no-repeat py-[64px] md:bg-inherit">
+      <div className="container m-auto py-[34px]">
         <div className="">
           <h1
             className={`${playfair.className} pt-[30px] text-center text-[50px] md:text-[72px] lg:text-[86px]`}
@@ -22,7 +22,7 @@ const Partners = () => {
             Companies already appreciate the quality of VLADI
           </div>
         </div>
-        <div className="flex flex-wrap p-0 justify-center md:p-[60px] md:justify-between">
+        <div className="flex flex-wrap justify-center p-0 md:justify-between md:p-[60px]">
           {partners.map((partner, index) => (
             <div
               key={index}

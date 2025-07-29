@@ -41,17 +41,25 @@ const ServiceList = () => {
   const [activeId, setActiveId] = useState<number | null>(null);
 
   return (
-    <div className="mt-[120px] bg-[#E8E2DB] py-[64px]" id="services">
+    <div
+      className="mt-[120px] bg-[#E8E2DB] bg-[url('/images/waves.png')] bg-cover bg-center bg-no-repeat py-[64px]"
+      id="services"
+    >
       <div className="container m-auto">
         <div className="flex flex-col justify-between gap-10 lg:flex-row">
-          <div className="max-w-[424px]">
-            <h2
-              className={`${playfair.className} text-center text-[56px] leading-none md:text-[86px] lg:text-left`}
-            >
-              VLADI SERVICES
-            </h2>
-            <div className="mt-[24px] text-center lg:text-left text-[18px]">
-              We offer unique product customization options to meet your corporate requirements
+          <div className="flex max-w-[424px] flex-col justify-between">
+            <div>
+              <h2
+                className={`${playfair.className} text-center text-[56px] leading-none md:text-[86px] lg:text-left`}
+              >
+                VLADI SERVICES
+              </h2>
+              <div className="mt-[24px] text-center text-[18px] lg:text-left">
+                We offer unique product customization options to meet your corporate requirements
+              </div>
+            </div>
+            <div className="mt-auto flex justify-center opacity-40 lg:justify-start">
+              <img src="/images/home-logo.png" />
             </div>
           </div>
           <div
