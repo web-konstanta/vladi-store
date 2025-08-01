@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import ServiceItem from "./service-item";
-import { Playfair_Display } from "next/font/google";
+import { Noto_Sans, Playfair_Display } from "next/font/google";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -10,30 +10,36 @@ const playfair = Playfair_Display({
   variable: "--font-playfair"
 });
 
+const noto = Noto_Sans({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-noto"
+});
+
 const services = [
   {
     id: 1,
-    title: "Personalization and individual product design",
+    title: "Iндивідуальний дизайн вашої продукції",
     description:
-      "Add uniqueness with logo embroidery.Add uniqueness with logo embroidery.Add uniqueness with logo embroidery."
+      "Додайте унікальності за допомогою вишивки логотипу.Додайте унікальності за допомогою вишивки логотипу."
   },
   {
     id: 2,
-    title: "Branded packaging for your products",
+    title: "Брендована упаковка для вашої продукції",
     description:
-      "We offer stylish packaging solutions.We offer stylish packaging solutions.We offer stylish packaging solutions."
+      "Ми пропонуємо стильні пакувальні рішення.Ми пропонуємо стильні пакувальні рішення.Ми пропонуємо стильні пакувальні рішення."
   },
   {
     id: 3,
-    title: "Personalization and individual product design",
+    title: "Iндивідуальний дизайн вашої продукції",
     description:
-      "Add uniqueness with logo embroidery.Add uniqueness with logo embroidery.Add uniqueness with logo embroidery."
+      "Додайте унікальності за допомогою вишивки логотипу.Додайте унікальності за допомогою вишивки логотипу."
   },
   {
     id: 4,
-    title: "Personalization and individual product design",
+    title: "Iндивідуальний дизайн вашої продукції",
     description:
-      "Add uniqueness with logo embroidery.Add uniqueness with logo embroidery.Add uniqueness with logo embroidery."
+      "Додайте унікальності за допомогою вишивки логотипу.Додайте унікальності за допомогою вишивки логотипу."
   }
 ];
 
@@ -52,10 +58,13 @@ const ServiceList = () => {
               <h2
                 className={`${playfair.className} text-center text-[56px] leading-none md:text-[86px] lg:text-left`}
               >
-                VLADI SERVICES
+                VLADI ПОСЛУГИ
               </h2>
-              <div className="mt-[24px] text-center text-[18px] lg:text-left">
-                We offer unique product customization options to meet your corporate requirements
+              <div
+                className={`${noto.className} mt-[24px] text-center text-[18px] opacity-55 lg:text-left`}
+              >
+                Ми пропонуємо унікальні можливості кастомізації продукту відповідно до ваших
+                корпоративних вимог.
               </div>
             </div>
             <div className="mt-auto flex justify-center opacity-40 lg:justify-start">

@@ -1,11 +1,17 @@
 import { partners } from "@/lib/constants";
 import React from "react";
-import { Playfair_Display } from "next/font/google";
+import { Playfair_Display, Noto_Sans } from "next/font/google";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
   weight: "400",
   variable: "--font-playfair"
+});
+
+const noto = Noto_Sans({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-noto"
 });
 
 const Partners = () => {
@@ -16,10 +22,10 @@ const Partners = () => {
           <h1
             className={`${playfair.className} pt-[30px] text-center text-[50px] md:text-[72px] lg:text-[86px]`}
           >
-            PARTNERS
+            НАШІ ПАРТНЕРИ
           </h1>
-          <div className="text-center text-[18px]">
-            Companies already appreciate the quality of VLADI
+          <div className={`${noto.className} text-center text-[18px] opacity-70`}>
+            Компанії вже оцінили якість VLADI
           </div>
         </div>
         <div className="flex flex-wrap justify-center p-0 md:justify-between md:p-[60px]">

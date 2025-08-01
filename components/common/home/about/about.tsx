@@ -1,11 +1,17 @@
 import React from "react";
-import { Playfair_Display } from "next/font/google";
+import { Noto_Sans, Playfair_Display } from "next/font/google";
 import CheckIcon from "@/components/icons/check";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
   weight: "400",
   variable: "--font-playfair"
+});
+
+const noto = Noto_Sans({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-noto"
 });
 
 const About = () => {
@@ -17,10 +23,10 @@ const About = () => {
         ПРО КОМПАНІЮ
       </h1>
       <div className="mx-auto">
-        <div>
+        <div className="flex items-center justify-center">
           <img src="/images/about.png" alt="About company image" />
         </div>
-        <ul className="mt-[32px] flex flex-wrap justify-center gap-5">
+        <ul className={`${noto.className} mt-[32px] flex flex-wrap justify-center gap-5`}>
           <li className="max-w-[400px] text-2xl leading-10">
             <span className="font-extrabold">Компанiя VLADI</span> - один з провідних європейських
             виробників пледів і ковдр вищої якості. Компанія об'єднує традиційну текстильну

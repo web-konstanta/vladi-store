@@ -4,13 +4,19 @@ import useEmblaCarousel from "embla-carousel-react";
 import React, { useCallback } from "react";
 import ProductList from "./product/product-list";
 import CategoryList from "./category/category-list";
-import { Playfair_Display } from "next/font/google";
+import { Noto_Sans, Playfair_Display } from "next/font/google";
 import { useCatalog } from "@/context/catalog-context";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
   weight: "400",
   variable: "--font-playfair"
+});
+
+const noto = Noto_Sans({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-noto"
 });
 
 const Catalog = () => {
@@ -32,16 +38,18 @@ const Catalog = () => {
           <h2
             className={`${playfair.className} mb-2 text-center font-serif text-[56px] tracking-tight md:text-[86px]`}
           >
-            OUR CATALOG
+            НАШ КАТАЛОГ
           </h2>
-          <p className="mb-[48px] mt-[24px] text-center text-[18px] text-gray-700">
-            We offer products that are proven over time
+          <p
+            className={`${noto.className} mt-[24px] mb-[48px] text-center text-[18px] text-gray-700`}
+          >
+            Ми пропонуємо продукти, перевірені часом
           </p>
         </div>
         <CategoryList filterProducts={filterProducts} getAllProducts={getAllProducts} />
         {products.length > 0 ? (
           <>
-            <div className="overflow-x-hidden mt-[20px]" ref={emblaRef}>
+            <div className="mt-[20px] overflow-x-hidden" ref={emblaRef}>
               <ProductList products={products} />
             </div>
             {products.length > 4 && (

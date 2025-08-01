@@ -1,10 +1,12 @@
-import React, { useEffect, useRef } from "react";
-import { Playfair_Display } from "next/font/google";
+"use client";
 
-const playfair = Playfair_Display({
+import React, { useEffect, useRef } from "react";
+import { Noto_Sans } from "next/font/google";
+
+const noto = Noto_Sans({
   subsets: ["latin"],
   weight: "400",
-  variable: "--font-playfair"
+  variable: "--font-noto"
 });
 
 interface FaqProps {
@@ -17,9 +19,7 @@ const Faq: React.FC<FaqProps> = ({ isOpen, onClose }) => {
 
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        onClose();
-      }
+      if (e.key === "Escape") onClose();
     };
     document.addEventListener("keydown", handleEsc);
     return () => document.removeEventListener("keydown", handleEsc);
@@ -35,56 +35,61 @@ const Faq: React.FC<FaqProps> = ({ isOpen, onClose }) => {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm"
+      className={`${noto.className} fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm`}
       onClick={handleOverlayClick}
     >
       <div
         ref={faqRef}
-        className="relative flex w-full max-w-3xl overflow-hidden rounded-lg bg-white shadow-lg md:flex"
+        className="relative flex w-full max-w-5xl overflow-hidden rounded-lg bg-white shadow-lg"
       >
-        <div className="flex flex-col justify-center p-8">
-          <div className="max-w-[354px]">
-            <div className="relative">
-              <h2 className={`${playfair.className} mb-4 text-center text-[64px] font-semibold`}>
-                FORM
-              </h2>
-              <button
-                onClick={onClose}
-                className="absolute top-0 -right-2 cursor-pointer text-2xl md:hidden"
-              >
-                &#10005;
-              </button>
-            </div>
+        <div className="flex w-full max-w-[240px] flex-col justify-between border-r bg-white p-6">
+          <div>
+            <h2 className="mb-4 text-xl font-bold">Контакти</h2>
+            <p className="mb-2">+ 380 (067) 888 88 88</p>
+            <p className="mb-6">+ 380 (067) 888 88 88</p>
           </div>
-          <form className="max-w-[354px] space-y-4">
-            <input
-              type="email"
-              placeholder="Email"
-              className="w-full rounded border border-black px-4 py-4"
-            />
-            <input
-              type="text"
-              placeholder="First Name"
-              className="w-full rounded border px-4 py-4"
-            />
-            <textarea
-              className="w-full rounded border px-4 py-4"
-              placeholder="Write suggestions or questions and we'll get back to you:)"
-              rows={6}
-            ></textarea>
-            <button type="submit" className="w-full rounded bg-[#27241F] px-4 py-4 text-white">
-              CONTACT US
-            </button>
-          </form>
+
+          <div>
+            <h3 className="mb-2 text-lg font-semibold">Адреса складу</h3>
+            <p className="text-sm">88888, Україна</p>
+            <p className="text-sm">м. Харків, вул. Харківська</p>
+          </div>
         </div>
-        <div className="relative hidden w-1/2 md:block">
-          <img src="/images/faq.png" alt="form" className="h-full w-full object-cover" />
+
+        <div className="relative flex-1 bg-white p-6">
           <button
             onClick={onClose}
-            className="absolute top-7 right-7 cursor-pointer text-2xl text-white"
+            className="absolute top-4 right-4 cursor-pointer text-2xl text-black"
           >
-            &#10005;
+            &times;
           </button>
+
+          <h2 className="mb-6 text-xl font-bold">Відправити запит</h2>
+          <form className="space-y-4">
+            <div className="flex flex-col space-y-4 md:flex-row md:space-y-0 md:space-x-4">
+              <input
+                type="text"
+                placeholder="Ваше ім'я"
+                className="flex-1 rounded border px-4 py-3"
+              />
+              <input
+                type="email"
+                placeholder="E-Mail адреса"
+                className="flex-1 rounded border px-4 py-3"
+              />
+            </div>
+            <textarea
+              rows={6}
+              placeholder="Напишіть ваше запитання або пропозицію…"
+              className="w-full rounded border px-4 py-3"
+            />
+            <button
+              type="submit"
+              className="w-full rounded border px-4 py-3 text-center hover:bg-gray-100"
+            >
+              Надіслати
+            </button>
+          </form>
         </div>
       </div>
     </div>

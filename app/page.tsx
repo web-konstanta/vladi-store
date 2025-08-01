@@ -6,6 +6,7 @@ import Catalog from "../components/common/home/catalog/catalog";
 import ServiceList from "../components/common/home/services/service-list";
 import Partners from "../components/common/home/partners/partners";
 import Videos from "../components/common/home/videos/videos";
+import Certificate from "@/components/common/home/certificates/certificate";
 
 export default function HomePage() {
   return (
@@ -18,10 +19,11 @@ export default function HomePage() {
         <ServiceList />
         <Catalog />
         <Videos />
+        <Certificate />
         <Partners />
       </main>
 
-      <Footer />
+      <Footer showContact />
     </div>
   );
 }

@@ -17,16 +17,16 @@ const Videos = () => {
       <div className="container mx-auto px-4 md:px-0">
         <div className="mb-4 md:mb-6">
           <h2
-            className={`${playfair.className} mt-[24px] mb-2 text-center font-serif text-[36px] tracking-tight md:text-[56px] lg:text-[86px]`}
+            className={`${playfair.className} mt-[24px] mb-2 font-serif text-[36px] tracking-tight md:text-[56px] lg:text-[86px]`}
           >
-            OUR VIDEOS
+            ВІДЕОРОЛИКИ VLADI
           </h2>
-          <p className="mb-6 text-center text-[18px] text-gray-700 md:mb-8 md:text-lg">
-            Take a deeper look into our production
+          <p className="mb-6 text-[18px] text-[#797979] opacity-70 md:mb-8 md:text-lg">
+            Погляньте на наше виробництво глибше
           </p>
         </div>
         <div className="mt-[32px] mb-[44px] flex flex-col items-center justify-between gap-2 md:mt-[48px] lg:flex-row lg:gap-1">
-          <div className="w-full lg:mr-[24px]">
+          <div className="w-full rounded-xl border border-black bg-white lg:mr-[24px]">
             <div className="max-h-[300px] w-full md:max-h-[400px] lg:max-h-[510px]">
               <Image
                 src="/images/video-1.png"
@@ -36,17 +36,19 @@ const Videos = () => {
                 className="h-full w-full object-cover"
               />
             </div>
-            <h3 className="mt-[16px] text-[24px] text-[#27241F] md:mt-[24px] md:text-[24px]">
-              Production Process and Product Creation
-            </h3>
-            <p className="mt-[8px] max-w-full text-[14px] md:text-base lg:max-w-[536px]">
-              Each item goes through a meticulous, hands-on production cycle: cutting, stitching,
-              detailing, and quality control. We blend modern technologies with skilled
-              craftsmanship to ensure that every blanket, throw, or accessory meets our standards of
-              comfort, durability, and beauty.
-            </p>
+            <div className="px-10 pb-8">
+              <h3 className="mt-[16px] text-[24px] text-[#27241F] md:mt-[24px] md:text-[24px]">
+                Виробничий процес та створення продукту
+              </h3>
+              <p className="mt-[8px] max-w-full text-[14px] md:text-base lg:max-w-[536px]">
+                Кожен виріб проходить ретельний, практичний виробничий цикл: розкрій, зшивання,
+                деталізація та контроль якості. Ми поєднуємо сучасні технології з кваліфікованою
+                майстерністю, щоб гарантувати, що кожна ковдра, плед чи аксесуар відповідає нашим
+                стандартам комфорту, довговічності та краси.
+              </p>
+            </div>
           </div>
-          <div className="w-full">
+          <div className="w-full rounded-xl border border-black bg-white">
             <div className="max-h-[300px] w-full md:max-h-[400px] lg:max-h-[510px]">
               <Image
                 src="/images/video-2.png"
@@ -56,15 +58,17 @@ const Videos = () => {
                 className="h-full w-full object-cover"
               />
             </div>
-            <h3 className="mt-[16px] text-[24px] text-[#27241F] md:mt-[24px] md:text-[24px]">
-              Material and Color Selection
-            </h3>
-            <p className="mt-[8px] max-w-full text-[14px] md:text-base lg:max-w-[536px]">
-              Each item goes through a meticulous, hands-on production cycle: cutting, stitching,
-              detailing, and quality control. We blend modern technologies with skilled
-              craftsmanship to ensure that every blanket, throw, or accessory meets our standards of
-              comfort, durability, and beauty.
-            </p>
+            <div className="px-10 pb-8">
+              <h3 className="mt-[16px] text-[24px] text-[#27241F] md:mt-[24px] md:text-[24px]">
+                Вибір матеріалів та кольорів
+              </h3>
+              <p className="mt-[8px] max-w-full text-[14px] md:text-base lg:max-w-[536px]">
+                Вибір матеріалів - це місце, де творчість зустрічається з досвідом. Ми ретельно
+                обираємо тканини та кольорові палітри, які не лише чудово виглядають, але й
+                підносять інтер&apos;єр. Це поєднання дизайнерської інтуїції, обізнаності в
+                тенденціях та глибокого розуміння позачасового стилю.
+              </p>
+            </div>
           </div>
         </div>
       </div>

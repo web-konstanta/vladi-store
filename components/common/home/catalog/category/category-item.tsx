@@ -44,7 +44,7 @@ const CategoryItem = ({
     <div className="mr-5 mb-8 flex justify-center" ref={dropdownRef}>
       <div className="relative inline-block">
         <button
-          className={`w-50 rounded-lg border px-8 py-3 text-center text-base font-medium transition duration-[600ms] ${
+          className={`w-52 rounded-lg border px-8 py-3 text-center text-base font-medium transition duration-[600ms] ${
             open
               ? "border-black bg-[#d6c7b5] text-black shadow"
               : "border-gray-400 bg-white text-black"

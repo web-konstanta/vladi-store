@@ -9,46 +9,80 @@ import Link from "next/link";
 const Header = () => {
   const [showModal, setShowModal] = useState(false);
   const [open, setOpen] = useState(false);
+  const [locale, setLocale] = useState<"ua" | "en">("ua");
+
+  const toggleLocale = () => {
+    setLocale((prev) => (prev === "ua" ? "en" : "ua"));
+  };
 
   return (
     <header className="bg-white shadow-md">
-      <div className="container mx-auto flex items-center justify-between px-4">
+      <div className="container mx-auto flex items-center justify-between px-4 py-3">
         <Link href="/">
           <Image src="/images/logo.png" alt="logo" width={108} height={70} />
         </Link>
+
+        {/* Mobile Burger Button */}
         <button
           className="flex h-10 w-10 flex-col items-center justify-center md:hidden"
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >
           <span
-            className={`mb-1 block h-0.5 w-6 origin-center bg-gray-800 transition-all duration-300 ${open ? "translate-y-1.5 rotate-45" : ""}`}
+            className={`mb-1 block h-0.5 w-6 bg-gray-800 transition-all duration-300 ${
+              open ? "translate-y-1.5 rotate-45" : ""
+            }`}
           />
           <span
-            className={`mb-1 block h-0.5 w-6 origin-center bg-gray-800 transition-all duration-300 ${open ? "opacity-0" : ""}`}
+            className={`mb-1 block h-0.5 w-6 bg-gray-800 transition-all duration-300 ${
+              open ? "opacity-0" : ""
+            }`}
           />
           <span
-            className={`block h-0.5 w-6 origin-center bg-gray-800 transition-all duration-300 ${open ? "-translate-y-1.5 -rotate-45" : ""}`}
+            className={`block h-0.5 w-6 bg-gray-800 transition-all duration-300 ${
+              open ? "-translate-y-1.5 -rotate-45" : ""
+            }`}
           />
         </button>
+
+        {/* Desktop Navigation */}
         <nav className="hidden items-center gap-[48px] md:flex">
           <a href="#about" className="px-2 py-1 text-base">
-            ABOUT US
+            {locale === "ua" ? "Про нас" : "About"}
           </a>
           <a href="#products" className="px-2 py-1 text-base">
-            PRODUCTS
+            {locale === "ua" ? "Продукти" : "Products"}
           </a>
           <a href="#services" className="px-2 py-1 text-base">
-            SERVICES
+            {locale === "ua" ? "Послуги" : "Services"}
           </a>
         </nav>
-        <button
-          onClick={() => setShowModal(true)}
-          className="ml-4 hidden h-[48px] w-[200px] cursor-pointer rounded-[6px] border border-black px-[48] py-2 text-base text-black md:block"
-        >
-          CONTACT US
-        </button>
+
+        {/* Language Switcher + Contact Button */}
+        <div className="hidden items-center gap-4 md:flex">
+          <button
+            className="flex cursor-pointer items-center gap-1"
+            onClick={toggleLocale}
+            aria-label="Switch language"
+          >
+            <Image
+              src={`/images/${locale === "ua" ? "ua-flag.png" : "gb-flag.png"}`}
+              alt={locale === "ua" ? "UA" : "EN"}
+              width={28}
+              height={18}
+            />
+            <span className="text-base">{locale === "ua" ? "UA" : "EN"}</span>
+          </button>
+          <button
+            onClick={() => setShowModal(true)}
+            className="h-[48px] w-[200px] cursor-pointer rounded-[6px] border border-black text-base text-black"
+          >
+            {locale === "ua" ? "Зв'язатися" : "Contact"}
+          </button>
+        </div>
       </div>
+
+      {/* Mobile Menu */}
       <div
         className={`overflow-hidden transition-all duration-300 md:hidden ${
           open ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
@@ -57,20 +91,31 @@ const Header = () => {
         <div className="px-4 pb-4">
           <nav className="flex flex-col gap-2">
             <a href="#about" className="px-2 py-1 text-base font-semibold">
-              ABOUT US
+              {locale === "ua" ? "Про нас" : "About"}
             </a>
             <a href="#products" className="px-2 py-1 text-base font-semibold">
-              PRODUCTS
+              {locale === "ua" ? "Продукти" : "Products"}
             </a>
             <a href="#services" className="px-2 py-1 text-base font-semibold">
-              SERVICES
+              {locale === "ua" ? "Послуги" : "Services"}
             </a>
-            <button
-              onClick={() => setShowModal(true)}
-              className="mt-2 cursor-pointer rounded-xl bg-[#333231] px-8 py-2 text-white"
-            >
-              CONTACT US
-            </button>
+            <div className="mt-2 flex items-center justify-between">
+              <button className="flex cursor-pointer items-center gap-1" onClick={toggleLocale}>
+                <Image
+                  src={`/images/${locale === "ua" ? "ua-flag.png" : "gb-flag.png"}`}
+                  alt={locale === "ua" ? "UA" : "EN"}
+                  width={28}
+                  height={18}
+                />
+                <span className="text-base">{locale === "ua" ? "UA" : "EN"}</span>
+              </button>
+              <button
+                onClick={() => setShowModal(true)}
+                className="cursor-pointer rounded-xl bg-[#333231] px-6 py-2 text-white"
+              >
+                {locale === "ua" ? "Зв'язатися" : "Contact"}
+              </button>
+            </div>
           </nav>
         </div>
       </div>
