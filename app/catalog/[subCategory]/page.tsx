@@ -94,10 +94,6 @@ function capitalizeFirstLetter(str: string): string {
 const Catalog = () => {
   const subCategory = "Пледи Valencia";
 
-  // const filteredProducts = allProducts.filter(
-  //   (product) => product.subCategoryId.toLowerCase() === subCategory.toLowerCase()
-  // );
-
   return (
     <div className={`${noto.className} flex min-h-screen flex-col`}>
       <Header />
@@ -122,10 +118,10 @@ const Catalog = () => {
 
           <div>
             <p className="max-w-[960px]">
-              "Фамілія" - це втілення вишуканого затишку та елегантності. Створений зі шляхетного
-              поєднання супертонкої вовни і кашеміру, він вирізняється неймовірною м'якістю,
-              легкістю і здатністю чудово зберігати тепло. Найтонші волокна надають пледу
-              шовковистої текстури, а кашемір - витонченої розкоші та благородного блиску.
+              &quot;Фамілія&quot; - це втілення вишуканого затишку та елегантності. Створений зі
+              шляхетного поєднання супертонкої вовни і кашеміру, він вирізняється неймовірною
+              м&apos;якістю, легкістю і здатністю чудово зберігати тепло. Найтонші волокна надають
+              пледу шовковистої текстури, а кашемір - витонченої розкоші та благородного блиску.
             </p>
             <div className="mt-5 flex max-w-[800px] justify-between">
               <div>
@@ -148,26 +144,6 @@ const Catalog = () => {
                   <li>200 г/м²</li>
                 </ul>
               </div>
-              {/* <div>
-                <h3 className="font-extrabold">Догляд</h3>
-                <ul className="flex justify-between gap-4">
-                  <li>
-                    <img src="/frames/wash.png" alt="" />
-                  </li>
-                  <li>
-                    <img src="/frames/white.png" alt="" />
-                  </li>
-                  <li>
-                    <img src="/frames/warm.png" alt="" />
-                  </li>
-                  <li>
-                    <img src="/frames/match.png" alt="" />
-                  </li>
-                  <li>
-                    <img src="/frames/clean.png" alt="" />
-                  </li>
-                </ul>
-              </div> */}
             </div>
             <div>
               <div className="mt-12 grid grid-cols-1 gap-20 pb-12 sm:grid-cols-2 lg:grid-cols-4">

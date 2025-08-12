@@ -34,8 +34,8 @@ const Hero = () => {
           <img src="/images/vladi-logo.png" alt="" />
         </div>
         <p className="mx-auto mt-10 max-w-[90vw] text-center text-lg leading-[27px] text-white sm:max-w-[460px]">
-          Натуральні ковдри та пледи з України. Відкрийте для себе нашу колекцію, створену з любов'ю
-          та турботою.
+          Натуральні ковдри та пледи з України. Відкрийте для себе нашу колекцію, створену з
+          любов&apos;ю та турботою.
         </p>
         <button
           onClick={() => setShowModal(true)}
