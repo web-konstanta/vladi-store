@@ -5,81 +5,85 @@ import { Category, SubCategory } from "@/lib/types";
 const categories: Category[] = [
   {
     id: "1",
-    title: "Throws"
+    title: "Пледи"
   },
   {
     id: "2",
-    title: "Blankets"
+    title: "Ковдри"
   },
   {
     id: "3",
-    title: "Bedspreads"
+    title: "Покривала"
   },
   {
     id: "4",
-    title: "Quilted Blankets"
+    title: "Стьобані ковдри"
+  },
+  {
+    id: "5",
+    title: "Пряжа"
   }
 ];
 
 const subCategories: SubCategory[] = [
   {
     id: "1",
-    title: "Cashmere",
+    title: "Кашемір",
     categoryId: "1"
   },
   {
     id: "2",
-    title: "Merino",
+    title: "Мерінос",
     categoryId: "1"
   },
   {
     id: "3",
-    title: "Wool Throws",
+    title: "Вовняні накидки",
     categoryId: "1"
   },
   {
     id: "4",
-    title: "Wool Blend",
+    title: "Суміш вовни",
     categoryId: "1"
   },
   {
     id: "5",
-    title: "Cotton",
+    title: "Бавовна",
     categoryId: "1"
   },
   {
     id: "6",
-    title: "Cashmere",
+    title: "Кашемір",
     categoryId: "2"
   },
   {
     id: "7",
-    title: "Merino",
+    title: "Мерінос",
     categoryId: "2"
   },
   {
     id: "8",
-    title: "Wool Throws",
+    title: "Вовняні накидки",
     categoryId: "2"
   },
   {
     id: "9",
-    title: "Wool Blend",
+    title: "Суміш вовни",
     categoryId: "2"
   },
   {
     id: "10",
-    title: "Cotton",
+    title: "Бавовна",
     categoryId: "3"
   },
   {
     id: "11",
-    title: "Wool Throws",
+    title: "Вовняні накидки",
     categoryId: "4"
   },
   {
     id: "12",
-    title: "Siliconized",
+    title: "Силіконізоване волокно",
     categoryId: "4"
   }
 ];
@@ -102,13 +106,13 @@ const CategoryList = ({
     };
     document.addEventListener("mousedown", handleClick);
     return () => {
-      getAllProducts()
+      getAllProducts();
       document.removeEventListener("mousedown", handleClick);
-    }
+    };
   }, [open]);
 
   return (
-    <div className="m-auto flex w-[192px] flex-wrap justify-center lg:w-full">
+    <div className="m-auto flex w-[192px] flex-wrap justify-center 2xl:justify-between lg:w-full">
       <div className="mr-5 mb-8 flex justify-center" ref={dropdownRef}>
         <button
           className={`w-48 rounded-lg border px-8 py-2 text-center font-medium transition duration-[600ms] ${
@@ -121,7 +125,7 @@ const CategoryList = ({
             getAllProducts();
           }}
         >
-          All categories
+          Всі категорії
         </button>
       </div>
 
