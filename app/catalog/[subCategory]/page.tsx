@@ -3,7 +3,6 @@ import { Product } from "@/lib/types";
 import { Playfair_Display, Noto_Sans } from "next/font/google";
 import Link from "next/link";
 import Image from "next/image";
-import ProductItem from "@/components/common/catalog/product-item";
 import Footer from "@/components/layout/footer/footer";
 
 const playfair = Playfair_Display({
@@ -100,14 +99,14 @@ const Catalog = () => {
   // );
 
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className={`${noto.className} flex min-h-screen flex-col`}>
       <Header />
 
       <main
         className={`${noto.className} flex-1 bg-[#E8E2DB] bg-[url('/images/long-waves.png')] bg-cover bg-top bg-no-repeat pt-8`}
       >
         <div className="container mx-auto px-4">
-          <div className="mt-[50px] flex max-w-[220px] justify-between text-[18px] text-[#9D978D]">
+          <div className="mt-5 flex max-w-[220px] justify-between text-[18px] text-[#9D978D]">
             <Link href="/">
               <span className="opacity-50 hover:underline">Головна</span>
             </Link>
@@ -115,11 +114,11 @@ const Catalog = () => {
             <span className="text-[#27241F]">{capitalizeFirstLetter(subCategory)}</span>
           </div>
 
-          <h1
-            className={`${playfair.className} mb-2 text-[80px] font-semibold tracking-tight text-[#27241F] uppercase`}
+          <div
+            className={`${playfair.className} mt-4 mb-2 text-[68px] tracking-tight text-[#27241F] uppercase`}
           >
             {capitalizeFirstLetter(subCategory)}
-          </h1>
+          </div>
 
           <div>
             <p className="max-w-[960px]">
@@ -128,7 +127,7 @@ const Catalog = () => {
               легкістю і здатністю чудово зберігати тепло. Найтонші волокна надають пледу
               шовковистої текстури, а кашемір - витонченої розкоші та благородного блиску.
             </p>
-            <div className="mt-5 flex justify-between">
+            <div className="mt-5 flex max-w-[800px] justify-between">
               <div>
                 <h3 className="font-extrabold">Склад виробу</h3>
                 <ul className="list-disc pl-5">
@@ -149,7 +148,7 @@ const Catalog = () => {
                   <li>200 г/м²</li>
                 </ul>
               </div>
-              <div>
+              {/* <div>
                 <h3 className="font-extrabold">Догляд</h3>
                 <ul className="flex justify-between gap-4">
                   <li>
@@ -168,14 +167,14 @@ const Catalog = () => {
                     <img src="/frames/clean.png" alt="" />
                   </li>
                 </ul>
-              </div>
+              </div> */}
             </div>
             <div>
-              <div className="mt-5 grid grid-cols-1 gap-6 pb-12 sm:grid-cols-2 lg:grid-cols-4">
+              <div className="mt-12 grid grid-cols-1 gap-20 pb-12 sm:grid-cols-2 lg:grid-cols-4">
                 {allProducts.length > 0 ? (
                   allProducts.map((product) => (
                     <Link key={product.id} href={`/catalog/product/${product.id}`}>
-                      <div className="flex h-full flex-col overflow-hidden rounded-lg border border-gray-200 bg-white shadow-md">
+                      <div className="flex h-full w-[312px] flex-col overflow-hidden rounded-lg border border-gray-200 bg-white shadow-md">
                         <div className="relative h-[320px] w-full">
                           <Image
                             src={product.image}
@@ -184,13 +183,12 @@ const Catalog = () => {
                             objectFit="cover"
                           />
                         </div>
-                        <div className="flex flex-grow flex-col justify-between p-6">
+                        <div className="flex flex-col justify-between">
                           <div>
-                            <h3 className="mb-2 text-2xl text-[#27241F]">{product.title}</h3>
+                            <h3 className="m-5 text-center text-2xl text-[#27241F]">
+                              {product.title}
+                            </h3>
                           </div>
-                          <button className="w-full cursor-pointer rounded-md border border-black px-6 py-3 text-sm font-medium text-black transition-colors duration-200 hover:bg-gray-100">
-                            ДІЗНАТИСЯ БІЛЬШЕ
-                          </button>
                         </div>
                       </div>
                     </Link>
@@ -206,11 +204,29 @@ const Catalog = () => {
 
           <div className="mt-5">
             <h1 className={`${playfair.className} text-[68px] uppercase`}>Вас можуть зацікавити</h1>
-            <div className="mt-5 grid grid-cols-1 gap-6 pb-12 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="mt-5 grid grid-cols-1 gap-20 pb-12 sm:grid-cols-2 lg:grid-cols-4">
               {additionalProducts.length > 0 ? (
                 allProducts.map((product) => (
                   <Link key={product.id} href={`/catalog/product/${product.id}`}>
-                    <ProductItem product={product} />
+                    <div className="flex h-full w-[312px] flex-col overflow-hidden rounded-lg border border-gray-200 bg-white shadow-md">
+                      <div className="relative h-[320px] w-full">
+                        <Image
+                          src={product.image}
+                          alt={product.title}
+                          fill
+                          style={{ objectFit: "cover" }}
+                          priority={false}
+                        />
+                      </div>
+                      <div className="flex flex-grow flex-col justify-between p-6">
+                        <div>
+                          <h3 className="mb-2 text-2xl text-[#27241F]">{product.title}</h3>
+                          <p className="text-base leading-relaxed text-gray-700">
+                            {product.description}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
                   </Link>
                 ))
               ) : (

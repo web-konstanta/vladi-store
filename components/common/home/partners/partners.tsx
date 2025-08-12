@@ -16,19 +16,17 @@ const noto = Noto_Sans({
 
 const Partners = () => {
   return (
-    <div className="mt-[60px] bg-[#E8E2DB] bg-[url('/images/waves.png')] bg-cover bg-center bg-no-repeat py-[64px] md:bg-inherit">
-      <div className="container m-auto py-[34px]">
+    <div className="mt-[60px] bg-[#E8E2DB] bg-[url('/images/waves.png')] bg-cover bg-center bg-no-repeat py-[20px] pb-15 md:bg-inherit">
+      <div className="container m-auto">
         <div className="">
-          <h1
-            className={`${playfair.className} pt-[30px] text-center text-[50px] md:text-[72px] lg:text-[86px]`}
-          >
+          <h1 className={`${playfair.className} pt-[30px] text-center text-[48px] lg:text-[68px]`}>
             НАШІ ПАРТНЕРИ
           </h1>
-          <div className={`${noto.className} text-center text-[18px] opacity-70`}>
+          <div className={`${noto.className} text-center text-[18px] text-gray-700 opacity-55`}>
             Компанії вже оцінили якість VLADI
           </div>
         </div>
-        <div className="flex flex-wrap justify-center p-0 md:justify-between md:p-[60px]">
+        <div className="mt-10 flex flex-wrap justify-center p-0 md:justify-between">
           {partners.map((partner, index) => (
             <div
               key={index}

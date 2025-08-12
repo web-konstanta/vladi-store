@@ -106,13 +106,13 @@ const CategoryList = ({
     };
     document.addEventListener("mousedown", handleClick);
     return () => {
-      getAllProducts()
+      getAllProducts();
       document.removeEventListener("mousedown", handleClick);
-    }
+    };
   }, [open]);
 
   return (
-    <div className="m-auto flex w-[192px] flex-wrap justify-center lg:w-full">
+    <div className="m-auto flex w-[192px] flex-wrap justify-center 2xl:justify-between lg:w-full">
       <div className="mr-5 mb-8 flex justify-center" ref={dropdownRef}>
         <button
           className={`w-48 rounded-lg border px-8 py-2 text-center font-medium transition duration-[600ms] ${

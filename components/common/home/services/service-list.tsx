@@ -56,12 +56,12 @@ const ServiceList = () => {
           <div className="flex max-w-[424px] flex-col justify-between">
             <div>
               <h2
-                className={`${playfair.className} text-center text-[56px] leading-none md:text-[86px] lg:text-left`}
+                className={`${playfair.className} text-center text-[48px] leading-[74px] md:text-[68px] lg:text-left`}
               >
                 VLADI ПОСЛУГИ
               </h2>
               <div
-                className={`${noto.className} mt-[24px] text-center text-[18px] opacity-55 lg:text-left`}
+                className={`${noto.className} mt-[24px] text-center text-[18px] leading-[27px] text-gray-700 opacity-55 lg:text-left`}
               >
                 Ми пропонуємо унікальні можливості кастомізації продукту відповідно до ваших
                 корпоративних вимог.

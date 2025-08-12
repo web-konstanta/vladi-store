@@ -40,18 +40,18 @@ const Faq: React.FC<FaqProps> = ({ isOpen, onClose }) => {
     >
       <div
         ref={faqRef}
-        className="relative flex w-full max-w-5xl overflow-hidden rounded-lg bg-white shadow-lg"
+        className="relative m-auto flex h-[533px] w-[1320px] overflow-hidden rounded-lg bg-white shadow-lg"
       >
-        <div className="flex w-full max-w-[240px] flex-col justify-between border-r bg-white p-6">
+        <div className="flex w-full max-w-[252px] flex-col justify-between border-r bg-white p-[35px]">
           <div>
-            <h2 className="mb-4 text-xl font-bold">Контакти</h2>
-            <p className="mb-2">+ 380 (067) 888 88 88</p>
-            <p className="mb-6">+ 380 (067) 888 88 88</p>
+            <h2 className="mb-4 text-2xl font-bold">Контакти</h2>
+            <p className="mb-2 text-sm">+ 380 (067) 888 88 88</p>
+            <p className="mb-6 text-sm">+ 380 (067) 888 88 88</p>
           </div>
 
           <div>
-            <h3 className="mb-2 text-lg font-semibold">Адреса складу</h3>
-            <p className="text-sm">88888, Україна</p>
+            <h3 className="mb-2 text-2xl font-semibold">Адреса складу</h3>
+            <p className="mb-2 text-sm">88888, Україна</p>
             <p className="text-sm">м. Харків, вул. Харківська</p>
           </div>
         </div>
@@ -85,7 +85,7 @@ const Faq: React.FC<FaqProps> = ({ isOpen, onClose }) => {
             />
             <button
               type="submit"
-              className="w-full rounded border px-4 py-3 text-center hover:bg-gray-100"
+              className="w-[400px] rounded border px-4 py-3 mt-1 text-center hover:bg-gray-100"
             >
               Надіслати
             </button>

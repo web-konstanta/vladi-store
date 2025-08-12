@@ -36,12 +36,12 @@ const Catalog = () => {
       <div className="container mx-auto">
         <div className="mb-6">
           <h2
-            className={`${playfair.className} mb-2 text-center font-serif text-[56px] tracking-tight md:text-[86px]`}
+            className={`${playfair.className} mb-2 text-center font-serif text-[48px] tracking-tight md:text-[68px]`}
           >
             НАШ КАТАЛОГ
           </h2>
           <p
-            className={`${noto.className} mt-[24px] mb-[48px] text-center text-[18px] text-gray-700`}
+            className={`${noto.className} mt-[24px] mb-[48px] text-center text-[18px] text-gray-700 opacity-55`}
           >
             Ми пропонуємо продукти, перевірені часом
           </p>

@@ -33,7 +33,7 @@ const Footer = ({ showContact }: { showContact?: boolean }) => {
         {showContact && (
           <div className="relative z-10 mx-auto max-h-[660px] px-2 text-center sm:px-4">
             <p
-              className={`${playfair.className} mx-auto text-center text-base leading-[32px] text-white sm:max-w-[645px] md:text-[32px] md:leading-[52px]`}
+              className={`mx-auto text-center text-base leading-[27px] text-white sm:max-w-[800px] md:text-[32px] md:leading-[52px]`}
             >
               Ми завжди готові розглянути можливість співпраці та запропонувати найкращі умови для
               нашої спільної роботи

@@ -18,7 +18,7 @@ const About = () => {
   return (
     <div className="container m-auto px-5" id="about">
       <h1
-        className={`${playfair.className} mt-[60px] mb-[32px] text-center text-[48px] md:mt-[120px] md:mb-[48px] md:text-[86px]`}
+        className={`${playfair.className} mt-[60px] mb-[32px] text-center text-[48px] md:mt-[120px] md:text-[68px]`}
       >
         ПРО КОМПАНІЮ
       </h1>
@@ -27,7 +27,7 @@ const About = () => {
           <img src="/images/about.png" alt="About company image" />
         </div>
         <ul className={`${noto.className} mt-[32px] flex flex-wrap justify-center gap-5`}>
-          <li className="max-w-[400px] text-2xl leading-10">
+          <li className="max-w-[400px] text-[20px] leading-[27px]">
             <span className="font-extrabold">Компанiя VLADI</span> - один з провідних європейських
             виробників пледів і ковдр вищої якості. Компанія об'єднує традиційну текстильну
             майстерність із сучасними технологіями, щоб створювати вироби, що дарують тепло, комфорт

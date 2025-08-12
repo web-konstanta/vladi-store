@@ -17,11 +17,11 @@ const Videos = () => {
       <div className="container mx-auto px-4 md:px-0">
         <div className="mb-4 md:mb-6">
           <h2
-            className={`${playfair.className} mt-[24px] mb-2 font-serif text-[36px] tracking-tight md:text-[56px] lg:text-[86px]`}
+            className={`${playfair.className} mt-[24px] mb-2 font-serif text-[48px] tracking-tight lg:text-[68px]`}
           >
             ВІДЕОРОЛИКИ VLADI
           </h2>
-          <p className="mb-6 text-[18px] text-[#797979] opacity-70 md:mb-8 md:text-lg">
+          <p className="mb-6 text-[18px] text-gray-700 opacity-55 md:mb-8 md:text-lg">
             Погляньте на наше виробництво глибше
           </p>
         </div>
@@ -37,10 +37,10 @@ const Videos = () => {
               />
             </div>
             <div className="px-10 pb-8">
-              <h3 className="mt-[16px] text-[24px] text-[#27241F] md:mt-[24px] md:text-[24px]">
+              <h3 className="mt-[16px] text-[24px] font-semibold text-[#27241F] md:mt-[24px] md:text-[24px]">
                 Виробничий процес та створення продукту
               </h3>
-              <p className="mt-[8px] max-w-full text-[14px] md:text-base lg:max-w-[536px]">
+              <p className="mt-[8px] max-w-full pb-4 text-[14px] md:text-base">
                 Кожен виріб проходить ретельний, практичний виробничий цикл: розкрій, зшивання,
                 деталізація та контроль якості. Ми поєднуємо сучасні технології з кваліфікованою
                 майстерністю, щоб гарантувати, що кожна ковдра, плед чи аксесуар відповідає нашим
@@ -59,10 +59,10 @@ const Videos = () => {
               />
             </div>
             <div className="px-10 pb-8">
-              <h3 className="mt-[16px] text-[24px] text-[#27241F] md:mt-[24px] md:text-[24px]">
+              <h3 className="mt-[16px] text-[24px] font-semibold text-[#27241F] md:mt-[24px] md:text-[24px]">
                 Вибір матеріалів та кольорів
               </h3>
-              <p className="mt-[8px] max-w-full text-[14px] md:text-base lg:max-w-[536px]">
+              <p className="mt-[8px] max-w-full pb-4 text-[14px] md:text-base">
                 Вибір матеріалів - це місце, де творчість зустрічається з досвідом. Ми ретельно
                 обираємо тканини та кольорові палітри, які не лише чудово виглядають, але й
                 підносять інтер&apos;єр. Це поєднання дизайнерської інтуїції, обізнаності в

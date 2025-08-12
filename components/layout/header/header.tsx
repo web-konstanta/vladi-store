@@ -5,6 +5,13 @@ import Faq from "../../ui/modal/faq";
 import ScrollToTop from "../../ui/scroll-to-top/scroll-to-top";
 import Image from "next/image";
 import Link from "next/link";
+import { Noto_Sans } from "next/font/google";
+
+const noto = Noto_Sans({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-noto"
+});
 
 const Header = () => {
   const [showModal, setShowModal] = useState(false);
@@ -16,13 +23,12 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-white shadow-md">
+    <header className={`${noto.className} bg-white shadow-md`}>
       <div className="container mx-auto flex items-center justify-between px-4 py-3">
         <Link href="/">
-          <Image src="/images/logo.png" alt="logo" width={108} height={70} />
+          <Image src="/images/logo.png" alt="logo" width={88} height={46} />
         </Link>
 
-        {/* Mobile Burger Button */}
         <button
           className="flex h-10 w-10 flex-col items-center justify-center md:hidden"
           onClick={() => setOpen(!open)}
@@ -45,7 +51,6 @@ const Header = () => {
           />
         </button>
 
-        {/* Desktop Navigation */}
         <nav className="hidden items-center gap-[48px] md:flex">
           <a href="#about" className="px-2 py-1 text-base">
             {locale === "ua" ? "Про нас" : "About"}
@@ -58,8 +63,7 @@ const Header = () => {
           </a>
         </nav>
 
-        {/* Language Switcher + Contact Button */}
-        <div className="hidden items-center gap-4 md:flex">
+        <div className="hidden items-center gap-6 md:flex">
           <button
             className="flex cursor-pointer items-center gap-1"
             onClick={toggleLocale}
@@ -75,14 +79,13 @@ const Header = () => {
           </button>
           <button
             onClick={() => setShowModal(true)}
-            className="h-[48px] w-[200px] cursor-pointer rounded-[6px] border border-black text-base text-black"
+            className="h-[46px] w-[180px] cursor-pointer rounded-[6px] border border-black text-base text-black"
           >
             {locale === "ua" ? "Зв'язатися" : "Contact"}
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
       <div
         className={`overflow-hidden transition-all duration-300 md:hidden ${
           open ? "max-h-96 opacity-100" : "max-h-0 opacity-0"

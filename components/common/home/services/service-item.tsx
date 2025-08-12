@@ -32,7 +32,7 @@ const ServiceItem = ({
       >
         {service.id}
       </div>
-      <h3 className="mt-5 text-[24px] leading-[40px] font-medium">{service.title}</h3>
+      <h3 className="mt-5 text-[24px] leading-[32px] font-medium">{service.title}</h3>
       <div className="mt-3 text-[14px] leading-[24px]">{service.description}</div>
     </div>
   );
