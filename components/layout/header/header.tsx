@@ -23,11 +23,13 @@ const Header = () => {
   };
 
   return (
-    <header className={`${noto.className} bg-white shadow-md`}>
+    <header className={`${noto.className} fixed top-0 right-0 left-0 z-50 bg-white shadow-md`}>
       <div className="container mx-auto flex items-center justify-between px-4 py-3">
-        <Link href="/">
-          <Image src="/images/logo.png" alt="logo" width={88} height={46} />
-        </Link>
+        <div className="w-[257px]">
+          <Link href="/">
+            <Image src="/images/logo.png" alt="logo" width={88} height={46} />
+          </Link>
+        </div>
 
         <button
           className="flex h-10 w-10 flex-col items-center justify-center md:hidden"
@@ -51,15 +53,15 @@ const Header = () => {
           />
         </button>
 
-        <nav className="hidden items-center gap-[48px] md:flex">
+        <nav className="hidden items-center gap-[40px] md:flex">
           <a href="#about" className="px-2 py-1 text-base">
-            {locale === "ua" ? "Про нас" : "About"}
-          </a>
-          <a href="#products" className="px-2 py-1 text-base">
-            {locale === "ua" ? "Продукти" : "Products"}
+            {locale === "ua" ? "Про компанію" : "About company"}
           </a>
           <a href="#services" className="px-2 py-1 text-base">
             {locale === "ua" ? "Послуги" : "Services"}
+          </a>
+          <a href="#products" className="px-2 py-1 text-base">
+            {locale === "ua" ? "Каталог" : "Catalog"}
           </a>
         </nav>
 
@@ -79,7 +81,7 @@ const Header = () => {
           </button>
           <button
             onClick={() => setShowModal(true)}
-            className="h-[46px] w-[180px] cursor-pointer rounded-[6px] border border-black text-base text-black"
+            className="h-[46px] w-[180px] cursor-pointer rounded-[6px] border border-black text-base text-black transition duration-[600ms] hover:bg-[#27241F] hover:text-white"
           >
             {locale === "ua" ? "Зв'язатися" : "Contact"}
           </button>
@@ -94,13 +96,13 @@ const Header = () => {
         <div className="px-4 pb-4">
           <nav className="flex flex-col gap-2">
             <a href="#about" className="px-2 py-1 text-base font-semibold">
-              {locale === "ua" ? "Про нас" : "About"}
-            </a>
-            <a href="#products" className="px-2 py-1 text-base font-semibold">
-              {locale === "ua" ? "Продукти" : "Products"}
+              {locale === "ua" ? "Про компанію" : "About company"}
             </a>
             <a href="#services" className="px-2 py-1 text-base font-semibold">
               {locale === "ua" ? "Послуги" : "Services"}
+            </a>
+            <a href="#products" className="px-2 py-1 text-base font-semibold">
+              {locale === "ua" ? "Каталог" : "Catalog"}
             </a>
             <div className="mt-2 flex items-center justify-between">
               <button className="flex cursor-pointer items-center gap-1" onClick={toggleLocale}>

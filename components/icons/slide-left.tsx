@@ -1,0 +1,14 @@
+import React from "react";
+
+const SlideLeft = () => {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+      <path
+        d="M8.707 1.70703L7.293 0.293031L0.586 7.00003L7.293 13.707L8.707 12.293L4.414 8.00003L14 8.00003L14 6.00003L4.414 6.00003L8.707 1.70703Z"
+        fill="#27241F"
+      />
+    </svg>
+  );
+};
+
+export default SlideLeft;

@@ -6,6 +6,8 @@ import ProductList from "./product/product-list";
 import CategoryList from "./category/category-list";
 import { Noto_Sans, Playfair_Display } from "next/font/google";
 import { useCatalog } from "@/context/catalog-context";
+import SlideLeft from "@/components/icons/slide-left";
+import SlideRight from "@/components/icons/slide-right";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -33,15 +35,15 @@ const Catalog = () => {
 
   return (
     <div className="mt-[120px] bg-white py-8" id="products">
-      <div className="container mx-auto">
+      <div className="mx-auto max-w-[1320px]">
         <div className="mb-6">
           <h2
-            className={`${playfair.className} mb-2 text-center font-serif text-[48px] tracking-tight md:text-[68px]`}
+            className={`${playfair.className} mb-2 text-center font-serif text-[40px] tracking-tight md:text-[68px]`}
           >
             НАШ КАТАЛОГ
           </h2>
           <p
-            className={`${noto.className} mt-[24px] mb-[48px] text-center text-[18px] text-gray-700 opacity-55`}
+            className={`${noto.className} mt-[24px] mb-[48px] text-center text-base text-gray-700 opacity-55`}
           >
             Ми пропонуємо продукти, перевірені часом
           </p>
@@ -55,16 +57,16 @@ const Catalog = () => {
             {products.length > 4 && (
               <div className="mt-6 flex justify-center gap-4">
                 <button
-                  className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-gray-800 bg-white transition duration-[600ms] hover:bg-gray-100"
+                  className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-gray-800 bg-white transition duration-[600ms] hover:bg-[#DBD0BF]"
                   onClick={scrollPrev}
                 >
-                  <span className="text-2xl">&#8592;</span>
+                  <SlideLeft />
                 </button>
                 <button
-                  className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-gray-800 bg-white transition duration-[600ms] hover:bg-gray-100"
+                  className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-gray-800 bg-white transition duration-[600ms] hover:bg-[#DBD0BF]"
                   onClick={scrollNext}
                 >
-                  <span className="text-2xl">&#8594;</span>
+                  <SlideRight />
                 </button>
               </div>
             )}

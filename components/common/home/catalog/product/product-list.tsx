@@ -6,7 +6,7 @@ import Link from "next/link";
 const ProductList = ({ products }: { products: Product[] }) => {
   return (
     <div
-      className={`flex gap-4 pr-4 pl-4 ${products.length === 1 ? "justify-center sm:justify-start" : ""}`}
+      className={`flex gap-4 pr-4 pl-4 scrollbar-hide ${products.length === 1 ? "justify-center sm:justify-start" : ""}`}
     >
       {products.map((product, index) => (
         <Link

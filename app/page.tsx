@@ -20,7 +20,7 @@ export default function HomePage() {
     <div className={`${noto.className} flex min-h-screen flex-col`}>
       <Header />
 
-      <main className="flex-1">
+      <main className="flex-1 pt-[80px]">
         <Hero />
         <About />
         <ServiceList />

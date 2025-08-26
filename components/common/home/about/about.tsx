@@ -1,6 +1,6 @@
 import React from "react";
 import { Noto_Sans, Playfair_Display } from "next/font/google";
-import CheckIcon from "@/components/icons/check";
+import { CertificateType } from "@/lib/types";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -14,74 +14,76 @@ const noto = Noto_Sans({
   variable: "--font-noto"
 });
 
+const certificates: CertificateType[] = [
+  {
+    title: "Компанія VLADI",
+    description:
+      "Один з провідних європейських виробників пледів і ковдр вищої якості. Компанія об'єднує традиційну текстильну майстерність з сучасними технологіями, щоб створювати вироби, що дарують тепло, комфорт і затишок щодня.",
+    image: "/images/about/about-1.png"
+  },
+  {
+    title: "Якість, перевірена часом",
+    description:
+      "Наші вироби виготовляються з добірного кашеміру, мериноса, тонкої та надтонкої новозеландської вовни, бавовни. Наш асортимент включає покривала, стьобані та класичні ковдри, пледи з чистої вовни, напіввовни та бавовни.",
+    image: "/images/about/about-2.png"
+  },
+  {
+    title: "Індивідуальні рішення",
+    description:
+      "Компанія VLADI пропонує корпоративним клієнтам та рекламним агенціям ексклюзивну продукцію для подарунків, промо-акцій та брендованих кампаній.",
+    image: "/images/about/about-4.png"
+  },
+  {
+    title: "Де знайти нашу продукцію",
+    description:
+      "Продукція VLADI представлена в провідних торгових мережах по всій Україні, а також доступна через наших офіційних партнерів. В асортименті - покривала, стьобані та класичні ковдри, пледи з чистої вовни, напіввовни та бавовни.",
+    image: "/images/about/about-5.png"
+  }
+];
+
 const About = () => {
   return (
-    <div className="container m-auto px-5" id="about">
+    <div className="mx-auto w-full" id="about">
       <h1
-        className={`${playfair.className} mt-[60px] mb-[32px] text-center text-[48px] md:mt-[120px] md:text-[68px]`}
+        className={`${playfair.className} mt-[120px] mb-2 text-center text-[40px] sm:text-[40px] md:mt-[120px] md:text-[48px] lg:text-[68px]`}
       >
         ПРО КОМПАНІЮ
       </h1>
-      <div className="mx-auto">
-        <div className="flex items-center justify-center">
-          <img src="/images/about.png" alt="About company image" />
+      <p
+        className={`${noto.className} mt-2 mb-15 text-center text-base text-gray-700 opacity-55 sm:text-[18px]`}
+      >
+        Дізнайтеся більше про нашу компанію
+      </p>
+
+      <div className="relative overflow-hidden">
+        <div className="animate-about-slider flex gap-4 sm:gap-6">
+          {[...certificates, ...certificates, ...certificates].map((certificate, index) => (
+            <div
+              key={`certificate-${index}-${certificate.title}`}
+              className="w-[280px] flex-shrink-0 sm:w-[400px] lg:w-[424px]"
+            >
+              <div
+                className={`${noto.className} h-[390px] overflow-hidden rounded-xl border border-black sm:h-[550px] lg:h-[610px]`}
+              >
+                <div className="flex h-[200px] w-full items-center justify-center bg-gray-50 sm:h-[280px] lg:h-[400px]">
+                  <img
+                    src={certificate.image}
+                    alt={certificate.title}
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                <div className="group relative p-3 sm:p-6 lg:px-7 lg:py-4">
+                  <h3 className="mb-2 text-[16px] font-medium sm:mb-[8px] sm:text-[20px] lg:text-[24px]">
+                    {certificate.title}
+                  </h3>
+                  <p className="text-xs leading-[18px] text-gray-700 sm:text-sm sm:leading-[22px] lg:leading-[25px]">
+                    {certificate.description}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
-        <ul className={`${noto.className} mt-[32px] flex flex-wrap justify-center gap-5`}>
-          <li className="max-w-[400px] text-[20px] leading-[27px]">
-            <span className="font-extrabold">Компанiя VLADI</span> - один з провідних європейських
-            виробників пледів і ковдр вищої якості. Компанія об&apos;єднує традиційну текстильну
-            майстерність із сучасними технологіями, щоб створювати вироби, що дарують тепло, комфорт
-            і затишок щодня.
-          </li>
-          <li className="max-w-[400px]">
-            <div className="flex">
-              <CheckIcon />
-              <div className="mb-[24px] ml-3">
-                <h3 className="text-lg font-extrabold">Якість, перевірена часом</h3>
-                <p className="mt-[4px] text-sm leading-6">
-                  Наші вироби виготовляються з добірного кашеміру, мериноса, тонкої та надтонкої
-                  новозеландської вовни, бавовни. Наш асортимент включає покривала, стьобані та
-                  класичні ковдри, пледи з чистої вовни, напівпрозорої вовни та бавовни.
-                </p>
-              </div>
-            </div>
-            <div className="flex">
-              <CheckIcon />
-              <div className="ml-3">
-                <h3 className="text-lg font-extrabold">Індивідуальні рішення для бізнесу</h3>
-                <p className="mt-[4px] text-sm leading-6">
-                  Комапанія VLADI пропонує корпоративним клієнтам та рекламним агенціям ексклюзивну
-                  продукцію для подарунків, промо-акцій та брендованих кампаній.
-                </p>
-              </div>
-            </div>
-          </li>
-          <li className="max-w-[400px]">
-            <div className="flex">
-              <CheckIcon />
-              <div className="mb-[24px] ml-3">
-                <h3 className="text-lg font-extrabold">Де купити</h3>
-                <p className="mt-[4px] text-sm leading-6">
-                  Продукція VLADI представлена в провідних торгових мережах по всій Україні, а також
-                  доступна через наших офіційних партнерів.
-                </p>
-                <p className="text-sm leading-6">
-                  В асортименті - покривала, стьобані та класичні ковдри, пледи з чистої вовни,
-                  напіввовни та бавовни.
-                </p>
-              </div>
-            </div>
-            <div className="flex">
-              <CheckIcon />
-              <div className="ml-3">
-                <h3 className="text-lg font-extrabold">Колекції на будь-який смак</h3>
-                <p className="mt-[4px] text-sm leading-6">
-                  Ми розробили три лінійки, щоб кожен наш клієнт міг обрати ідеальне рішення.
-                </p>
-              </div>
-            </div>
-          </li>
-        </ul>
       </div>
     </div>
   );

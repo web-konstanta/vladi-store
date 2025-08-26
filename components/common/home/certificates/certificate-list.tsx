@@ -5,10 +5,10 @@ import { CertificateType } from "@/lib/types";
 const CertificateList = ({ certificates }: { certificates: CertificateType[] }) => {
   return (
     <div className="container m-auto">
-      <div className="overflow-x-hidden">
-        <div className="embla__container flex gap-4 pr-4 pl-4">
+      <div>
+        <div className="flex flex-wrap justify-center gap-4 px-4 sm:justify-between sm:gap-6">
           {certificates.map((certificate, index) => (
-            <a key={index} className="embla__slide w-[424px] h-[556px] flex-shrink-0 px-2">
+            <a key={index}>
               <CertificateItem certificate={certificate} />
             </a>
           ))}
