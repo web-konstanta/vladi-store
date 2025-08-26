@@ -1,7 +1,7 @@
 import React from "react";
 import { Noto_Sans, Playfair_Display } from "next/font/google";
 import { CertificateType } from "@/lib/types";
-import CheckIcon from "@/components/icons/check";
+import Image from "next/image";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -67,9 +67,11 @@ const About = () => {
                 className={`${noto.className} h-[390px] overflow-hidden rounded-xl border border-black sm:h-[550px] lg:h-[610px]`}
               >
                 <div className="flex h-[200px] w-full items-center justify-center bg-gray-50 sm:h-[280px] lg:h-[400px]">
-                  <img
+                  <Image
                     src={certificate.image}
                     alt={certificate.title}
+                    width={400}
+                    height={400}
                     className="h-full w-full object-cover"
                   />
                 </div>
