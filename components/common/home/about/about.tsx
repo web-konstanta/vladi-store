@@ -1,6 +1,7 @@
 import React from "react";
 import { Noto_Sans, Playfair_Display } from "next/font/google";
 import { CertificateType } from "@/lib/types";
+import CheckIcon from "@/components/icons/check";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
