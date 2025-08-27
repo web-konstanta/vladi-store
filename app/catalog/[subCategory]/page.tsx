@@ -193,10 +193,10 @@ const Catalog = async ({ params }: CatalogProps) => {
                   </ul>
                 </div>
                 <div>
-                  <h3 className="text-sm font-bold sm:text-base">Склад виробу</h3>
+                  <h3 className="text-sm font-bold sm:text-base">Догляд</h3>
                   <ul className="mt-[8px] flex list-none text-sm sm:text-base">
                     <li className="mt-[4px]">
-                      <Image src="/frames/methods.png" alt="Methods" width={50} height={50} />
+                      <Image src="/frames/methods.png" alt="Methods" width={260} height={34} />
                     </li>
                   </ul>
                 </div>
