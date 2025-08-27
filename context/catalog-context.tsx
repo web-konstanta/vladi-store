@@ -16,59 +16,59 @@ export const CatalogProvider = ({ children }: { children: ReactNode }) => {
   const [allProducts] = useState<Product[]>([
     {
       id: "1",
-      title: "Phamilia",
+      title: "Elf",
       description: `М'який і легкий плед зі 100% кашеміру нейтрального бежевого відтінку.`,
-      image: "/images/product/valencia.png",
+      image: "/images/product/ELF.png",
       subCategoryId: "1"
     },
     {
       id: "2",
       title: "Toskana",
       description: `М'який і легкий плед зі 100% кашеміру нейтрального бежевого відтінку.`,
-      image: "/images/product/valencia.png",
+      image: "/images/product/TOSCANA.png",
       subCategoryId: "1"
     },
     {
       id: "3",
-      title: "Modena",
+      title: "Miami",
       description: `М'який і легкий плед зі 100% кашеміру нейтрального бежевого відтінку.`,
-      image: "/images/product/valencia.png",
+      image: "/images/product/MIAMI.png",
       subCategoryId: "1"
     },
     {
       id: "4",
-      title: "Merino",
+      title: "Modena",
       description: `М'який і легкий плед зі 100% кашеміру нейтрального бежевого відтінку.`,
-      image: "/images/product/valencia.png",
+      image: "/images/product/MODENA.png",
       subCategoryId: "2"
     },
     {
       id: "5",
       title: "Marcel",
       description: `М'який і легкий плед зі 100% кашеміру нейтрального бежевого відтінку.`,
-      image: "/images/product/valencia.png",
+      image: "/images/product/MARSEL.png",
       subCategoryId: "2"
     },
     {
       id: "6",
       title: "Ontario",
       description: `М'який і легкий плед зі 100% кашеміру нейтрального бежевого відтінку.`,
-      image: "/images/product/valencia.png",
+      image: "/images/product/ONTARIO.png",
       subCategoryId: "3"
     },
     {
       id: "7",
       title: "Oslo",
       description: `М'який і легкий плед зі 100% кашеміру нейтрального бежевого відтінку.`,
-      image: "/images/product/valencia.png",
-      subCategoryId: "3"
+      image: "/images/product/OSLO.png",
+      subCategoryId: "1"
     },
     {
       id: "8",
-      title: "Elf",
+      title: "Valencia",
       description: `М'який і легкий плед зі 100% кашеміру нейтрального бежевого відтінку.`,
-      image: "/images/product/valencia.png",
-      subCategoryId: "3"
+      image: "/images/product/VALENCIA.png",
+      subCategoryId: "1"
     }
   ]);
 

@@ -22,7 +22,7 @@ const CategoryItem = ({
     if (selected) {
       filterProducts(selected.id);
     }
-  }, [selected]);
+  }, [selected, filterProducts]);
 
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {

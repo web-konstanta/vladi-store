@@ -109,7 +109,7 @@ const CategoryList = ({
       getAllProducts();
       document.removeEventListener("mousedown", handleClick);
     };
-  }, [open]);
+  }, [open, getAllProducts]);
 
   return (
     <div className="m-auto flex flex-wrap justify-center lg:w-full 2xl:justify-between">

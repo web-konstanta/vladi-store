@@ -116,12 +116,31 @@ const additionalProducts: Product[] = [
   }
 ];
 
+const categories = new Map([
+  ["valencia", "Пледи Valencia"],
+  ["toskana", "Покривала Toskana"],
+  ["miami", "Ковдри Miami"],
+  ["modena", "Пледи Modena"],
+  ["marcel", "Покривала Marcel"],
+  ["ontario", "Пледи Ontario"],
+  ["oslo", "Ковдри Oslo"],
+  ["elf", "Пледи Elf"]
+]);
+
 function capitalizeFirstLetter(str: string): string {
   return str.length ? str.charAt(0).toUpperCase() + str.slice(1) : "";
 }
 
-const Catalog = () => {
-  const subCategory = "Пледи Valencia";
+interface CatalogProps {
+  params: Promise<{
+    subCategory: string;
+  }>;
+}
+
+const Catalog = async ({ params }: CatalogProps) => {
+  const resolvedParams = await params;
+  let subCategory = decodeURIComponent(resolvedParams.subCategory);
+  subCategory = categories.get(subCategory) || subCategory;
 
   return (
     <div className={`${noto.className} flex min-h-screen flex-col`}>
@@ -177,7 +196,7 @@ const Catalog = () => {
                   <h3 className="text-sm font-bold sm:text-base">Склад виробу</h3>
                   <ul className="mt-[8px] flex list-none text-sm sm:text-base">
                     <li className="mt-[4px]">
-                      <img src="/frames/methods.png" alt="" />
+                      <Image src="/frames/methods.png" alt="Methods" width={50} height={50} />
                     </li>
                   </ul>
                 </div>
