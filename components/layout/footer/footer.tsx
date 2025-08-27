@@ -64,10 +64,10 @@ const Footer = ({ showContact }: { showContact?: boolean }) => {
             <a href="#about" className="px-2 py-1 text-[14px]">
               Про компанію
             </a>
-            <a href="#products" className="px-2 py-1 text-[14px]">
+            <a href="#services" className="px-2 py-1 text-[14px]">
               Послуги
             </a>
-            <a href="#services" className="px-2 py-1 text-[14px]">
+            <a href="#products" className="px-2 py-1 text-[14px]">
               Каталог
             </a>
           </nav>
