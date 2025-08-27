@@ -4,6 +4,9 @@ export type Product = {
   description: string;
   image: string;
   subCategoryId: string;
+  composition?: string;
+  weight?: string;
+  sizes?: string[];
   updatedAt?: string;
 };
 
