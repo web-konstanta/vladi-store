@@ -15,7 +15,7 @@ const Footer = ({ showContact }: { showContact?: boolean }) => {
   const [showModal, setShowModal] = useState(false);
 
   return (
-    <div className={`relative pb-[44px] ${showContact && "mt-[60px]"}`}>
+    <div className={`relative pb-[44px] ${showContact && "mt-[120px]"}`}>
       <div
         className={`flex ${showContact ? "min-h-[480px]" : "min-h-[100px]"} items-center justify-center`}
       >
@@ -57,18 +57,18 @@ const Footer = ({ showContact }: { showContact?: boolean }) => {
 
         <div className="flex flex-col items-center justify-center gap-4 py-6 text-center md:flex-row md:justify-between md:text-left">
           <h1 className="text-[14px] text-white">
-            <span>Наш контактний номер</span> +3809797632
+            <span>Наш номер телефону</span> +3809797632
           </h1>
 
-          <nav className="flex flex-col items-center gap-2 text-white md:flex-row md:gap-8">
+          <nav className="flex flex-col items-center gap-2 text-white md:flex-row md:gap-[40px]">
             <a href="#about" className="px-2 py-1 text-[14px]">
-              Про нас
+              Про компанію
             </a>
             <a href="#products" className="px-2 py-1 text-[14px]">
-              Продукти
+              Послуги
             </a>
             <a href="#services" className="px-2 py-1 text-[14px]">
-              Послуги
+              Каталог
             </a>
           </nav>
           <div className="text-[14px] text-white">© VLADI, Inc. All Rights Reserved</div>

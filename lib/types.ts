@@ -24,4 +24,4 @@ export type PartnerImage = {
   alt: string;
 };
 
-export type CertificateType = Pick<Product, "title" | "description">;
+export type CertificateType = Pick<Product, "title" | "description" | "image">;

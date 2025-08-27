@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef } from "react";
 import { Noto_Sans } from "next/font/google";
+import CloseFormIcon from "@/components/icons/close-form";
 
 const noto = Noto_Sans({
   subsets: ["latin"],
@@ -35,57 +36,56 @@ const Faq: React.FC<FaqProps> = ({ isOpen, onClose }) => {
 
   return (
     <div
-      className={`${noto.className} fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm`}
+      className={`${noto.className} fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4 backdrop-blur-sm`}
       onClick={handleOverlayClick}
     >
       <div
         ref={faqRef}
-        className="relative m-auto flex h-[533px] w-[1320px] overflow-hidden rounded-lg bg-white shadow-lg"
+        className="relative m-auto flex h-[600px] w-full max-w-[1320px] flex-col overflow-hidden rounded-lg bg-white shadow-lg sm:h-[533px] sm:flex-row"
       >
-        <div className="flex w-full max-w-[252px] flex-col justify-between border-r bg-white p-[35px]">
+        <div className="flex w-full flex-col justify-between border-r-0 border-b bg-white p-4 sm:max-w-[252px] sm:border-r sm:border-b-0 sm:p-[35px]">
           <div>
-            <h2 className="mb-4 text-2xl font-bold">Контакти</h2>
-            <p className="mb-2 text-sm">+ 380 (067) 888 88 88</p>
-            <p className="mb-6 text-sm">+ 380 (067) 888 88 88</p>
+            <h2 className="mb-2 text-lg font-bold sm:mb-4 sm:text-2xl">Контакти</h2>
+            <p className="mb-1 text-xs sm:mb-2 sm:text-sm">+ 380 (067) 888 88 88</p>
           </div>
 
           <div>
-            <h3 className="mb-2 text-2xl font-semibold">Адреса складу</h3>
-            <p className="mb-2 text-sm">88888, Україна</p>
-            <p className="text-sm">м. Харків, вул. Харківська</p>
+            <h3 className="mb-1 text-lg font-semibold sm:mb-2 sm:text-2xl">Адреса складу</h3>
+            <p className="mb-1 text-xs sm:mb-2 sm:text-sm">88888, Україна</p>
+            <p className="text-xs sm:text-sm">м. Харків, вул. Харківська</p>
           </div>
         </div>
 
-        <div className="relative flex-1 bg-white p-6">
+        <div className="relative flex-1 bg-white p-4 pt-8 pb-2 sm:pt-[40px] sm:pr-[40px] sm:pb-[105px] sm:pl-[32px]">
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 cursor-pointer text-2xl text-black"
+            className="absolute top-4 right-4 cursor-pointer text-[20px] text-black sm:top-[40px] sm:right-10 sm:text-[24px]"
           >
-            &times;
+            <CloseFormIcon />
           </button>
 
-          <h2 className="mb-6 text-xl font-bold">Відправити запит</h2>
-          <form className="space-y-4">
-            <div className="flex flex-col space-y-4 md:flex-row md:space-y-0 md:space-x-4">
+          <h2 className="mb-3 text-lg font-bold sm:mb-[16px] sm:text-xl">Відправити запит</h2>
+          <form className="space-y-3 sm:space-y-4">
+            <div className="flex flex-col space-y-3 sm:space-y-4 md:flex-row md:space-y-0 md:space-x-4">
               <input
                 type="text"
                 placeholder="Ваше ім'я"
-                className="flex-1 rounded border px-4 py-3"
+                className="flex-1 rounded border px-3 py-2 text-sm sm:px-4 sm:py-3 sm:text-base"
               />
               <input
                 type="email"
                 placeholder="E-Mail адреса"
-                className="flex-1 rounded border px-4 py-3"
+                className="flex-1 rounded border px-3 py-2 text-sm sm:px-4 sm:py-3 sm:text-base"
               />
             </div>
             <textarea
-              rows={6}
+              rows={4}
               placeholder="Напишіть ваше запитання або пропозицію…"
-              className="w-full rounded border px-4 py-3"
+              className="sm:rows-6 w-full rounded border px-3 py-2 text-sm sm:px-4 sm:py-3 sm:text-base"
             />
             <button
               type="submit"
-              className="w-[400px] rounded border px-4 py-3 mt-1 text-center hover:bg-gray-100"
+              className="mt-1 h-[50px] w-full rounded border border-[#27241F] px-4 text-center text-sm hover:bg-gray-100 sm:h-[60px] sm:w-[400px] sm:text-base"
             >
               Надіслати
             </button>

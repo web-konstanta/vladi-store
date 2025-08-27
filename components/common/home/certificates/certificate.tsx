@@ -1,8 +1,7 @@
 "use client";
 
 import { CertificateType } from "@/lib/types";
-import useEmblaCarousel from "embla-carousel-react";
-import React, { useCallback } from "react";
+import React from "react";
 import CertificateList from "./certificate-list";
 import { Noto_Sans, Playfair_Display } from "next/font/google";
 
@@ -20,89 +19,49 @@ const noto = Noto_Sans({
 
 const certificates: CertificateType[] = [
   {
-    title: "СЕРТИФІКАТ ЯКОСТІ №001",
+    title: "Certification ISO 14001:2015",
     description:
-      "виріб під найменуванням «Плед ALICE» виготовлено з дотриманням усіх технологічних стандартів, відповідає внутрішнім нормам якості підприємства та вимогам щодо безпеки текстильної продукції."
+      "Наша компанія успішно пройшла сертифікацію ISO 14001:2015, повністю відповідаючи стандартам системи екологічного менеджменту, включаючи зниження відходів тканини на 20%, оптимізацію споживання води та енергії на 15% і використання екологічних матеріалів для виробництва пледів. Це підтверджує нашу прихильність до сталого розвитку та мінімізації вуглецевого сліду.",
+    image: "/images/certificates/certificate-1.png"
   },
   {
-    title: "СЕРТИФІКАТ ЯКОСТІ №001",
+    title: "OEKO-TEX® Standard 100",
     description:
-      "виріб під найменуванням «Плед ALICE» виготовлено з дотриманням усіх технологічних стандартів, відповідає внутрішнім нормам якості підприємства та вимогам щодо безпеки текстильної продукції."
+      "КомпаниУспішно отримала сертифікацію OEKO-TEX® Standard 100, повністю відповідаючи вимогам безпеки текстильних виробів, включаючи відсутність шкідливих речовин, таких як азобарвники і формальдегід, в матеріалах пледів (номер сертифіката 74773 OETI). Це гарантує здоров'я споживачів і зміцнює наші позиції на міжнародних ринках текстильної індустрії.",
+    image: "/images/certificates/certificate-2.png"
   },
   {
-    title: "СЕРТИФІКАТ ЯКОСТІ №001",
+    title: "Certification Sedex",
     description:
-      "виріб під найменуванням «Плед ALICE» виготовлено з дотриманням усіх технологічних стандартів, відповідає внутрішнім нормам якості підприємства та вимогам щодо безпеки текстильної продукції."
-  },
-  {
-    title: "СЕРТИФІКАТ ЯКОСТІ №001",
-    description:
-      "виріб під найменуванням «Плед ALICE» виготовлено з дотриманням усіх технологічних стандартів, відповідає внутрішнім нормам якості підприємства та вимогам щодо безпеки текстильної продукції."
-  },
-  {
-    title: "СЕРТИФІКАТ ЯКОСТІ №001",
-    description:
-      "виріб під найменуванням «Плед ALICE» виготовлено з дотриманням усіх технологічних стандартів, відповідає внутрішнім нормам якості підприємства та вимогам щодо безпеки текстильної продукції."
-  },
-  {
-    title: "СЕРТИФІКАТ ЯКОСТІ №001",
-    description:
-      "виріб під найменуванням «Плед ALICE» виготовлено з дотриманням усіх технологічних стандартів, відповідає внутрішнім нормам якості підприємства та вимогам щодо безпеки текстильної продукції."
+      "Наша компанія успішно пройшла сертифікацію Sedex, повністю відповідаючи стандартам SMETA, включаючи безпечні умови праці, заборону примусової праці та екологічне управління відходами при виробництві пледів. Це відкриває доступ до глобальних ринків і підтверджує нашу прихильність етичним принципам у ланцюжку поставок вовни, бавовни та флісу.",
+    image: "/images/certificates/certificate-3.png"
   }
 ];
 
 const Certificate = () => {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
-
-  const scrollPrev = useCallback(() => {
-    if (emblaApi) emblaApi.scrollPrev();
-  }, [emblaApi]);
-
-  const scrollNext = useCallback(() => {
-    if (emblaApi) emblaApi.scrollNext();
-  }, [emblaApi]);
-
   return (
     <div className="mt-[120px] bg-white py-8" id="products">
       <div className="container mx-auto">
         <div className="mb-6">
           <h2
-            className={`${playfair.className} mb-2 text-center font-serif text-[48px] tracking-tight md:text-[68px]`}
+            className={`${playfair.className} mb-2 text-center font-serif text-[40px] tracking-tight sm:text-[40px] md:text-[48px] lg:text-[68px]`}
           >
             СЕРТИФІКАТИ
           </h2>
           <p
-            className={`${noto.className} mt-[18px] mb-[48px] text-center text-[18px] text-gray-700 opacity-55`}
+            className={`${noto.className} mt-[18px] mb-[48px] text-center text-base text-gray-700 opacity-55 sm:text-base lg:text-lg`}
           >
-            Дізнайтеся більше про наше виробництво
+            Офіційні підтвердження наших стандартів
           </p>
         </div>
         {certificates.length > 0 ? (
           <>
-            <div className="mt-[20px] overflow-x-hidden" ref={emblaRef}>
+            <div className="mt-[20px]">
               <CertificateList certificates={certificates} />
             </div>
-            {certificates.length > 4 && (
-              <div className="mt-6 flex justify-center gap-4">
-                <button
-                  className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-gray-800 bg-white transition duration-[600ms] hover:bg-gray-100"
-                  onClick={scrollPrev}
-                >
-                  <span className="text-2xl">&#8592;</span>
-                </button>
-                <button
-                  className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-gray-800 bg-white transition duration-[600ms] hover:bg-gray-100"
-                  onClick={scrollNext}
-                >
-                  <span className="text-2xl">&#8594;</span>
-                </button>
-              </div>
-            )}
           </>
         ) : (
-          <div className="mt-5 text-center text-lg text-gray-600">
-            No products found for this category.
-          </div>
+          <div className="mt-5 text-center text-lg text-gray-600">No certificates found.</div>
         )}
       </div>
     </div>
