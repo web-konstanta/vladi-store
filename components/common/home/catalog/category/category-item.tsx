@@ -34,12 +34,6 @@ const CategoryItem = ({
     return () => document.removeEventListener("mousedown", handleClick);
   }, [open]);
 
-  useEffect(() => {
-    return () => {
-      setSelected(null);
-    };
-  });
-
   return (
     <div className="mr-5 mb-4 flex justify-center" ref={dropdownRef}>
       <div className="relative inline-block w-[200px]">

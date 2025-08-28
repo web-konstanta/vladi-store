@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import CategoryItem from "./category-item";
 import { Category, SubCategory } from "@/lib/types";
 
-const categories: Category[] = [
+export const categories: Category[] = [
   {
     id: "1",
     title: "Пледи"
@@ -25,7 +25,7 @@ const categories: Category[] = [
   }
 ];
 
-const subCategories: SubCategory[] = [
+export const subCategories: SubCategory[] = [
   {
     id: "1",
     title: "Кашемір",
@@ -106,10 +106,9 @@ const CategoryList = ({
     };
     document.addEventListener("mousedown", handleClick);
     return () => {
-      getAllProducts();
       document.removeEventListener("mousedown", handleClick);
     };
-  }, [open, getAllProducts]);
+  }, [open]);
 
   return (
     <div className="m-auto flex flex-wrap justify-center lg:w-full 2xl:justify-between">

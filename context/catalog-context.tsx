@@ -1,7 +1,7 @@
 "use client";
 
 import { Product } from "@/lib/types";
-import React, { createContext, useContext, useState, ReactNode } from "react";
+import React, { createContext, useContext, useState, ReactNode, useCallback } from "react";
 
 interface CatalogContextType {
   products: Product[];
@@ -17,73 +17,54 @@ export const CatalogProvider = ({ children }: { children: ReactNode }) => {
     {
       id: "1",
       title: "Elf",
-      description: `М'який і легкий плед зі 100% кашеміру нейтрального бежевого відтінку.`,
-      image: "/images/product/ELF.png",
-      subCategoryId: "1"
+      description:
+        "Повсякденна універсальність і комфорт. \"Ельф\" поєднує тепло натуральної шерсті й практичність синтетики — міцний, зносостійкий і приємний на дотик. Відмінний як для будинку, так і для дачі, авто чи пікніка; стриманий дизайн підійде до будь-якого інтер’єру.",
+      image: "/images/product/Elf.png",
+      subCategoryId: "1",
+      composition: ["70% новозеландська шерсть", "30% поліестер"],
+      sizes: ["130×190", "140×205", "170×210", "200×220"],
+      weight: "350 г/м²",
+      products: [
+        { image: "/valencia/VALENCIA ANTONIO.png", title: "Elf Antonio" },
+        { image: "/valencia/VALENCIA BOUCLE.png", title: "Elf Boucle" },
+        { image: "/valencia/VALENCIA HARRY.png", title: "Elf Harry" },
+        { image: "/valencia/VALENCIA PARQUET.png", title: "Elf Parquet" }
+      ]
     },
     {
       id: "2",
-      title: "Toskana",
-      description: `М'який і легкий плед зі 100% кашеміру нейтрального бежевого відтінку.`,
-      image: "/images/product/TOSCANA.png",
-      subCategoryId: "1"
-    },
-    {
-      id: "3",
-      title: "Miami",
-      description: `М'який і легкий плед зі 100% кашеміру нейтрального бежевого відтінку.`,
-      image: "/images/product/MIAMI.png",
-      subCategoryId: "1"
-    },
-    {
-      id: "4",
-      title: "Modena",
-      description: `М'який і легкий плед зі 100% кашеміру нейтрального бежевого відтінку.`,
-      image: "/images/product/MODENA.png",
-      subCategoryId: "2"
-    },
-    {
-      id: "5",
-      title: "Marcel",
-      description: `М'який і легкий плед зі 100% кашеміру нейтрального бежевого відтінку.`,
-      image: "/images/product/MARSEL.png",
-      subCategoryId: "2"
-    },
-    {
-      id: "6",
-      title: "Ontario",
-      description: `М'який і легкий плед зі 100% кашеміру нейтрального бежевого відтінку.`,
-      image: "/images/product/ONTARIO.png",
-      subCategoryId: "3"
-    },
-    {
-      id: "7",
-      title: "Oslo",
-      description: `М'який і легкий плед зі 100% кашеміру нейтрального бежевого відтінку.`,
-      image: "/images/product/OSLO.png",
-      subCategoryId: "1"
-    },
-    {
-      id: "8",
-      title: "Valencia",
-      description: `М'який і легкий плед зі 100% кашеміру нейтрального бежевого відтінку.`,
-      image: "/images/product/VALENCIA.png",
-      subCategoryId: "1"
+      title: "Familia",
+      description:
+        "Плед \"Фамілія\" — втілення вишуканого затишку й легкості. Поєднання надтонкої шерсті й кашеміру надає виробу неймовірну м’якість, легкість і чудову теплоізоляцію. Тонкі волокна створюють шовковисту текстуру, а кашемір — благородний блиск і розкіш. Ідеально підходить для холодних вечорів із книгою та чаєм або як стильний акцент у спальні чи вітальні.",
+      image: "/images/product/Familia.png",
+      subCategoryId: "2",
+      composition: ["10% кашеміру,", "90% супертонкого мериносу"],
+      sizes: ["130×190", "140×205", "170×210", "200×220"],
+      weight: "245 г/м²",
+      products: [
+        { image: "/valencia/VALENCIA ANTONIO.png", title: "Elf Antonio" },
+        { image: "/valencia/VALENCIA BOUCLE.png", title: "Elf Boucle" },
+        { image: "/valencia/VALENCIA HARRY.png", title: "Elf Harry" },
+        { image: "/valencia/VALENCIA PARQUET.png", title: "Elf Parquet" }
+      ]
     }
   ]);
 
   const [products, setProducts] = useState<Product[]>(allProducts);
 
-  const getAllProducts = () => {
+  const getAllProducts = useCallback(() => {
     setProducts(allProducts);
-  };
+  }, [allProducts]);
 
-  const filterProducts = (subCategoryId: string) => {
-    const filteredProducts = allProducts.filter(
-      (product) => product.subCategoryId === subCategoryId
-    );
-    setProducts(filteredProducts);
-  };
+  const filterProducts = useCallback(
+    (subCategoryId: string) => {
+      const filteredProducts = allProducts.filter(
+        (product) => product.subCategoryId === subCategoryId
+      );
+      setProducts(filteredProducts);
+    },
+    [allProducts]
+  );
 
   return (
     <CatalogContext.Provider value={{ products, allProducts, filterProducts, getAllProducts }}>

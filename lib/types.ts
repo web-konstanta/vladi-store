@@ -3,10 +3,11 @@ export type Product = {
   title: string;
   description: string;
   image: string;
+  composition: string[];
+  sizes: string[];
+  weight: string;
+  products: { image: string; title: string }[];
   subCategoryId: string;
-  composition?: string;
-  weight?: string;
-  sizes?: string[];
   updatedAt?: string;
 };
 
