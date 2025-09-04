@@ -1,9 +1,8 @@
 import { Product } from "@/lib/types";
 import Image from "next/image";
-import React, { useState } from "react";
+import React from "react";
 
 const ProductItem = ({ product }: { product: Product }) => {
-  const [isExpanded, setIsExpanded] = useState(false);
   return (
     <div className="flex min-h-[567px] w-[312px] flex-col justify-between rounded-lg border border-[#797979] bg-white">
       <div>
@@ -19,13 +18,15 @@ const ProductItem = ({ product }: { product: Product }) => {
         <div className="group relative p-5">
           <h3 className="mt-1 mb-1 text-[24px]">{product.title}</h3>
           <p
-            className={`cursor-pointer overflow-hidden text-sm leading-[25px] text-gray-700 transition-all duration-300 ${
-              isExpanded
-                ? "max-h-[500px]"
-                : "max-h-[75px] group-hover:max-h-[500px] md:group-hover:max-h-[500px]"
-            }`}
+            className="max-h-[75px] overflow-hidden text-sm leading-[25px] text-gray-700"
+            style={{
+              display: "-webkit-box",
+              WebkitLineClamp: 3,
+              WebkitBoxOrient: "vertical",
+              overflow: "hidden",
+              textOverflow: "ellipsis"
+            }}
             title={product.description}
-            onClick={() => setIsExpanded(!isExpanded)}
           >
             {product.description}
           </p>
