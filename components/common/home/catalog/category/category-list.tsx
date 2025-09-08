@@ -1,92 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import CategoryItem from "./category-item";
 import { Category, SubCategory } from "@/lib/types";
-
-export const categories: Category[] = [
-  {
-    id: "1",
-    title: "Пледи"
-  },
-  {
-    id: "2",
-    title: "Ковдри"
-  },
-  {
-    id: "3",
-    title: "Покривала"
-  },
-  {
-    id: "4",
-    title: "Стьобані ковдри"
-  },
-  {
-    id: "5",
-    title: "Пряжа"
-  }
-];
-
-export const subCategories: SubCategory[] = [
-  {
-    id: "1",
-    title: "Кашемір",
-    categoryId: "1"
-  },
-  {
-    id: "2",
-    title: "Мерінос",
-    categoryId: "1"
-  },
-  {
-    id: "3",
-    title: "Вовняні накидки",
-    categoryId: "1"
-  },
-  {
-    id: "4",
-    title: "Суміш вовни",
-    categoryId: "1"
-  },
-  {
-    id: "5",
-    title: "Бавовна",
-    categoryId: "1"
-  },
-  {
-    id: "6",
-    title: "Кашемір",
-    categoryId: "2"
-  },
-  {
-    id: "7",
-    title: "Мерінос",
-    categoryId: "2"
-  },
-  {
-    id: "8",
-    title: "Вовняні накидки",
-    categoryId: "2"
-  },
-  {
-    id: "9",
-    title: "Суміш вовни",
-    categoryId: "2"
-  },
-  {
-    id: "10",
-    title: "Бавовна",
-    categoryId: "3"
-  },
-  {
-    id: "11",
-    title: "Вовняні накидки",
-    categoryId: "4"
-  },
-  {
-    id: "12",
-    title: "Силіконізоване волокно",
-    categoryId: "4"
-  }
-];
+import { CategoryService } from "@/lib/category-service";
 
 const CategoryList = ({
   filterProducts,
@@ -96,7 +11,35 @@ const CategoryList = ({
   getAllProducts: () => void;
 }) => {
   const [open, setOpen] = useState(false);
+  const [categories, setCategories] = useState<Category[]>([]);
+  const [subCategories, setSubCategories] = useState<SubCategory[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const loadData = async () => {
+      try {
+        setLoading(true);
+        setError(null);
+
+        const [categoriesData, subCategoriesData] = await Promise.all([
+          CategoryService.getAllCategories(),
+          CategoryService.getAllSubcategories()
+        ]);
+
+        setCategories(categoriesData);
+        setSubCategories(subCategoriesData);
+      } catch (err) {
+        console.error("Error loading categories:", err);
+        setError("Помилка завантаження категорій");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadData();
+  }, []);
 
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {
@@ -109,6 +52,26 @@ const CategoryList = ({
       document.removeEventListener("mousedown", handleClick);
     };
   }, [open]);
+
+  if (loading) {
+    return (
+      <div className="m-auto flex flex-wrap justify-center lg:w-full 2xl:justify-between">
+        <div className="flex w-full items-center justify-center py-8">
+          <div className="text-gray-600">Завантаження категорій...</div>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="m-auto flex flex-wrap justify-center lg:w-full 2xl:justify-between">
+        <div className="flex w-full items-center justify-center py-8">
+          <div className="text-red-600">{error}</div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="m-auto flex flex-wrap justify-center lg:w-full 2xl:justify-between">
@@ -130,7 +93,7 @@ const CategoryList = ({
 
       {categories.map((category) => (
         <CategoryItem
-          key={category.id}
+          key={category._id}
           category={category}
           subCategories={subCategories}
           filterProducts={filterProducts}

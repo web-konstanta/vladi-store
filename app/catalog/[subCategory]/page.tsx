@@ -17,7 +17,7 @@ interface CatalogProps {
 
 const Catalog = async ({ params }: CatalogProps) => {
   const resolvedParams = await params;
-  const subCategory = decodeURIComponent(resolvedParams.subCategory);
+  const productId = decodeURIComponent(resolvedParams.subCategory);
 
   return (
     <div className={`${noto.className} flex min-h-screen flex-col`}>
@@ -26,7 +26,7 @@ const Catalog = async ({ params }: CatalogProps) => {
       <main
         className={`${noto.className} flex-1 bg-[#E8E2DB] bg-[url('/images/long-waves.png')] bg-cover bg-top bg-no-repeat px-4 pt-[130px] sm:px-6 lg:px-8`}
       >
-        <ProductDetails subCategory={subCategory} />
+        <ProductDetails productId={productId} />
       </main>
 
       <Footer />

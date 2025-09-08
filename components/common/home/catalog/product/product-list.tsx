@@ -6,12 +6,12 @@ import Link from "next/link";
 const ProductList = ({ products }: { products: Product[] }) => {
   return (
     <div
-      className={`flex gap-4 pr-4 pl-4 scrollbar-hide ${products.length === 1 ? "justify-center sm:justify-start" : ""}`}
+      className={`scrollbar-hide flex gap-4 pr-4 pl-4 ${products.length === 1 ? "justify-center sm:justify-start" : ""}`}
     >
-      {products.map((product, index) => (
+      {products.map((product) => (
         <Link
-          href={`/catalog/${product.title.toLocaleLowerCase()}`}
-          key={index}
+          href={`/catalog/${product._id}`}
+          key={product._id}
           className="w-[320px] flex-shrink-0"
         >
           <ProductItem product={product} />

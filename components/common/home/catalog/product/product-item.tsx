@@ -1,4 +1,5 @@
 import { Product } from "@/lib/types";
+import { getProductImageUrl } from "@/lib/image-utils";
 import Image from "next/image";
 import React from "react";
 
@@ -8,7 +9,7 @@ const ProductItem = ({ product }: { product: Product }) => {
       <div>
         <div className="flex h-[356px] items-center justify-center">
           <Image
-            src={product.image}
+            src={getProductImageUrl(product, 312, 356)}
             alt={product.title}
             height={356}
             width={312}

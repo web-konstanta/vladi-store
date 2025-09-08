@@ -1,11 +1,21 @@
 "use client";
 
 import { Product } from "@/lib/types";
-import React, { createContext, useContext, useState, ReactNode, useCallback } from "react";
+import { getAllProducts } from "@/lib/sanity-queries";
+import React, {
+  createContext,
+  useContext,
+  useState,
+  ReactNode,
+  useCallback,
+  useEffect
+} from "react";
 
 interface CatalogContextType {
   products: Product[];
   allProducts: Product[];
+  loading: boolean;
+  error: string | null;
   filterProducts: (subCategoryId: string) => void;
   getAllProducts: () => void;
 }
@@ -13,46 +23,32 @@ interface CatalogContextType {
 const CatalogContext = createContext<CatalogContextType | undefined>(undefined);
 
 export const CatalogProvider = ({ children }: { children: ReactNode }) => {
-  const [allProducts] = useState<Product[]>([
-    {
-      id: "1",
-      title: "Elf",
-      description:
-        "Повсякденна універсальність і комфорт. \"Ельф\" поєднує тепло натуральної шерсті й практичність синтетики — міцний, зносостійкий і приємний на дотик. Відмінний як для будинку, так і для дачі, авто чи пікніка; стриманий дизайн підійде до будь-якого інтер’єру.",
-      image: "/images/product/Elf.png",
-      subCategoryId: "1",
-      composition: ["70% новозеландська шерсть", "30% поліестер"],
-      sizes: ["130×190", "140×205", "170×210", "200×220"],
-      weight: "350 г/м²",
-      products: [
-        { image: "/valencia/VALENCIA ANTONIO.png", title: "Elf Antonio" },
-        { image: "/valencia/VALENCIA BOUCLE.png", title: "Elf Boucle" },
-        { image: "/valencia/VALENCIA HARRY.png", title: "Elf Harry" },
-        { image: "/valencia/VALENCIA PARQUET.png", title: "Elf Parquet" }
-      ]
-    },
-    {
-      id: "2",
-      title: "Familia",
-      description:
-        "Плед \"Фамілія\" — втілення вишуканого затишку й легкості. Поєднання надтонкої шерсті й кашеміру надає виробу неймовірну м’якість, легкість і чудову теплоізоляцію. Тонкі волокна створюють шовковисту текстуру, а кашемір — благородний блиск і розкіш. Ідеально підходить для холодних вечорів із книгою та чаєм або як стильний акцент у спальні чи вітальні.",
-      image: "/images/product/Familia.png",
-      subCategoryId: "2",
-      composition: ["10% кашеміру,", "90% супертонкого мериносу"],
-      sizes: ["130×190", "140×205", "170×210", "200×220"],
-      weight: "245 г/м²",
-      products: [
-        { image: "/valencia/VALENCIA ANTONIO.png", title: "Elf Antonio" },
-        { image: "/valencia/VALENCIA BOUCLE.png", title: "Elf Boucle" },
-        { image: "/valencia/VALENCIA HARRY.png", title: "Elf Harry" },
-        { image: "/valencia/VALENCIA PARQUET.png", title: "Elf Parquet" }
-      ]
-    }
-  ]);
+  const [allProducts, setAllProducts] = useState<Product[]>([]);
+  const [products, setProducts] = useState<Product[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-  const [products, setProducts] = useState<Product[]>(allProducts);
+  // Load products from Sanity on component mount
+  useEffect(() => {
+    const loadProducts = async () => {
+      try {
+        setLoading(true);
+        setError(null);
+        const productsData = await getAllProducts();
+        setAllProducts(productsData);
+        setProducts(productsData);
+      } catch (err) {
+        console.error("Error loading products:", err);
+        setError("Помилка завантаження продуктів");
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  const getAllProducts = useCallback(() => {
+    loadProducts();
+  }, []);
+
+  const getAllProductsHandler = useCallback(() => {
     setProducts(allProducts);
   }, [allProducts]);
 
@@ -67,7 +63,16 @@ export const CatalogProvider = ({ children }: { children: ReactNode }) => {
   );
 
   return (
-    <CatalogContext.Provider value={{ products, allProducts, filterProducts, getAllProducts }}>
+    <CatalogContext.Provider
+      value={{
+        products,
+        allProducts,
+        loading,
+        error,
+        filterProducts,
+        getAllProducts: getAllProductsHandler
+      }}
+    >
       {children}
     </CatalogContext.Provider>
   );

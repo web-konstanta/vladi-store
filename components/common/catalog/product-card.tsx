@@ -1,6 +1,7 @@
 "use client";
 
 import { Product } from "@/lib/types";
+import { getProductImageUrl } from "@/lib/image-utils";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -11,12 +12,12 @@ interface ProductCardProps {
 
 const ProductCard = ({ product }: ProductCardProps) => {
   return (
-    <Link href={`/catalog/${product.title.toLowerCase()}`}>
+    <Link href={`/catalog/${product._id}`}>
       <div className="flex min-h-[380px] w-full flex-col justify-between rounded-lg border border-[#797979] bg-white sm:min-h-[430px] lg:min-h-[490px]">
         <div>
           <div className="relative h-[250px] w-full sm:h-[300px] lg:h-[356px]">
             <Image
-              src={product.image}
+              src={getProductImageUrl(product, 312, 356)}
               alt={product.title}
               layout="fill"
               objectFit="cover"
