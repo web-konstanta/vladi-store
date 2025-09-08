@@ -7,44 +7,68 @@ import { useCatalog } from "@/context/catalog-context";
 
 const categories: Category[] = [
   {
-    id: "1",
+    _id: "1",
+    _type: "category",
     title: "VALENCIA",
-    image: "/images/product/valencia.png"
+    image: "/images/product/valencia.png",
+    _createdAt: new Date().toISOString(),
+    _updatedAt: new Date().toISOString()
   },
   {
-    id: "2",
+    _id: "2",
+    _type: "category",
     title: "MARCEL",
-    image: "/images/product/marcel.png"
+    image: "/images/product/marcel.png",
+    _createdAt: new Date().toISOString(),
+    _updatedAt: new Date().toISOString()
   },
   {
-    id: "3",
-    title: "MARCEL",
-    image: "/images/product/modena.png"
+    _id: "3",
+    _type: "category",
+    title: "MODENA",
+    image: "/images/product/modena.png",
+    _createdAt: new Date().toISOString(),
+    _updatedAt: new Date().toISOString()
   },
   {
-    id: "4",
-    title: "MARCEL",
-    image: "/images/product/ontario.png"
+    _id: "4",
+    _type: "category",
+    title: "ONTARIO",
+    image: "/images/product/ontario.png",
+    _createdAt: new Date().toISOString(),
+    _updatedAt: new Date().toISOString()
   },
   {
-    id: "5",
+    _id: "5",
+    _type: "category",
     title: "VALENCIA",
-    image: "/images/product/valencia.png"
+    image: "/images/product/valencia.png",
+    _createdAt: new Date().toISOString(),
+    _updatedAt: new Date().toISOString()
   },
   {
-    id: "6",
+    _id: "6",
+    _type: "category",
     title: "MARCEL",
-    image: "/images/product/marcel.png"
+    image: "/images/product/marcel.png",
+    _createdAt: new Date().toISOString(),
+    _updatedAt: new Date().toISOString()
   },
   {
-    id: "7",
-    title: "MARCEL",
-    image: "/images/product/modena.png"
+    _id: "7",
+    _type: "category",
+    title: "MODENA",
+    image: "/images/product/modena.png",
+    _createdAt: new Date().toISOString(),
+    _updatedAt: new Date().toISOString()
   },
   {
-    id: "8",
-    title: "MARCEL",
-    image: "/images/product/ontario.png"
+    _id: "8",
+    _type: "category",
+    title: "ONTARIO",
+    image: "/images/product/ontario.png",
+    _createdAt: new Date().toISOString(),
+    _updatedAt: new Date().toISOString()
   }
 ];
 
@@ -58,8 +82,8 @@ const CategoryList = () => {
           {categories.map((category) => (
             <a
               href="#products"
-              onClick={() => filterProducts(category.id)}
-              key={category.id}
+              onClick={() => filterProducts(category._id)}
+              key={category._id}
               className="w-[320px] flex-shrink-0"
             >
               <CategoryItem category={category} />

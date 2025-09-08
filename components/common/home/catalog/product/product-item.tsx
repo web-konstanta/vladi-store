@@ -1,4 +1,5 @@
 import { Product } from "@/lib/types";
+import { getProductImageUrl } from "@/lib/image-utils";
 import Image from "next/image";
 import React from "react";
 
@@ -8,7 +9,7 @@ const ProductItem = ({ product }: { product: Product }) => {
       <div>
         <div className="flex h-[356px] items-center justify-center">
           <Image
-            src={product.image}
+            src={getProductImageUrl(product, 312, 356)}
             alt={product.title}
             height={356}
             width={312}
@@ -18,7 +19,14 @@ const ProductItem = ({ product }: { product: Product }) => {
         <div className="group relative p-5">
           <h3 className="mt-1 mb-1 text-[24px]">{product.title}</h3>
           <p
-            className="max-h-[100px] cursor-pointer overflow-hidden text-sm leading-[25px] text-gray-700 transition-all duration-300 group-hover:max-h-[500px]"
+            className="max-h-[75px] overflow-hidden text-sm leading-[25px] text-gray-700"
+            style={{
+              display: "-webkit-box",
+              WebkitLineClamp: 3,
+              WebkitBoxOrient: "vertical",
+              overflow: "hidden",
+              textOverflow: "ellipsis"
+            }}
             title={product.description}
           >
             {product.description}

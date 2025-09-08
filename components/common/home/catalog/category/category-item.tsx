@@ -15,12 +15,12 @@ const CategoryItem = ({
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const filteredSubCategories = subCategories.filter(
-    (subCategory) => subCategory.categoryId == category.id
+    (subCategory) => subCategory.categoryId == category.documentId
   );
 
   useEffect(() => {
-    if (selected) {
-      filterProducts(selected.id);
+    if (selected && selected.documentId) {
+      filterProducts(selected.documentId);
     }
   }, [selected, filterProducts]);
 
@@ -33,12 +33,6 @@ const CategoryItem = ({
     document.addEventListener("mousedown", handleClick);
     return () => document.removeEventListener("mousedown", handleClick);
   }, [open]);
-
-  useEffect(() => {
-    return () => {
-      setSelected(null);
-    };
-  });
 
   return (
     <div className="mr-5 mb-4 flex justify-center" ref={dropdownRef}>
@@ -57,7 +51,7 @@ const CategoryItem = ({
           <div className="absolute top-[84%] left-0 z-10 mt-2 w-full border bg-white shadow-lg">
             {filteredSubCategories.map((subCategory) => (
               <div
-                key={subCategory.id}
+                key={subCategory._id}
                 className={`w-full cursor-pointer rounded-lg px-4 py-3 text-center transition duration-[600ms] hover:bg-gray-100 ${
                   selected === subCategory ? "font-bold" : ""
                 }`}

@@ -23,7 +23,7 @@ const noto = Noto_Sans({
 
 const Catalog = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
-  const { products, filterProducts, getAllProducts } = useCatalog();
+  const { products, loading, error, filterProducts, getAllProducts } = useCatalog();
 
   const scrollPrev = useCallback(() => {
     if (emblaApi) emblaApi.scrollPrev();
@@ -49,7 +49,12 @@ const Catalog = () => {
           </p>
         </div>
         <CategoryList filterProducts={filterProducts} getAllProducts={getAllProducts} />
-        {products.length > 0 ? (
+
+        {loading ? (
+          <div className="mt-5 text-center text-lg text-gray-600">Завантаження продуктів...</div>
+        ) : error ? (
+          <div className="mt-5 text-center text-lg text-red-600">{error}</div>
+        ) : products.length > 0 ? (
           <>
             <div className="mt-[20px] overflow-x-hidden" ref={emblaRef}>
               <ProductList products={products} />
@@ -73,7 +78,7 @@ const Catalog = () => {
           </>
         ) : (
           <div className="mt-5 text-center text-lg text-gray-600">
-            No products found for this category.
+            Продукти для цієї категорії не знайдено.
           </div>
         )}
       </div>

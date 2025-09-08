@@ -11,7 +11,7 @@ const noto = Noto_Sans({
 const CertificateItem = ({ certificate }: { certificate: CertificateType }) => {
   return (
     <div
-      className={`${noto.className} min-h-[500px] w-full max-w-[320px] rounded-xl border border-black sm:min-h-[550px] sm:max-w-[360px] md:min-h-[660px] md:max-w-[400px]`}
+      className={`${noto.className} min-h-[500px] w-full max-w-[320px] rounded-xl border border-black sm:min-h-[550px] sm:max-w-[360px] md:min-h-[660px] md:max-w-[400px] 2xl:max-w-[480px]`}
     >
       <div className="flex h-[250px] w-full items-center justify-center rounded-t-xl bg-[url('/images/certificates/background.png')] bg-cover bg-center bg-no-repeat sm:h-[280px] md:h-[322px]">
         <img

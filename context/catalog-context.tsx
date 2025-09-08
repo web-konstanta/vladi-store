@@ -1,11 +1,21 @@
 "use client";
 
 import { Product } from "@/lib/types";
-import React, { createContext, useContext, useState, ReactNode } from "react";
+import { getAllProducts } from "@/lib/sanity-queries";
+import React, {
+  createContext,
+  useContext,
+  useState,
+  ReactNode,
+  useCallback,
+  useEffect
+} from "react";
 
 interface CatalogContextType {
   products: Product[];
   allProducts: Product[];
+  loading: boolean;
+  error: string | null;
   filterProducts: (subCategoryId: string) => void;
   getAllProducts: () => void;
 }
@@ -13,80 +23,56 @@ interface CatalogContextType {
 const CatalogContext = createContext<CatalogContextType | undefined>(undefined);
 
 export const CatalogProvider = ({ children }: { children: ReactNode }) => {
-  const [allProducts] = useState<Product[]>([
-    {
-      id: "1",
-      title: "Elf",
-      description: `М'який і легкий плед зі 100% кашеміру нейтрального бежевого відтінку.`,
-      image: "/images/product/ELF.png",
-      subCategoryId: "1"
-    },
-    {
-      id: "2",
-      title: "Toskana",
-      description: `М'який і легкий плед зі 100% кашеміру нейтрального бежевого відтінку.`,
-      image: "/images/product/TOSCANA.png",
-      subCategoryId: "1"
-    },
-    {
-      id: "3",
-      title: "Miami",
-      description: `М'який і легкий плед зі 100% кашеміру нейтрального бежевого відтінку.`,
-      image: "/images/product/MIAMI.png",
-      subCategoryId: "1"
-    },
-    {
-      id: "4",
-      title: "Modena",
-      description: `М'який і легкий плед зі 100% кашеміру нейтрального бежевого відтінку.`,
-      image: "/images/product/MODENA.png",
-      subCategoryId: "2"
-    },
-    {
-      id: "5",
-      title: "Marcel",
-      description: `М'який і легкий плед зі 100% кашеміру нейтрального бежевого відтінку.`,
-      image: "/images/product/MARSEL.png",
-      subCategoryId: "2"
-    },
-    {
-      id: "6",
-      title: "Ontario",
-      description: `М'який і легкий плед зі 100% кашеміру нейтрального бежевого відтінку.`,
-      image: "/images/product/ONTARIO.png",
-      subCategoryId: "3"
-    },
-    {
-      id: "7",
-      title: "Oslo",
-      description: `М'який і легкий плед зі 100% кашеміру нейтрального бежевого відтінку.`,
-      image: "/images/product/OSLO.png",
-      subCategoryId: "1"
-    },
-    {
-      id: "8",
-      title: "Valencia",
-      description: `М'який і легкий плед зі 100% кашеміру нейтрального бежевого відтінку.`,
-      image: "/images/product/VALENCIA.png",
-      subCategoryId: "1"
-    }
-  ]);
+  const [allProducts, setAllProducts] = useState<Product[]>([]);
+  const [products, setProducts] = useState<Product[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-  const [products, setProducts] = useState<Product[]>(allProducts);
+  // Load products from Sanity on component mount
+  useEffect(() => {
+    const loadProducts = async () => {
+      try {
+        setLoading(true);
+        setError(null);
+        const productsData = await getAllProducts();
+        setAllProducts(productsData);
+        setProducts(productsData);
+      } catch (err) {
+        console.error("Error loading products:", err);
+        setError("Помилка завантаження продуктів");
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  const getAllProducts = () => {
+    loadProducts();
+  }, []);
+
+  const getAllProductsHandler = useCallback(() => {
     setProducts(allProducts);
-  };
+  }, [allProducts]);
 
-  const filterProducts = (subCategoryId: string) => {
-    const filteredProducts = allProducts.filter(
-      (product) => product.subCategoryId === subCategoryId
-    );
-    setProducts(filteredProducts);
-  };
+  const filterProducts = useCallback(
+    (subCategoryId: string) => {
+      const filteredProducts = allProducts.filter(
+        (product) => product.subCategoryId === subCategoryId
+      );
+      setProducts(filteredProducts);
+    },
+    [allProducts]
+  );
 
   return (
-    <CatalogContext.Provider value={{ products, allProducts, filterProducts, getAllProducts }}>
+    <CatalogContext.Provider
+      value={{
+        products,
+        allProducts,
+        loading,
+        error,
+        filterProducts,
+        getAllProducts: getAllProductsHandler
+      }}
+    >
       {children}
     </CatalogContext.Provider>
   );
