@@ -66,7 +66,7 @@ const About = () => {
       </p>
 
       <div className="overflow-x-hidden" ref={emblaRef}>
-        <div className="flex gap-4 pr-4 pl-4 sm:gap-6 sm:pr-6 sm:pl-6">
+        <div className="flex justify-center gap-4 pr-4 pl-4 sm:gap-6 sm:pr-6 sm:pl-6">
           {certificates.map((certificate, index) => (
             <div
               key={`certificate-${index}-${certificate.title}`}
