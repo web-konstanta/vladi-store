@@ -5,7 +5,7 @@ import React from "react";
 
 const ProductItem = ({ product }: { product: Product }) => {
   return (
-    <div className="flex min-h-[567px] w-[312px] flex-col justify-between rounded-lg border border-[#797979] bg-white">
+    <div className="flex min-h-[623px] w-[312px] flex-col justify-between rounded-lg border border-[#797979] bg-white">
       <div>
         <div className="flex h-[356px] items-center justify-center">
           <Image
