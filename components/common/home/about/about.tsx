@@ -1,7 +1,10 @@
+"use client";
+
 import React from "react";
 import { Noto_Sans, Playfair_Display } from "next/font/google";
 import { CertificateType } from "@/lib/types";
 import Image from "next/image";
+import useEmblaCarousel from "embla-carousel-react";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -43,6 +46,12 @@ const certificates: CertificateType[] = [
 ];
 
 const About = () => {
+  const [emblaRef] = useEmblaCarousel({
+    loop: true,
+    align: "center",
+    containScroll: "trimSnaps"
+  });
+
   return (
     <div className="mx-auto w-full" id="about">
       <h1
@@ -56,9 +65,9 @@ const About = () => {
         Дізнайтеся більше про нашу компанію
       </p>
 
-      <div className="relative overflow-hidden">
-        <div className="animate-about-slider flex gap-4 sm:gap-6">
-          {[...certificates, ...certificates, ...certificates].map((certificate, index) => (
+      <div className="overflow-x-hidden" ref={emblaRef}>
+        <div className="flex gap-4 pr-4 pl-4 sm:gap-6 sm:pr-6 sm:pl-6">
+          {certificates.map((certificate, index) => (
             <div
               key={`certificate-${index}-${certificate.title}`}
               className="w-[280px] flex-shrink-0 sm:w-[400px] lg:w-[424px]"

@@ -22,7 +22,7 @@ const ServiceItem = ({
 
   return (
     <div
-      className={`${noto.className} relative max-h-[290px] max-w-[424px] cursor-pointer overflow-hidden rounded-lg border border-black bg-white p-[32px] transition duration-600`}
+      className={`${noto.className} relative max-h-[310px] max-w-[424px] cursor-pointer overflow-hidden rounded-lg border border-black bg-white p-[32px] transition duration-600`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
