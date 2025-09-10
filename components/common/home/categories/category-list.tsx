@@ -10,6 +10,7 @@ const categories: Category[] = [
     _id: "1",
     _type: "category",
     title: "VALENCIA",
+    titleEn: "VALENCIA",
     image: "/images/product/valencia.png",
     _createdAt: new Date().toISOString(),
     _updatedAt: new Date().toISOString()
@@ -18,6 +19,7 @@ const categories: Category[] = [
     _id: "2",
     _type: "category",
     title: "MARCEL",
+    titleEn: "MARCEL",
     image: "/images/product/marcel.png",
     _createdAt: new Date().toISOString(),
     _updatedAt: new Date().toISOString()
@@ -26,6 +28,7 @@ const categories: Category[] = [
     _id: "3",
     _type: "category",
     title: "MODENA",
+    titleEn: "MODENA",
     image: "/images/product/modena.png",
     _createdAt: new Date().toISOString(),
     _updatedAt: new Date().toISOString()
@@ -34,6 +37,7 @@ const categories: Category[] = [
     _id: "4",
     _type: "category",
     title: "ONTARIO",
+    titleEn: "ONTARIO",
     image: "/images/product/ontario.png",
     _createdAt: new Date().toISOString(),
     _updatedAt: new Date().toISOString()
@@ -42,6 +46,7 @@ const categories: Category[] = [
     _id: "5",
     _type: "category",
     title: "VALENCIA",
+    titleEn: "VALENCIA",
     image: "/images/product/valencia.png",
     _createdAt: new Date().toISOString(),
     _updatedAt: new Date().toISOString()
@@ -50,6 +55,7 @@ const categories: Category[] = [
     _id: "6",
     _type: "category",
     title: "MARCEL",
+    titleEn: "MARCEL",
     image: "/images/product/marcel.png",
     _createdAt: new Date().toISOString(),
     _updatedAt: new Date().toISOString()
@@ -58,6 +64,7 @@ const categories: Category[] = [
     _id: "7",
     _type: "category",
     title: "MODENA",
+    titleEn: "MODENA",
     image: "/images/product/modena.png",
     _createdAt: new Date().toISOString(),
     _updatedAt: new Date().toISOString()
@@ -66,6 +73,7 @@ const categories: Category[] = [
     _id: "8",
     _type: "category",
     title: "ONTARIO",
+    titleEn: "ONTARIO",
     image: "/images/product/ontario.png",
     _createdAt: new Date().toISOString(),
     _updatedAt: new Date().toISOString()
