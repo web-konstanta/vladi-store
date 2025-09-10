@@ -35,7 +35,7 @@ const Catalog = () => {
 
   return (
     <div className="mt-[120px] bg-white py-8" id="products">
-      <div className="mx-auto max-w-[1320px]">
+      <div>
         <div className="mb-6">
           <h2
             className={`${playfair.className} mb-2 text-center font-serif text-[40px] tracking-tight md:text-[68px]`}
