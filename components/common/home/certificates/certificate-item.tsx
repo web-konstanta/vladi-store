@@ -13,11 +13,11 @@ const CertificateItem = ({ certificate }: { certificate: CertificateType }) => {
     <div
       className={`${noto.className} w-full max-w-[320px] rounded-xl border border-black sm:max-w-[360px] md:max-w-[400px] 2xl:max-w-[480px]`}
     >
-      <div className="flex h-[250px] w-[480px] items-center justify-center rounded-t-xl bg-[url('/images/certificates/background.png')] bg-cover bg-center bg-no-repeat sm:h-[280px] md:h-[322px]">
+      <div className="flex h-[200px] w-[300px] items-center justify-center rounded-xl bg-[url('/images/certificates/background.png')] bg-cover bg-center bg-no-repeat sm:h-[280px] md:h-[322px] 2xl:w-[480px]">
         <img
           src={certificate.image}
           alt={certificate.title}
-          className="max-h-[200px] max-w-[280px] object-contain sm:max-h-[240px] sm:max-w-[320px] md:max-h-[280px] md:max-w-[380px]"
+          className="max-h-[150px] max-w-[220px] object-contain sm:max-h-[240px] sm:max-w-[320px] md:max-h-[280px] md:max-w-[380px]"
         />
       </div>
       {/* <div className="group relative mt-1 px-7 py-4">
