@@ -4,6 +4,7 @@ import React from "react";
 import ServiceItem from "./service-item";
 import { Noto_Sans, Playfair_Display } from "next/font/google";
 import Image from "next/image";
+import { useTranslation } from "@/context/translation-context";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -17,34 +18,33 @@ const noto = Noto_Sans({
   variable: "--font-noto"
 });
 
-const services = [
+const getServices = (t: (key: string) => string) => [
   {
     id: 1,
-    title: "Індивідуальний дизайн виробів",
-    description:
-      "Ми виготовляємо вироби відповідно до ваших побажань та технічних вимог. Однотонні, в клітинку, з жакардовими візерунками."
+    title: t("services.individual_design"),
+    description: t("services.individual_design_description")
   },
   {
     id: 2,
-    title: "Брендована упаковка для вашої продукції",
-    description:
-      "Розробляємо та виготовляємо персоналізовану упаковку відповідно до вашого дизайну. Підкресліть унікальність вашого бренду!"
+    title: t("services.branded_packaging"),
+    description: t("services.branded_packaging_description")
   },
   {
     id: 3,
-    title: "Виробництво пряжі",
-    description:
-      "Пропонуємо професійне виготовлення пряжі високої якості для різноманітних потреб текстильного виробництва."
+    title: t("services.yarn_production"),
+    description: t("services.yarn_production_description")
   },
   {
     id: 4,
-    title: "Виробництво нетканого полотна",
-    description:
-      "Здійснюємо виробництво нетканих матеріалів, зокрема синтепону, для використання в різних галузях промисловості."
+    title: t("services.nonwoven_production"),
+    description: t("services.nonwoven_production_description")
   }
 ];
 
 const ServiceList = () => {
+  const { t } = useTranslation();
+  const services = getServices(t);
+
   return (
     <div
       className="mt-[120px] bg-[#E8E2DB] bg-[url('/images/waves.png')] bg-cover bg-center bg-no-repeat py-[64px]"
@@ -57,15 +57,15 @@ const ServiceList = () => {
               <h2
                 className={`${playfair.className} text-center text-[40px] leading-[54px] md:text-[68px] md:leading-[74px] lg:text-left`}
               >
-                VLADI ПОСЛУГИ
+                {t("services.title")}
               </h2>
               <div
                 className={`${noto.className} mt-[24px] text-center text-[18px] leading-[27px] text-gray-700 opacity-55 lg:text-left`}
               >
-                Ми надаємо найякісніші послуги на ринку
+                {t("services.subtitle")}
               </div>
             </div>
-            <div className="mt-auto flex hidden justify-center opacity-40 md:block lg:justify-start">
+            <div className="mt-auto hidden justify-center opacity-40 md:flex lg:justify-start">
               <Image
                 src="/images/home-logo.png"
                 alt="VLADI Logo"

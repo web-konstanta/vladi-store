@@ -6,6 +6,7 @@ import ScrollToTop from "../../ui/scroll-to-top/scroll-to-top";
 import Image from "next/image";
 import Link from "next/link";
 import { Noto_Sans } from "next/font/google";
+import { useTranslation } from "@/context/translation-context";
 
 const noto = Noto_Sans({
   subsets: ["latin"],
@@ -16,11 +17,7 @@ const noto = Noto_Sans({
 const Header = () => {
   const [showModal, setShowModal] = useState(false);
   const [open, setOpen] = useState(false);
-  const [locale, setLocale] = useState<"ua" | "en">("ua");
-
-  const toggleLocale = () => {
-    setLocale((prev) => (prev === "ua" ? "en" : "ua"));
-  };
+  const { locale, toggleLocale, t } = useTranslation();
 
   return (
     <header className={`${noto.className} fixed top-0 right-0 left-0 z-50 bg-white shadow-md`}>
@@ -55,13 +52,13 @@ const Header = () => {
 
         <nav className="hidden items-center gap-[40px] md:flex">
           <a href="#about" className="px-2 py-1 text-base">
-            {locale === "ua" ? "Про компанію" : "About company"}
+            {t("header.about")}
           </a>
           <a href="#services" className="px-2 py-1 text-base">
-            {locale === "ua" ? "Послуги" : "Services"}
+            {t("header.services")}
           </a>
           <a href="#products" className="px-2 py-1 text-base">
-            {locale === "ua" ? "Каталог" : "Catalog"}
+            {t("header.catalog")}
           </a>
         </nav>
 
@@ -83,7 +80,7 @@ const Header = () => {
             onClick={() => setShowModal(true)}
             className="h-[46px] w-[180px] cursor-pointer rounded-[6px] border border-black text-base text-black transition duration-[600ms] hover:bg-[#27241F] hover:text-white"
           >
-            {locale === "ua" ? "Зв'язатися" : "Contact"}
+            {t("header.contact")}
           </button>
         </div>
       </div>
@@ -96,13 +93,13 @@ const Header = () => {
         <div className="px-4 pb-4">
           <nav className="flex flex-col gap-2">
             <a href="#about" className="px-2 py-1 text-base font-semibold">
-              {locale === "ua" ? "Про компанію" : "About company"}
+              {t("header.about")}
             </a>
             <a href="#services" className="px-2 py-1 text-base font-semibold">
-              {locale === "ua" ? "Послуги" : "Services"}
+              {t("header.services")}
             </a>
             <a href="#products" className="px-2 py-1 text-base font-semibold">
-              {locale === "ua" ? "Каталог" : "Catalog"}
+              {t("header.catalog")}
             </a>
             <div className="mt-2 flex items-center justify-between">
               <button className="flex cursor-pointer items-center gap-1" onClick={toggleLocale}>
@@ -118,7 +115,7 @@ const Header = () => {
                 onClick={() => setShowModal(true)}
                 className="cursor-pointer rounded-xl bg-[#333231] px-6 py-2 text-white"
               >
-                {locale === "ua" ? "Зв'язатися" : "Contact"}
+                {t("header.contact")}
               </button>
             </div>
           </nav>

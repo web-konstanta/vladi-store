@@ -19,6 +19,13 @@ export default defineType({
       validation: (Rule) => Rule.required()
     }),
     defineField({
+      name: "descriptionEn",
+      title: "Описание (English)",
+      type: "text",
+      rows: 4,
+      validation: (Rule) => Rule.required()
+    }),
+    defineField({
       name: "image",
       title: "Изображение",
       type: "image",
@@ -35,6 +42,13 @@ export default defineType({
       validation: (Rule) => Rule.required().min(1)
     }),
     defineField({
+      name: "compositionEn",
+      title: "Состав (English)",
+      type: "array",
+      of: [{ type: "string" }],
+      validation: (Rule) => Rule.required().min(1)
+    }),
+    defineField({
       name: "sizes",
       title: "Доступные размеры",
       type: "array",
@@ -44,6 +58,12 @@ export default defineType({
     defineField({
       name: "weight",
       title: "Вес",
+      type: "string",
+      validation: (Rule) => Rule.required()
+    }),
+    defineField({
+      name: "weightEn",
+      title: "Вес (English)",
       type: "string",
       validation: (Rule) => Rule.required()
     }),

@@ -1,16 +1,19 @@
 "use client";
 
-import { Product } from "@/lib/types";
+import { Product, getTranslatedText } from "@/lib/types";
 import { getProductImageUrl } from "@/lib/image-utils";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { useTranslation } from "@/context/translation-context";
 
 interface ProductCardProps {
   product: Product;
 }
 
 const ProductCard = ({ product }: ProductCardProps) => {
+  const { locale } = useTranslation();
+
   return (
     <Link href={`/catalog/${product._id}`}>
       <div className="flex min-h-[380px] w-full flex-col justify-between rounded-lg border border-[#797979] bg-white sm:min-h-[430px] lg:min-h-[490px]">
@@ -18,7 +21,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
           <div className="relative h-[250px] w-full sm:h-[300px] lg:h-[356px]">
             <Image
               src={getProductImageUrl(product, 312, 356)}
-              alt={product.title}
+              alt={getTranslatedText(product.title, product.titleEn, locale)}
               layout="fill"
               objectFit="cover"
               className="rounded-t-lg"
@@ -35,9 +38,9 @@ const ProductCard = ({ product }: ProductCardProps) => {
                 overflow: "hidden",
                 textOverflow: "ellipsis"
               }}
-              title={product.description}
+              title={getTranslatedText(product.description, product.descriptionEn, locale)}
             >
-              {product.description}
+              {getTranslatedText(product.description, product.descriptionEn, locale)}
             </p>
           </div>
         </div>
