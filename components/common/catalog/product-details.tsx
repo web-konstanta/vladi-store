@@ -8,7 +8,8 @@ import { useCatalog } from "@/context/catalog-context";
 import ProductCard from "./product-card";
 import { getProductVariantImageUrl } from "@/lib/image-utils";
 import { CategoryService } from "@/lib/category-service";
-import { SubCategory } from "@/lib/types";
+import { SubCategory, getTranslatedText, getTranslatedArray } from "@/lib/types";
+import { useTranslation } from "@/context/translation-context";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -22,6 +23,7 @@ interface CatalogContentProps {
 
 const ProductDetails = ({ productId }: CatalogContentProps) => {
   const { allProducts } = useCatalog();
+  const { t, locale } = useTranslation();
   const [subCategories, setSubCategories] = useState<SubCategory[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -52,7 +54,7 @@ const ProductDetails = ({ productId }: CatalogContentProps) => {
     return (
       <div className="mx-auto w-full max-w-[1320px]">
         <div className="py-8 text-center">
-          <div className="text-gray-600">Завантаження...</div>
+          <div className="text-gray-600">{t("product.loading")}</div>
         </div>
       </div>
     );
@@ -62,7 +64,7 @@ const ProductDetails = ({ productId }: CatalogContentProps) => {
     return (
       <div className="mx-auto w-full max-w-[1320px]">
         <div className="py-8 text-center">
-          <div className="text-red-600">Продукт не знайдено.</div>
+          <div className="text-red-600">{t("product.product_not_found")}</div>
         </div>
       </div>
     );
@@ -72,43 +74,59 @@ const ProductDetails = ({ productId }: CatalogContentProps) => {
     <div className="mx-auto w-full max-w-[1320px]">
       <div>
         <div className="rounded-lg border border-black bg-white p-[20px] sm:p-6 md:p-4 lg:p-[48px]">
-          <div className="flex max-w-[300px] flex-wrap justify-start gap-1 text-sm text-[#9D978D] sm:text-base">
-            <Link href="/">
-              <span className="opacity-50 hover:underline">Головна</span>
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div className="flex max-w-[300px] flex-wrap justify-start gap-1 text-sm text-[#9D978D] sm:text-base">
+              <Link href="/">
+                <span className="opacity-50 hover:underline">{t("product.home")}</span>
+              </Link>
+              <span className="opacity-50">/</span>
+              <span className="text-[#27241F]">{product?.title || t("product.product")}</span>
+            </div>
+            <Link
+              href="/#products"
+              className="inline-flex h-[50px] w-[173px] items-center justify-center rounded-lg border border-black bg-white text-sm font-medium text-black transition duration-[600ms] hover:bg-[#27241F] hover:text-white sm:h-12 sm:text-base"
+            >
+              {t("header.back_to_catalog")}
             </Link>
-            <span className="opacity-50">/</span>
-            <span className="text-[#27241F]">{product?.title || "Продукт"}</span>
           </div>
 
           <div
             className={`${playfair.className} mt-[14px] mb-4 text-[36px] tracking-tight text-[#27241F] uppercase sm:text-4xl md:mt-4 md:text-5xl lg:text-[68px]`}
           >
-            {product?.title || "Продукт"}
+            {product?.title || t("product.product")}
           </div>
           <p className="max-w-[984px] text-base leading-[28px] sm:text-lg">
-            {product?.description}
+            {product ? getTranslatedText(product.description, product.descriptionEn, locale) : ""}
           </p>
           <div className="mt-5 flex max-w-[800px] flex-col justify-between gap-4 sm:flex-row sm:gap-0">
             <div>
-              <h3 className="text-sm font-bold sm:text-base">Розмір</h3>
+              <h3 className="text-sm font-bold sm:text-base">{t("product.size")}</h3>
               <ul className="mt-[8px] list-disc pl-5 text-sm sm:text-base">
-                {product?.sizes.map((item) => <li key={item}>{item}</li>)}
+                {product?.sizes?.map((item) => <li key={item}>{item}</li>)}
               </ul>
             </div>
             <div>
-              <h3 className="text-sm font-bold sm:text-base">Склад виробу</h3>
+              <h3 className="text-sm font-bold sm:text-base">{t("product.composition")}</h3>
               <ul className="mt-[8px] list-disc pl-5 text-sm sm:text-base">
-                {product?.composition.map((item) => <li key={item}>{item}</li>)}
+                {product && product.composition && product.compositionEn
+                  ? getTranslatedArray(product.composition, product.compositionEn, locale).map(
+                      (item) => <li key={item}>{item}</li>
+                    )
+                  : null}
               </ul>
             </div>
             <div>
-              <h3 className="text-sm font-bold sm:text-base">Вага</h3>
+              <h3 className="text-sm font-bold sm:text-base">{t("product.weight")}</h3>
               <ul className="mt-[8px] list-disc pl-5 text-sm sm:text-base">
-                <li className="mt-[4px]">{product?.weight}</li>
+                <li className="mt-[4px]">
+                  {product && product.weight && product.weightEn
+                    ? getTranslatedText(product.weight, product.weightEn, locale)
+                    : product?.weight || ""}
+                </li>
               </ul>
             </div>
             {/* <div>
-              <h3 className="text-sm font-bold sm:text-base">Догляд</h3>
+              <h3 className="text-sm font-bold sm:text-base">{t("product.care")}</h3>
               <ul className="mt-[8px] flex list-none text-sm sm:text-base">
                 <li className="mt-[4px]">
                   <Image src="/frames/methods.png" alt="Methods" width={260} height={34} />
@@ -120,15 +138,15 @@ const ProductDetails = ({ productId }: CatalogContentProps) => {
         <div className="mt-6 sm:mt-8 lg:mt-10">
           <div className="mt-5 grid grid-cols-1 gap-4 pb-8 sm:grid-cols-2 sm:gap-6 sm:pb-12 lg:grid-cols-3 xl:grid-cols-4">
             {product?.products && product.products.length > 0 ? (
-              product.products.map((product) => (
+              product.products.map((productVariant) => (
                 <div
-                  key={product.title}
+                  key={productVariant.title}
                   className="flex h-[420px] w-full flex-col overflow-hidden rounded-lg border border-black bg-white sm:h-[380px] lg:h-[426px]"
                 >
                   <div className="relative h-[320px] w-full sm:h-[300px] lg:h-[356px]">
                     <Magnifier
-                      src={getProductVariantImageUrl(product)}
-                      alt={product.title}
+                      src={getProductVariantImageUrl(productVariant)}
+                      alt={productVariant.title}
                       width={312}
                       height={356}
                     />
@@ -136,7 +154,7 @@ const ProductDetails = ({ productId }: CatalogContentProps) => {
                   <div className="flex h-[100px] flex-col justify-center sm:h-auto sm:flex-1">
                     <div>
                       <h3 className="m-3 text-center text-lg text-[#27241F] sm:m-4 sm:text-xl lg:m-5 lg:text-2xl">
-                        {product.title}
+                        {productVariant.title}
                       </h3>
                     </div>
                   </div>
@@ -144,7 +162,7 @@ const ProductDetails = ({ productId }: CatalogContentProps) => {
               ))
             ) : (
               <div className="col-span-full mt-5 text-center text-lg text-gray-600">
-                Товари не знайдені.
+                {t("product.products_not_found")}
               </div>
             )}
           </div>
@@ -155,14 +173,14 @@ const ProductDetails = ({ productId }: CatalogContentProps) => {
         <h1
           className={`${playfair.className} text-3xl uppercase sm:text-4xl md:text-5xl lg:text-[68px]`}
         >
-          Вас можуть зацікавити
+          {t("product.you_may_like")}
         </h1>
         <div className="mt-5 grid grid-cols-1 gap-4 pb-8 sm:grid-cols-2 sm:gap-6 sm:pb-12 lg:grid-cols-3 xl:grid-cols-4">
           {additionalProducts.length > 0 ? (
             additionalProducts.map((product) => <ProductCard key={product._id} product={product} />)
           ) : (
             <div className="col-span-full mt-5 text-center text-lg text-gray-600">
-              Товари не знайдені.
+              {t("product.products_not_found")}
             </div>
           )}
         </div>

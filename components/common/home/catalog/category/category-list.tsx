@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import CategoryItem from "./category-item";
 import { Category, SubCategory } from "@/lib/types";
 import { CategoryService } from "@/lib/category-service";
+import { useTranslation } from "@/context/translation-context";
 
 const CategoryList = ({
   filterProducts,
@@ -10,6 +11,7 @@ const CategoryList = ({
   filterProducts: (categoryId: string) => void;
   getAllProducts: () => void;
 }) => {
+  const { t } = useTranslation();
   const [open, setOpen] = useState(false);
   const [categories, setCategories] = useState<Category[]>([]);
   const [subCategories, setSubCategories] = useState<SubCategory[]>([]);
@@ -32,7 +34,7 @@ const CategoryList = ({
         setSubCategories(subCategoriesData);
       } catch (err) {
         console.error("Error loading categories:", err);
-        setError("Помилка завантаження категорій");
+        setError(t("common.categories_error"));
       } finally {
         setLoading(false);
       }
@@ -57,7 +59,7 @@ const CategoryList = ({
     return (
       <div className="m-auto flex flex-wrap justify-center lg:w-full 2xl:justify-between">
         <div className="flex w-full items-center justify-center py-8">
-          <div className="text-gray-600">Завантаження категорій...</div>
+          <div className="text-gray-600">{t("common.categories_loading")}</div>
         </div>
       </div>
     );
@@ -67,7 +69,7 @@ const CategoryList = ({
     return (
       <div className="m-auto flex flex-wrap justify-center lg:w-full 2xl:justify-between">
         <div className="flex w-full items-center justify-center py-8">
-          <div className="text-red-600">{error}</div>
+          <div className="text-red-600">{t("common.categories_error")}</div>
         </div>
       </div>
     );
@@ -87,7 +89,7 @@ const CategoryList = ({
             getAllProducts();
           }}
         >
-          Всі категорії
+          {t("common.all_categories")}
         </button>
       </div>
 

@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "@/context/translation-context";
 
 interface ErrorMessageProps {
   message: string;
@@ -7,6 +8,8 @@ interface ErrorMessageProps {
 }
 
 export const ErrorMessage: React.FC<ErrorMessageProps> = ({ message, onRetry, className = "" }) => {
+  const { t } = useTranslation();
+
   return (
     <div className={`flex flex-col items-center justify-center p-8 text-center ${className}`}>
       <div className="mb-4">
@@ -25,7 +28,7 @@ export const ErrorMessage: React.FC<ErrorMessageProps> = ({ message, onRetry, cl
         </svg>
       </div>
 
-      <h3 className="mb-2 text-lg font-semibold text-gray-900">Произошла ошибка</h3>
+      <h3 className="mb-2 text-lg font-semibold text-gray-900">{t("common.error_occurred")}</h3>
 
       <p className="mb-4 max-w-md text-gray-600">{message}</p>
 
@@ -34,7 +37,7 @@ export const ErrorMessage: React.FC<ErrorMessageProps> = ({ message, onRetry, cl
           onClick={onRetry}
           className="rounded-lg bg-blue-600 px-4 py-2 text-white transition-colors hover:bg-blue-700"
         >
-          Попробовать снова
+          {t("common.try_again")}
         </button>
       )}
     </div>

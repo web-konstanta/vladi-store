@@ -39,7 +39,7 @@ export const CatalogProvider = ({ children }: { children: ReactNode }) => {
         setProducts(productsData);
       } catch (err) {
         console.error("Error loading products:", err);
-        setError("Помилка завантаження продуктів");
+        setError("Error loading products");
       } finally {
         setLoading(false);
       }

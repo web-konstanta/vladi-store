@@ -39,6 +39,12 @@ export default defineType({
       validation: (Rule) => Rule.required().max(100)
     }),
     defineField({
+      name: "titleEn",
+      title: "Название (English)",
+      type: "string",
+      validation: (Rule) => Rule.required().max(100)
+    }),
+    defineField({
       name: "categoryId",
       title: "ID категории",
       type: "string",
@@ -48,12 +54,13 @@ export default defineType({
   preview: {
     select: {
       title: "title",
+      titleEn: "titleEn",
       _id: "_id"
     },
     prepare(selection) {
-      const { title } = selection;
+      const { title, titleEn } = selection;
       return {
-        title: title || "Без названия",
+        title: title || titleEn || "Без названия",
         subtitle: `ID: ${selection._id || "Не определен"}`
       };
     }

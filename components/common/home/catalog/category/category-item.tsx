@@ -1,4 +1,5 @@
-import { Category, SubCategory } from "@/lib/types";
+import { Category, SubCategory, getTranslatedText } from "@/lib/types";
+import { useTranslation } from "@/context/translation-context";
 import React, { useState, useRef, useEffect } from "react";
 
 const CategoryItem = ({
@@ -10,6 +11,7 @@ const CategoryItem = ({
   subCategories: SubCategory[];
   filterProducts: (categoryId: string) => void;
 }) => {
+  const { locale } = useTranslation();
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState<SubCategory | null>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -48,7 +50,7 @@ const CategoryItem = ({
           }`}
           onClick={() => setOpen((v) => !v)}
         >
-          {category.title}
+          {getTranslatedText(category.title, category.titleEn, locale)}
         </button>
         {open && (
           <div className="absolute top-[84%] left-0 z-10 mt-2 w-full border bg-white shadow-lg">
@@ -63,7 +65,7 @@ const CategoryItem = ({
                   setOpen(false);
                 }}
               >
-                {subCategory.title}
+                {getTranslatedText(subCategory.title, subCategory.titleEn, locale)}
               </div>
             ))}
           </div>

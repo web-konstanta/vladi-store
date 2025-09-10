@@ -5,9 +5,7 @@ import Link from "next/link";
 
 const ProductList = ({ products }: { products: Product[] }) => {
   return (
-    <div
-      className={`scrollbar-hide flex gap-4 pr-4 pl-4 ${products.length === 1 ? "justify-center sm:justify-start" : ""}`}
-    >
+    <div className="scrollbar-hide flex gap-4 pr-4 pl-4 sm:justify-center">
       {products.map((product) => (
         <Link
           href={`/catalog/${product._id}`}

@@ -6,6 +6,7 @@ import ProductList from "./product/product-list";
 import CategoryList from "./category/category-list";
 import { Noto_Sans, Playfair_Display } from "next/font/google";
 import { useCatalog } from "@/context/catalog-context";
+import { useTranslation } from "@/context/translation-context";
 import SlideLeft from "@/components/icons/slide-left";
 import SlideRight from "@/components/icons/slide-right";
 
@@ -24,6 +25,7 @@ const noto = Noto_Sans({
 const Catalog = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
   const { products, loading, error, filterProducts, getAllProducts } = useCatalog();
+  const { t } = useTranslation();
 
   const scrollPrev = useCallback(() => {
     if (emblaApi) emblaApi.scrollPrev();
@@ -40,20 +42,22 @@ const Catalog = () => {
           <h2
             className={`${playfair.className} mb-2 text-center font-serif text-[40px] tracking-tight md:text-[68px]`}
           >
-            НАШ КАТАЛОГ
+            {t("catalog.title")}
           </h2>
           <p
             className={`${noto.className} mt-[24px] mb-[48px] text-center text-base text-gray-700 opacity-55`}
           >
-            Ми пропонуємо продукти, перевірені часом
+            {t("catalog.subtitle")}
           </p>
         </div>
         <CategoryList filterProducts={filterProducts} getAllProducts={getAllProducts} />
 
         {loading ? (
-          <div className="mt-5 text-center text-lg text-gray-600">Завантаження продуктів...</div>
+          <div className="mt-5 text-center text-lg text-gray-600">
+            {t("catalog.loading_products")}
+          </div>
         ) : error ? (
-          <div className="mt-5 text-center text-lg text-red-600">{error}</div>
+          <div className="mt-5 text-center text-lg text-red-600">{t("common.error")}</div>
         ) : products.length > 0 ? (
           <>
             <div className="mt-[20px] overflow-x-hidden" ref={emblaRef}>
@@ -78,7 +82,7 @@ const Catalog = () => {
           </>
         ) : (
           <div className="mt-5 text-center text-lg text-gray-600">
-            Продукти для цієї категорії не знайдено.
+            {t("catalog.no_products_found")}
           </div>
         )}
       </div>

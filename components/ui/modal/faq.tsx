@@ -3,6 +3,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Noto_Sans } from "next/font/google";
 import CloseFormIcon from "@/components/icons/close-form";
+import { useTranslation } from "@/context/translation-context";
 
 const noto = Noto_Sans({
   subsets: ["latin"],
@@ -17,6 +18,7 @@ interface FaqProps {
 
 const Faq: React.FC<FaqProps> = ({ isOpen, onClose }) => {
   const faqRef = useRef<HTMLDivElement>(null);
+  const { t } = useTranslation();
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -51,15 +53,15 @@ const Faq: React.FC<FaqProps> = ({ isOpen, onClose }) => {
       });
 
       if (res.ok) {
-        setStatus("Ваше повідомлення надіслано!");
+        setStatus(t("faq.success_message"));
         setName("");
         setEmail("");
         setMessage("");
       } else {
-        setStatus("Помилка при відправленні, спробуйте ще раз.");
+        setStatus(t("faq.error_message"));
       }
     } catch {
-      setStatus("Сервер недоступний.");
+      setStatus(t("faq.server_error"));
     } finally {
       setLoading(false);
     }
@@ -86,13 +88,16 @@ const Faq: React.FC<FaqProps> = ({ isOpen, onClose }) => {
         {/* Левая колонка */}
         <div className="flex w-full flex-col justify-between border-r-0 border-b bg-white p-4 sm:max-w-[252px] sm:border-r sm:border-b-0 sm:p-[35px]">
           <div>
-            <h2 className="mb-2 text-lg font-bold sm:mb-4 sm:text-2xl">Контакти</h2>
-            <p className="mb-1 text-xs sm:mb-2 sm:text-sm">+ 380 (067) 888 88 88</p>
+            <h2 className="mb-2 text-lg font-bold sm:mb-4 sm:text-2xl">{t("faq.contacts")}</h2>
+            <p className="mb-1 text-xs sm:mb-2 sm:text-sm">+ 380 (057) 743 56 97</p>
+            <p className="mb-1 text-xs sm:mb-2 sm:text-sm">+ 380 (067) 919 38 53</p>
           </div>
           <div>
-            <h3 className="mb-1 text-lg font-semibold sm:mb-2 sm:text-2xl">Адреса складу</h3>
-            <p className="mb-1 text-xs sm:mb-2 sm:text-sm">88888, Україна</p>
-            <p className="text-xs sm:text-sm">м. Харків, вул. Харківська</p>
+            <h3 className="mb-1 text-lg font-semibold sm:mb-2 sm:text-2xl">
+              {t("faq.warehouse_address")}
+            </h3>
+            <p className="mb-1 text-xs sm:mb-2 sm:text-sm">{t("faq.address_country")}</p>
+            <p className="text-xs sm:text-sm">{t("faq.address_city")}</p>
           </div>
         </div>
 
@@ -105,12 +110,14 @@ const Faq: React.FC<FaqProps> = ({ isOpen, onClose }) => {
             <CloseFormIcon />
           </button>
 
-          <h2 className="mb-3 text-lg font-bold sm:mb-[16px] sm:text-xl">Відправити запит</h2>
+          <h2 className="mb-3 text-lg font-bold sm:mb-[16px] sm:text-xl">
+            {t("faq.send_request")}
+          </h2>
           <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
             <div className="flex flex-col space-y-3 sm:space-y-4 md:flex-row md:space-y-0 md:space-x-4">
               <input
                 type="text"
-                placeholder="Ваше ім'я"
+                placeholder={t("faq.name_placeholder")}
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 required
@@ -118,7 +125,7 @@ const Faq: React.FC<FaqProps> = ({ isOpen, onClose }) => {
               />
               <input
                 type="email"
-                placeholder="E-Mail адреса"
+                placeholder={t("faq.email_placeholder")}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
@@ -127,7 +134,7 @@ const Faq: React.FC<FaqProps> = ({ isOpen, onClose }) => {
             </div>
             <textarea
               rows={4}
-              placeholder="Напишіть ваше запитання або пропозицію…"
+              placeholder={t("faq.message_placeholder")}
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               className="sm:rows-6 w-full rounded border px-3 py-2 text-sm sm:px-4 sm:py-3 sm:text-base"
@@ -137,7 +144,7 @@ const Faq: React.FC<FaqProps> = ({ isOpen, onClose }) => {
               disabled={loading}
               className="mt-1 h-[50px] w-full rounded border border-[#27241F] px-4 text-center text-sm hover:bg-gray-100 disabled:opacity-50 sm:h-[60px] sm:w-[400px] sm:text-base"
             >
-              {loading ? "Надсилається..." : "Надіслати"}
+              {loading ? t("faq.sending") : t("faq.send_button")}
             </button>
             {status && <p className="text-sm text-gray-600">{status}</p>}
           </form>

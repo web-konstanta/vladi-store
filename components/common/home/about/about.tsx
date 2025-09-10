@@ -5,6 +5,7 @@ import { Noto_Sans, Playfair_Display } from "next/font/google";
 import { CertificateType } from "@/lib/types";
 import Image from "next/image";
 import useEmblaCarousel from "embla-carousel-react";
+import { useTranslation } from "@/context/translation-context";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -18,40 +19,36 @@ const noto = Noto_Sans({
   variable: "--font-noto"
 });
 
-const certificates: CertificateType[] = [
+const getCertificates = (t: (key: string) => string): CertificateType[] => [
   {
-    title: "Компанія VLADI",
-    description:
-      "Один з провідних європейських виробників пледів і ковдр вищої якості. Компанія об'єднує традиційну текстильну майстерність з сучасними технологіями, щоб створювати вироби, що дарують тепло, комфорт і затишок щодня.",
+    title: t("about.company_vladi"),
+    description: t("about.company_description"),
     image: "/images/about/about-1.png"
   },
   {
-    title: "Якість, перевірена часом",
-    description:
-      "Наші вироби виготовляються з добірного кашеміру, мериноса, тонкої та надтонкої новозеландської вовни, бавовни. Наш асортимент включає покривала, стьобані та класичні ковдри, пледи з чистої вовни, напіввовни та бавовни.",
+    title: t("about.quality_tested"),
+    description: t("about.quality_description"),
     image: "/images/about/about-2.png"
   },
   {
-    title: "Широкий асортимент",
-    description:
-      "Продукція VLADI представлена в провідних торгових мережах по всій Україні, а також доступна через наших офіційних партнерів. В асортименті - покривала, стьобані та класичні ковдри, пледи з чистої вовни, напіввовни та бавовни.",
+    title: t("about.wide_range"),
+    description: t("about.wide_range_description"),
     image: "/images/about/about-3.png"
   },
   {
-    title: "Індивідуальні рішення",
-    description:
-      "Компанія VLADI пропонує корпоративним клієнтам та рекламним агенціям ексклюзивну продукцію для подарунків, промо-акцій та брендованих кампаній.",
+    title: t("about.individual_solutions"),
+    description: t("about.individual_description"),
     image: "/images/about/about-4.png"
   },
   {
-    title: "Де знайти нашу продукцію",
-    description:
-      "Продукція VLADI представлена в провідних торгових мережах по всій Україні, а також доступна через наших офіційних партнерів. В асортименті - покривала, стьобані та класичні ковдри, пледи з чистої вовни, напіввовни та бавовни.",
+    title: t("about.where_to_find"),
+    description: t("about.where_description"),
     image: "/images/about/about-5.png"
   }
 ];
 
 const About = () => {
+  const { t } = useTranslation();
   const [emblaRef] = useEmblaCarousel({
     loop: true,
     align: "center",
@@ -59,17 +56,19 @@ const About = () => {
     slidesToScroll: 1
   });
 
+  const certificates = getCertificates(t);
+
   return (
     <div className="mx-auto w-full" id="about">
       <h1
         className={`${playfair.className} mt-[120px] mb-2 text-center text-[40px] sm:text-[40px] md:mt-[120px] md:text-[48px] lg:text-[68px]`}
       >
-        ПРО КОМПАНІЮ
+        {t("about.title")}
       </h1>
       <p
         className={`${noto.className} mt-2 mb-15 text-center text-base text-gray-700 opacity-55 sm:text-[18px]`}
       >
-        Дізнайтеся більше про нашу компанію
+        {t("about.subtitle")}
       </p>
 
       <div className="overflow-x-hidden" ref={emblaRef}>
