@@ -136,7 +136,13 @@ const ProductDetails = ({ productId }: CatalogContentProps) => {
           </div>
         </div>
         <div className="mt-6 sm:mt-8 lg:mt-10">
-          <div className="mt-5 grid grid-cols-1 gap-4 pb-8 sm:grid-cols-2 sm:gap-6 sm:pb-12 lg:grid-cols-3 xl:grid-cols-4">
+          <div
+            className={`mt-5 grid gap-4 pb-8 sm:gap-6 sm:pb-12 ${
+              product?.products && product.products.length > 0 && product.products.length < 4
+                ? "grid-cols-1 justify-center sm:grid-cols-2 lg:grid-cols-3"
+                : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+            }`}
+          >
             {product?.products && product.products.length > 0 ? (
               product.products.map((productVariant) => (
                 <div
@@ -175,7 +181,13 @@ const ProductDetails = ({ productId }: CatalogContentProps) => {
         >
           {t("product.you_may_like")}
         </h1>
-        <div className="mt-5 grid grid-cols-1 gap-4 pb-8 sm:grid-cols-2 sm:gap-6 sm:pb-12 lg:grid-cols-3 xl:grid-cols-4">
+        <div
+          className={`mt-5 grid gap-4 pb-8 sm:gap-6 sm:pb-12 ${
+            additionalProducts.length > 0 && additionalProducts.length < 4
+              ? "grid-cols-1 justify-center sm:grid-cols-2 lg:grid-cols-3"
+              : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+          }`}
+        >
           {additionalProducts.length > 0 ? (
             additionalProducts.map((product) => <ProductCard key={product._id} product={product} />)
           ) : (
