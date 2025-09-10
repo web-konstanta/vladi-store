@@ -32,6 +32,12 @@ const certificates: CertificateType[] = [
     image: "/images/about/about-2.png"
   },
   {
+    title: "Широкий асортимент",
+    description:
+      "Продукція VLADI представлена в провідних торгових мережах по всій Україні, а також доступна через наших офіційних партнерів. В асортименті - покривала, стьобані та класичні ковдри, пледи з чистої вовни, напіввовни та бавовни.",
+    image: "/images/about/about-3.png"
+  },
+  {
     title: "Індивідуальні рішення",
     description:
       "Компанія VLADI пропонує корпоративним клієнтам та рекламним агенціям ексклюзивну продукцію для подарунків, промо-акцій та брендованих кампаній.",
@@ -49,7 +55,8 @@ const About = () => {
   const [emblaRef] = useEmblaCarousel({
     loop: true,
     align: "center",
-    containScroll: "trimSnaps"
+    containScroll: "trimSnaps",
+    slidesToScroll: 1
   });
 
   return (
@@ -66,7 +73,7 @@ const About = () => {
       </p>
 
       <div className="overflow-x-hidden" ref={emblaRef}>
-        <div className="flex justify-center gap-4 pr-4 pl-4 sm:gap-6 sm:pr-6 sm:pl-6">
+        <div className="flex gap-4 pr-4 pl-4 sm:gap-6 sm:pr-6 sm:pl-6">
           {certificates.map((certificate, index) => (
             <div
               key={`certificate-${index}-${certificate.title}`}
