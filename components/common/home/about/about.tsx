@@ -51,7 +51,7 @@ const About = () => {
   const { t } = useTranslation();
   const [emblaRef] = useEmblaCarousel({
     loop: true,
-    align: "center",
+    align: "start",
     containScroll: "trimSnaps",
     slidesToScroll: 1
   });
@@ -59,7 +59,7 @@ const About = () => {
   const certificates = getCertificates(t);
 
   return (
-    <div className="mx-auto w-full" id="about">
+    <div className="mx-auto max-w-[2400px]" id="about">
       <h1
         className={`${playfair.className} mt-[120px] mb-2 text-center text-[40px] sm:text-[40px] md:mt-[120px] md:text-[48px] lg:text-[68px]`}
       >
@@ -72,7 +72,7 @@ const About = () => {
       </p>
 
       <div className="overflow-x-hidden" ref={emblaRef}>
-        <div className="flex gap-4 pr-4 pl-4 sm:gap-6 sm:pr-6 sm:pl-6">
+        <div className="flex gap-6 pr-4 pl-4 sm:gap-8 sm:pr-6 sm:pl-6 lg:gap-10">
           {certificates.map((certificate, index) => (
             <div
               key={`certificate-${index}-${certificate.title}`}

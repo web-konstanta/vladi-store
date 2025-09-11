@@ -80,3 +80,8 @@ body {
   display: none;
   /* Safari and Chrome */
 }
+
+/* Embla Carousel styles */
+.embla {
+  overflow: hidden;
+}

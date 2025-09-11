@@ -1,7 +1,7 @@
 "use client";
 
 import useEmblaCarousel from "embla-carousel-react";
-import React, { useCallback } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import ProductList from "./product/product-list";
 import CategoryList from "./category/category-list";
 import { Noto_Sans, Playfair_Display } from "next/font/google";
@@ -23,9 +23,37 @@ const noto = Noto_Sans({
 });
 
 const Catalog = () => {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    loop: true,
+    align: "center",
+    containScroll: "trimSnaps",
+    skipSnaps: false
+  });
   const { products, loading, error, filterProducts, getAllProducts } = useCatalog();
   const { t } = useTranslation();
+  const [isCarouselReady, setIsCarouselReady] = useState(false);
+
+  // Reinitialize carousel when products change
+  useEffect(() => {
+    if (emblaApi && products.length > 0) {
+      emblaApi.reInit();
+      setIsCarouselReady(true);
+    }
+  }, [emblaApi, products]);
+
+  // Add event listeners to track carousel state
+  useEffect(() => {
+    if (!emblaApi) return;
+
+    const onSelect = () => {
+      console.log("Carousel selected slide:", emblaApi.selectedScrollSnap());
+    };
+
+    emblaApi.on("select", onSelect);
+    return () => {
+      emblaApi.off("select", onSelect);
+    };
+  }, [emblaApi]);
 
   const scrollPrev = useCallback(() => {
     if (emblaApi) emblaApi.scrollPrev();
@@ -60,24 +88,50 @@ const Catalog = () => {
           <div className="mt-5 text-center text-lg text-red-600">{t("common.error")}</div>
         ) : products.length > 0 ? (
           <>
-            <div className="mt-[20px] overflow-x-hidden" ref={emblaRef}>
-              <ProductList products={products} />
-            </div>
-            {products.length > 4 && (
-              <div className="mt-6 flex justify-center gap-4">
-                <button
-                  className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-gray-800 bg-white transition duration-[600ms] hover:bg-[#DBD0BF]"
-                  onClick={scrollPrev}
-                >
-                  <SlideLeft />
-                </button>
-                <button
-                  className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-gray-800 bg-white transition duration-[600ms] hover:bg-[#DBD0BF]"
-                  onClick={scrollNext}
-                >
-                  <SlideRight />
-                </button>
+            {products.length < 5 ? (
+              // Show products centered without carousel if less than 5
+              <div className="mt-[20px] flex justify-center gap-6 pr-4 pl-4 sm:gap-8 sm:pr-6 sm:pl-6 lg:gap-10">
+                {products.map((product) => (
+                  <div
+                    key={product._id}
+                    className="w-[280px] flex-shrink-0 sm:w-[400px] lg:w-[424px]"
+                  >
+                    <ProductList products={[product]} />
+                  </div>
+                ))}
               </div>
+            ) : (
+              // Show carousel if 5 or more products
+              <>
+                <div className="mt-[20px] overflow-x-hidden" ref={emblaRef}>
+                  <div className="flex gap-6 pr-4 pl-4 sm:gap-8 sm:pr-6 sm:pl-6 lg:gap-10">
+                    {products.map((product) => (
+                      <div
+                        key={product._id}
+                        className="w-[280px] flex-shrink-0 sm:w-[400px] lg:w-[424px]"
+                      >
+                        <ProductList products={[product]} />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                {isCarouselReady && (
+                  <div className="mt-6 flex justify-center gap-4">
+                    <button
+                      className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-gray-800 bg-white transition duration-[600ms] hover:bg-[#DBD0BF]"
+                      onClick={scrollPrev}
+                    >
+                      <SlideLeft />
+                    </button>
+                    <button
+                      className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-gray-800 bg-white transition duration-[600ms] hover:bg-[#DBD0BF]"
+                      onClick={scrollNext}
+                    >
+                      <SlideRight />
+                    </button>
+                  </div>
+                )}
+              </>
             )}
           </>
         ) : (

@@ -42,7 +42,7 @@ const Magnifier = ({ src, alt, width, height, zoomLevel = 2.5 }: MagnifierProps)
     <div className="relative">
       <div
         ref={containerRef}
-        className="relative overflow-hidden"
+        className="relative flex items-center justify-center overflow-hidden bg-gray-50"
         style={{ width, height }}
         onMouseMove={handleMouseMove}
         onMouseEnter={handleMouseEnter}
@@ -53,7 +53,7 @@ const Magnifier = ({ src, alt, width, height, zoomLevel = 2.5 }: MagnifierProps)
           alt={alt}
           width={width}
           height={height}
-          className="h-full w-full object-cover transition-transform duration-300 ease-out"
+          className="max-h-full max-w-full object-contain transition-transform duration-300 ease-out"
           style={{
             transform: isHovering ? `scale(${zoomLevel})` : "scale(1)",
             transformOrigin: transformOrigin
