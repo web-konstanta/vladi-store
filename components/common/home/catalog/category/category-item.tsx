@@ -52,7 +52,7 @@ const CategoryItem = ({
         >
           {getTranslatedText(category.title, category.titleEn, locale)}
         </button>
-        {open && (
+        {open && filteredSubCategories.length > 0 && (
           <div className="absolute top-[84%] left-0 z-10 mt-2 w-full border bg-white shadow-lg">
             {filteredSubCategories.map((subCategory) => (
               <div
