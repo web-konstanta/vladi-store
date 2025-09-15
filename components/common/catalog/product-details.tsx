@@ -102,7 +102,9 @@ const ProductDetails = ({ productId }: CatalogContentProps) => {
             <div>
               <h3 className="text-sm font-bold sm:text-base">{t("product.size")}</h3>
               <ul className="mt-[8px] list-disc pl-5 text-sm sm:text-base">
-                {product?.sizes?.map((item) => <li key={item}>{item}</li>)}
+                {product?.sizes?.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
               </ul>
             </div>
             <div>
@@ -149,7 +151,7 @@ const ProductDetails = ({ productId }: CatalogContentProps) => {
                   key={productVariant.title}
                   className="flex h-[420px] w-full flex-col overflow-hidden rounded-lg border border-black bg-white sm:h-[380px] lg:h-[426px]"
                 >
-                  <div className="relative h-[320px] w-full sm:h-[300px] lg:h-[356px]">
+                  <div className="relative flex h-[320px] w-full items-center justify-center sm:h-[300px] lg:h-[356px]">
                     <Magnifier
                       src={getProductVariantImageUrl(productVariant)}
                       alt={productVariant.title}

@@ -106,7 +106,7 @@ const Catalog = () => {
               <div
                 className={`flex gap-6 pr-4 pl-4 sm:gap-8 sm:pr-6 sm:pl-6 lg:gap-10 ${
                   products.length < 6 ? "lg:justify-center" : ""
-                }`}
+                } ${products.length === 1 ? "justify-center" : ""}`}
               >
                 {products.map((product) => (
                   <div
