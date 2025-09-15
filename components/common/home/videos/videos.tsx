@@ -95,7 +95,7 @@ const Videos = () => {
               ) : (
                 <div className="aspect-video w-full">
                   <iframe
-                    src="https://www.youtube.com/embed/Sz4fHmujW0k?rel=0&modestbranding=1&showinfo=0&controls=1&autoplay=1&mute=0"
+                    src="https://www.youtube.com/embed/q_5yonwhPww?rel=0&modestbranding=1&showinfo=0&controls=1&autoplay=1&mute=0"
                     title={t("videos.blankets_production")}
                     className="h-full w-full rounded-t-lg"
                     frameBorder="0"
