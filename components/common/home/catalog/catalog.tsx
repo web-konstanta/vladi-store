@@ -88,9 +88,9 @@ const Catalog = () => {
           <div className="mt-5 text-center text-lg text-red-600">{t("common.error")}</div>
         ) : products.length > 0 ? (
           <>
-            {products.length < 5 ? (
-              // Show products centered without carousel if less than 5
-              <div className="mt-[20px] flex justify-center gap-6 pr-4 pl-4 sm:gap-8 sm:pr-6 sm:pl-6 lg:gap-10">
+            {/* Always show carousel container */}
+            <div className="mt-[20px] overflow-x-hidden" ref={emblaRef}>
+              <div className="flex gap-6 pr-4 pl-4 sm:gap-8 sm:pr-6 sm:pl-6 lg:gap-10">
                 {products.map((product) => (
                   <div
                     key={product._id}
@@ -100,38 +100,23 @@ const Catalog = () => {
                   </div>
                 ))}
               </div>
-            ) : (
-              // Show carousel if 5 or more products
-              <>
-                <div className="mt-[20px] overflow-x-hidden" ref={emblaRef}>
-                  <div className="flex gap-6 pr-4 pl-4 sm:gap-8 sm:pr-6 sm:pl-6 lg:gap-10">
-                    {products.map((product) => (
-                      <div
-                        key={product._id}
-                        className="w-[280px] flex-shrink-0 sm:w-[400px] lg:w-[424px]"
-                      >
-                        <ProductList products={[product]} />
-                      </div>
-                    ))}
-                  </div>
-                </div>
-                {isCarouselReady && (
-                  <div className="mt-6 flex justify-center gap-4">
-                    <button
-                      className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-gray-800 bg-white transition duration-[600ms] hover:bg-[#DBD0BF]"
-                      onClick={scrollPrev}
-                    >
-                      <SlideLeft />
-                    </button>
-                    <button
-                      className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-gray-800 bg-white transition duration-[600ms] hover:bg-[#DBD0BF]"
-                      onClick={scrollNext}
-                    >
-                      <SlideRight />
-                    </button>
-                  </div>
-                )}
-              </>
+            </div>
+            {/* Show navigation buttons only if more than 1 product */}
+            {products.length > 1 && isCarouselReady && (
+              <div className="mt-6 flex justify-center gap-4">
+                <button
+                  className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-gray-800 bg-white transition duration-[600ms] hover:bg-[#DBD0BF]"
+                  onClick={scrollPrev}
+                >
+                  <SlideLeft />
+                </button>
+                <button
+                  className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-gray-800 bg-white transition duration-[600ms] hover:bg-[#DBD0BF]"
+                  onClick={scrollNext}
+                >
+                  <SlideRight />
+                </button>
+              </div>
             )}
           </>
         ) : (
