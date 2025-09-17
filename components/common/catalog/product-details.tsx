@@ -50,6 +50,8 @@ const ProductDetails = ({ productId }: CatalogContentProps) => {
     .filter((product) => product.subCategoryId !== subCategoryItem?._id)
     .slice(0, 4);
 
+  const translatedTitle = product ? getTranslatedText(product.title, product.titleEn, locale) : "";
+
   if (loading) {
     return (
       <div className="mx-auto w-full max-w-[1320px]">
@@ -80,7 +82,7 @@ const ProductDetails = ({ productId }: CatalogContentProps) => {
                 <span className="opacity-50 hover:underline">{t("product.home")}</span>
               </Link>
               <span className="opacity-50">/</span>
-              <span className="text-[#27241F]">{product?.title || t("product.product")}</span>
+              <span className="text-[#27241F]">{translatedTitle || t("product.product")}</span>
             </div>
             <Link
               href="/#products"
@@ -93,7 +95,7 @@ const ProductDetails = ({ productId }: CatalogContentProps) => {
           <div
             className={`${playfair.className} mt-[14px] mb-4 text-[36px] tracking-tight text-[#27241F] uppercase sm:text-4xl md:mt-4 md:text-5xl lg:text-[68px]`}
           >
-            {product?.title || t("product.product")}
+            {translatedTitle || t("product.product")}
           </div>
           <p className="max-w-[984px] text-base leading-[28px] sm:text-lg">
             {product ? getTranslatedText(product.description, product.descriptionEn, locale) : ""}
