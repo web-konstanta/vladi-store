@@ -12,6 +12,12 @@ export default defineType({
       validation: (Rule) => Rule.required().max(100)
     }),
     defineField({
+      name: "titleEn",
+      title: "Название (English)",
+      type: "string",
+      validation: (Rule) => Rule.required().max(100)
+    }),
+    defineField({
       name: "description",
       title: "Описание",
       type: "text",
