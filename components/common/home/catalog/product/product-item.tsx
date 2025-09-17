@@ -38,7 +38,7 @@ const ProductItem = ({ product }: { product: Product }) => {
         </div>
         <div className="group relative p-3 sm:p-6 lg:px-7 lg:py-4">
           <h3 className="mb-2 text-[16px] font-medium sm:mb-[8px] sm:text-[20px] lg:text-[24px]">
-            {product.title}
+            {translatedTitle}
           </h3>
           <p
             className="text-xs leading-[18px] text-gray-700 sm:text-sm sm:leading-[22px] lg:leading-[25px]"
