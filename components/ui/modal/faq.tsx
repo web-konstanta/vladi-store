@@ -91,6 +91,7 @@ const Faq: React.FC<FaqProps> = ({ isOpen, onClose }) => {
             <h2 className="mb-2 text-lg font-bold sm:mb-4 sm:text-2xl">{t("faq.contacts")}</h2>
             <p className="mb-1 text-xs sm:mb-2 sm:text-sm">+ 380 (057) 743 56 97</p>
             <p className="mb-1 text-xs sm:mb-2 sm:text-sm">+ 380 (067) 919 38 53</p>
+            <p className="mb-1 text-xs sm:mb-2 sm:text-sm">office@vladi.com.ua</p>
           </div>
           <div>
             <h3 className="mb-1 text-lg font-semibold sm:mb-2 sm:text-2xl">
