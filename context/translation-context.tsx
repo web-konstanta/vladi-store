@@ -116,8 +116,8 @@ const translations = {
     // FAQ Modal
     "faq.contacts": "Контакти",
     "faq.warehouse_address": "Адреса складу",
-    "faq.address_country": "88888, Україна",
-    "faq.address_city": "м. Харків, вул. Харківська",
+    "faq.address_country": "61157, Україна",
+    "faq.address_city": "Харків, вул. Олександра Шпейєра,18",
     "faq.send_request": "Відправити запит",
     "faq.name_placeholder": "Ваше ім'я",
     "faq.email_placeholder": "E-Mail адреса",
@@ -242,8 +242,8 @@ const translations = {
     // FAQ Modal
     "faq.contacts": "Contacts",
     "faq.warehouse_address": "Warehouse address",
-    "faq.address_country": "88888, Ukraine",
-    "faq.address_city": "Kharkiv, Kharkivska str.",
+    "faq.address_country": "61157, Ukraine",
+    "faq.address_city": "Kharkiv, Alexander Shpeyer str., 18",
     "faq.send_request": "Send request",
     "faq.name_placeholder": "Your name",
     "faq.email_placeholder": "E-Mail address",
