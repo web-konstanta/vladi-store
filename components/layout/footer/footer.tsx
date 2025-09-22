@@ -42,7 +42,7 @@ const Footer = ({ showContact }: { showContact?: boolean }) => {
             </p>
             <button
               onClick={() => setShowModal(true)}
-              className="mt-[32px] h-[52px] w-[231px] cursor-pointer rounded-lg border border-white px-6 py-2 text-base leading-[24px] text-white sm:px-10"
+              className="mt-[32px] h-[52px] w-[231px] cursor-pointer rounded-lg border border-white px-6 py-2 text-base leading-[24px] text-white transition-all duration-300 hover:bg-[#141311] sm:px-10"
             >
               {t("footer.contact_button")}
             </button>
@@ -63,13 +63,22 @@ const Footer = ({ showContact }: { showContact?: boolean }) => {
           </h1>
 
           <nav className="flex flex-col items-center gap-2 text-white md:flex-row md:gap-[40px]">
-            <Link href="/#about" className="px-2 py-1 text-[14px]">
+            <Link
+              href="/#about"
+              className="px-2 py-1 text-[14px] transition-all duration-500 ease-in-out hover:font-semibold"
+            >
               {t("header.about")}
             </Link>
-            <Link href="/#services" className="px-2 py-1 text-[14px]">
+            <Link
+              href="/#services"
+              className="px-2 py-1 text-[14px] transition-all duration-500 ease-in-out hover:font-semibold"
+            >
               {t("header.services")}
             </Link>
-            <Link href="/#products" className="px-2 py-1 text-[14px]">
+            <Link
+              href="/#products"
+              className="px-2 py-1 text-[14px] transition-all duration-500 ease-in-out hover:font-semibold"
+            >
               {t("header.catalog")}
             </Link>
           </nav>

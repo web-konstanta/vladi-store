@@ -51,20 +51,29 @@ const Header = () => {
         </button>
 
         <nav className="hidden items-center gap-[40px] md:flex">
-          <Link href="/#about" className="px-2 py-1 text-base">
+          <Link
+            href="/#about"
+            className="px-2 py-1 text-base transition-all duration-500 ease-in-out hover:font-semibold"
+          >
             {t("header.about")}
           </Link>
-          <Link href="/#services" className="px-2 py-1 text-base">
+          <Link
+            href="/#services"
+            className="px-2 py-1 text-base transition-all duration-500 ease-in-out hover:font-semibold"
+          >
             {t("header.services")}
           </Link>
-          <Link href="/#products" className="px-2 py-1 text-base">
+          <Link
+            href="/#products"
+            className="px-2 py-1 text-base transition-all duration-500 ease-in-out hover:font-semibold"
+          >
             {t("header.catalog")}
           </Link>
         </nav>
 
         <div className="hidden items-center gap-6 md:flex">
           <button
-            className="flex cursor-pointer items-center gap-1"
+            className="flex cursor-pointer items-center gap-1 transition-all duration-300 ease-in-out hover:opacity-80"
             onClick={toggleLocale}
             aria-label="Switch language"
           >
@@ -92,17 +101,29 @@ const Header = () => {
       >
         <div className="px-4 pb-4">
           <nav className="flex flex-col gap-2">
-            <Link href="/#about" className="px-2 py-1 text-base font-semibold">
+            <Link
+              href="/#about"
+              className="px-2 py-1 text-base font-semibold transition-all duration-500 ease-in-out hover:font-bold"
+            >
               {t("header.about")}
             </Link>
-            <Link href="/#services" className="px-2 py-1 text-base font-semibold">
+            <Link
+              href="/#services"
+              className="px-2 py-1 text-base font-semibold transition-all duration-500 ease-in-out hover:font-bold"
+            >
               {t("header.services")}
             </Link>
-            <Link href="/#products" className="px-2 py-1 text-base font-semibold">
+            <Link
+              href="/#products"
+              className="px-2 py-1 text-base font-semibold transition-all duration-500 ease-in-out hover:font-bold"
+            >
               {t("header.catalog")}
             </Link>
             <div className="mt-2 flex items-center justify-between">
-              <button className="flex cursor-pointer items-center gap-1" onClick={toggleLocale}>
+              <button
+                className="flex cursor-pointer items-center gap-1 transition-all duration-300 ease-in-out hover:opacity-80"
+                onClick={toggleLocale}
+              >
                 <Image
                   src={`/images/${locale === "ua" ? "ua-flag.png" : "gb-flag.png"}`}
                   alt={locale === "ua" ? "UA" : "EN"}
@@ -113,7 +134,7 @@ const Header = () => {
               </button>
               <button
                 onClick={() => setShowModal(true)}
-                className="cursor-pointer rounded-xl bg-[#333231] px-6 py-2 text-white"
+                className="cursor-pointer rounded-xl bg-[#333231] px-6 py-2 text-white transition-all duration-300 ease-in-out hover:bg-[#555555]"
               >
                 {t("header.contact")}
               </button>
