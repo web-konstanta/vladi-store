@@ -5,6 +5,7 @@ import { Playfair_Display } from "next/font/google";
 import Faq from "@/components/ui/modal/faq";
 import { useState } from "react";
 import { useTranslation } from "@/context/translation-context";
+import Link from "next/link";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -62,15 +63,15 @@ const Footer = ({ showContact }: { showContact?: boolean }) => {
           </h1>
 
           <nav className="flex flex-col items-center gap-2 text-white md:flex-row md:gap-[40px]">
-            <a href="#about" className="px-2 py-1 text-[14px]">
+            <Link href="/#about" className="px-2 py-1 text-[14px]">
               {t("header.about")}
-            </a>
-            <a href="#services" className="px-2 py-1 text-[14px]">
+            </Link>
+            <Link href="/#services" className="px-2 py-1 text-[14px]">
               {t("header.services")}
-            </a>
-            <a href="#products" className="px-2 py-1 text-[14px]">
+            </Link>
+            <Link href="/#products" className="px-2 py-1 text-[14px]">
               {t("header.catalog")}
-            </a>
+            </Link>
           </nav>
           <div className="text-[14px] text-white">{t("footer.copyright")}</div>
         </div>
