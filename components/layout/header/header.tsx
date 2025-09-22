@@ -51,15 +51,15 @@ const Header = () => {
         </button>
 
         <nav className="hidden items-center gap-[40px] md:flex">
-          <a href="/#about" className="px-2 py-1 text-base">
+          <Link href="/#about" className="px-2 py-1 text-base">
             {t("header.about")}
-          </a>
-          <a href="/#services" className="px-2 py-1 text-base">
+          </Link>
+          <Link href="/#services" className="px-2 py-1 text-base">
             {t("header.services")}
-          </a>
-          <a href="/#products" className="px-2 py-1 text-base">
+          </Link>
+          <Link href="/#products" className="px-2 py-1 text-base">
             {t("header.catalog")}
-          </a>
+          </Link>
         </nav>
 
         <div className="hidden items-center gap-6 md:flex">
@@ -92,15 +92,15 @@ const Header = () => {
       >
         <div className="px-4 pb-4">
           <nav className="flex flex-col gap-2">
-            <a href="#about" className="px-2 py-1 text-base font-semibold">
+            <Link href="/#about" className="px-2 py-1 text-base font-semibold">
               {t("header.about")}
-            </a>
-            <a href="#services" className="px-2 py-1 text-base font-semibold">
+            </Link>
+            <Link href="/#services" className="px-2 py-1 text-base font-semibold">
               {t("header.services")}
-            </a>
-            <a href="#products" className="px-2 py-1 text-base font-semibold">
+            </Link>
+            <Link href="/#products" className="px-2 py-1 text-base font-semibold">
               {t("header.catalog")}
-            </a>
+            </Link>
             <div className="mt-2 flex items-center justify-between">
               <button className="flex cursor-pointer items-center gap-1" onClick={toggleLocale}>
                 <Image
