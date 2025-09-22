@@ -51,13 +51,13 @@ const Header = () => {
         </button>
 
         <nav className="hidden items-center gap-[40px] md:flex">
-          <a href="#about" className="px-2 py-1 text-base">
+          <a href="/#about" className="px-2 py-1 text-base">
             {t("header.about")}
           </a>
-          <a href="#services" className="px-2 py-1 text-base">
+          <a href="/#services" className="px-2 py-1 text-base">
             {t("header.services")}
           </a>
-          <a href="#products" className="px-2 py-1 text-base">
+          <a href="/#products" className="px-2 py-1 text-base">
             {t("header.catalog")}
           </a>
         </nav>
