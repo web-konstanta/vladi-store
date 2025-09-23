@@ -6,6 +6,7 @@ import { CertificateType } from "@/lib/types";
 import Image from "next/image";
 import useEmblaCarousel from "embla-carousel-react";
 import { useTranslation } from "@/context/translation-context";
+import Autoplay from "embla-carousel-autoplay";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -49,12 +50,15 @@ const getCertificates = (t: (key: string) => string): CertificateType[] => [
 
 const About = () => {
   const { t } = useTranslation();
-  const [emblaRef] = useEmblaCarousel({
-    loop: true,
-    align: "start",
-    containScroll: "trimSnaps",
-    slidesToScroll: 1
-  });
+  const [emblaRef] = useEmblaCarousel(
+    {
+      loop: false,
+      align: "start",
+      containScroll: "trimSnaps",
+      slidesToScroll: 1
+    },
+    [Autoplay({ delay: 5000 })]
+  );
 
   const certificates = getCertificates(t);
 
