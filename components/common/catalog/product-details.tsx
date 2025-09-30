@@ -123,11 +123,11 @@ const ProductDetails = ({ productId }: CatalogContentProps) => {
             <div>
               <h3 className="text-sm font-bold sm:text-base">{t("product.weight")}</h3>
               <ul className="mt-[8px] list-disc pl-5 text-sm sm:text-base">
-                <li className="mt-[4px]">
-                  {product && product.weight && product.weightEn
-                    ? getTranslatedText(product.weight, product.weightEn, locale)
-                    : product?.weight || ""}
-                </li>
+                {product && product.weight && product.weightEn
+                  ? getTranslatedArray(product.weight, product.weightEn, locale).map(
+                    (item) => <li className="mt-[4px]" key={item}>{item}</li>
+                  )
+                  : null}
               </ul>
             </div>
             {/* <div>

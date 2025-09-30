@@ -9,8 +9,8 @@ export type Product = {
   composition: string[];
   compositionEn: string[];
   sizes: string[];
-  weight: string;
-  weightEn: string;
+  weight: string[];
+  weightEn: string[];
   products: {
     title: string;
     titleEn: string;
