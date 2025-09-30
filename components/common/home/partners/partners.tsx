@@ -37,7 +37,7 @@ const Partners = () => {
               key={index}
               className="flex w-[200px] flex-shrink-0 justify-center md:w-[calc(20%-16px)]"
             >
-              <img src={partner.src} alt={partner.alt} className="mx-auto h-[56px]" />
+              <img src={partner.src} alt={partner.alt + " logo"} className="mx-auto h-[56px]" />
             </div>
           ))}
         </div>
