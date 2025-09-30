@@ -34,19 +34,16 @@ const Header = () => {
           aria-label="Toggle menu"
         >
           <span
-            className={`mb-1 block h-0.5 w-6 bg-gray-800 transition-all duration-300 ${
-              open ? "translate-y-1.5 rotate-45" : ""
-            }`}
+            className={`mb-1 block h-0.5 w-6 bg-gray-800 transition-all duration-300 ${open ? "translate-y-1.5 rotate-45" : ""
+              }`}
           />
           <span
-            className={`mb-1 block h-0.5 w-6 bg-gray-800 transition-all duration-300 ${
-              open ? "opacity-0" : ""
-            }`}
+            className={`mb-1 block h-0.5 w-6 bg-gray-800 transition-all duration-300 ${open ? "opacity-0" : ""
+              }`}
           />
           <span
-            className={`block h-0.5 w-6 bg-gray-800 transition-all duration-300 ${
-              open ? "-translate-y-1.5 -rotate-45" : ""
-            }`}
+            className={`block h-0.5 w-6 bg-gray-800 transition-all duration-300 ${open ? "-translate-y-1.5 -rotate-45" : ""
+              }`}
           />
         </button>
 
@@ -58,16 +55,16 @@ const Header = () => {
             {t("header.about")}
           </Link>
           <Link
-            href="/#services"
-            className="px-2 py-1 text-base transition-all duration-500 ease-in-out hover:font-semibold"
-          >
-            {t("header.services")}
-          </Link>
-          <Link
             href="/#products"
             className="px-2 py-1 text-base transition-all duration-500 ease-in-out hover:font-semibold"
           >
             {t("header.catalog")}
+          </Link>
+          <Link
+            href="/#services"
+            className="px-2 py-1 text-base transition-all duration-500 ease-in-out hover:font-semibold"
+          >
+            {t("header.services")}
           </Link>
         </nav>
 
@@ -95,9 +92,8 @@ const Header = () => {
       </div>
 
       <div
-        className={`overflow-hidden transition-all duration-300 md:hidden ${
-          open ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-        }`}
+        className={`overflow-hidden transition-all duration-300 md:hidden ${open ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+          }`}
       >
         <div className="px-4 pb-4">
           <nav className="flex flex-col gap-2">

@@ -107,6 +107,7 @@ const ProductDetails = ({ productId }: CatalogContentProps) => {
                 {product?.sizes?.map((item) => (
                   <li key={item}>{item}</li>
                 ))}
+                {product?.sizes?.length > 0 && product?.sizes[0] !== '' && <li>{t("product.size.other")}</li>}
               </ul>
             </div>
             <div>
@@ -114,8 +115,8 @@ const ProductDetails = ({ productId }: CatalogContentProps) => {
               <ul className="mt-[8px] list-disc pl-5 text-sm sm:text-base">
                 {product && product.composition && product.compositionEn
                   ? getTranslatedArray(product.composition, product.compositionEn, locale).map(
-                      (item) => <li key={item}>{item}</li>
-                    )
+                    (item) => <li key={item}>{item}</li>
+                  )
                   : null}
               </ul>
             </div>
@@ -141,11 +142,10 @@ const ProductDetails = ({ productId }: CatalogContentProps) => {
         </div>
         <div className="mt-6 sm:mt-8 lg:mt-10">
           <div
-            className={`mt-5 grid gap-4 pb-8 sm:gap-6 sm:pb-12 ${
-              product?.products && product.products.length > 0 && product.products.length < 4
-                ? "grid-cols-1 justify-center sm:grid-cols-2 lg:grid-cols-3"
-                : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-            }`}
+            className={`mt-5 grid gap-4 pb-8 sm:gap-6 sm:pb-12 ${product?.products && product.products.length > 0 && product.products.length < 4
+              ? "grid-cols-1 justify-center sm:grid-cols-2 lg:grid-cols-3"
+              : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+              }`}
           >
             {product?.products && product.products.length > 0 ? (
               product.products.map((productVariant) => (
@@ -186,11 +186,10 @@ const ProductDetails = ({ productId }: CatalogContentProps) => {
           {t("product.you_may_like")}
         </h1>
         <div
-          className={`mt-5 grid gap-4 pb-8 sm:gap-6 sm:pb-12 ${
-            additionalProducts.length > 0 && additionalProducts.length < 4
-              ? "grid-cols-1 justify-center sm:grid-cols-2 lg:grid-cols-3"
-              : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-          }`}
+          className={`mt-5 grid gap-4 pb-8 sm:gap-6 sm:pb-12 ${additionalProducts.length > 0 && additionalProducts.length < 4
+            ? "grid-cols-1 justify-center sm:grid-cols-2 lg:grid-cols-3"
+            : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+            }`}
         >
           {additionalProducts.length > 0 ? (
             additionalProducts.map((product) => <ProductCard key={product._id} product={product} />)

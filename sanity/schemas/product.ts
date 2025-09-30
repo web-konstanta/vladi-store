@@ -64,13 +64,15 @@ export default defineType({
     defineField({
       name: "weight",
       title: "Вес",
-      type: "string",
+      type: "array",
+      of: [{ type: "string" }],
       validation: (Rule) => Rule.required()
     }),
     defineField({
       name: "weightEn",
       title: "Вес (English)",
-      type: "string",
+      type: "array",
+      of: [{ type: "string" }],
       validation: (Rule) => Rule.required()
     }),
     defineField({
