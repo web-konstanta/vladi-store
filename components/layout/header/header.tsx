@@ -24,7 +24,7 @@ const Header = () => {
       <div className="container mx-auto flex items-center justify-between px-4 py-3">
         <div className="w-[257px]">
           <Link href="/">
-            <Image src="/images/logo.png" alt="logo" width={88} height={46} />
+            <Image src="/images/logo.png" alt="logo " width={88} height={46} />
           </Link>
         </div>
 
