@@ -105,6 +105,32 @@ export const getSubcategoriesByCategoryQuery = `
   }
 `;
 
+export const getAllProductsQueryWithoutCategory = `
+   *[_type == "product" && subCategoryId != "9yjz18m6eembek5ekqszw1bgwjqbt6te"] | order(_createdAt asc) {
+    _id,
+    _type,
+    title,
+    titleEn,
+    description,
+    descriptionEn,
+    image,
+    composition,
+    compositionEn,
+    sizes,
+    weight,
+    weightEn,
+    products,
+    subCategoryId,
+    updatedAt,
+    _createdAt,
+    _updatedAt
+  }
+`;
+
+export async function getAllProductsWithoutCategory(): Promise<Product[]> {
+  return await client.fetch(getAllProductsQueryWithoutCategory);
+}
+
 // API functions
 
 export async function getAllProducts(): Promise<Product[]> {

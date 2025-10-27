@@ -1,7 +1,7 @@
 "use client";
 
 import { Product } from "@/lib/types";
-import { getAllProducts } from "@/lib/sanity-queries";
+import {  getAllProductsWithoutCategory } from "@/lib/sanity-queries";
 import React, {
   createContext,
   useContext,
@@ -34,7 +34,8 @@ export const CatalogProvider = ({ children }: { children: ReactNode }) => {
       try {
         setLoading(true);
         setError(null);
-        const productsData = await getAllProducts();
+        // const productsData = await getAllProducts();
+        const productsData = await getAllProductsWithoutCategory();
         setAllProducts(productsData);
         setProducts(productsData);
       } catch (err) {
