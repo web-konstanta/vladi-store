@@ -34,7 +34,7 @@ export const CatalogProvider = ({ children }: { children: ReactNode }) => {
       try {
         setLoading(true);
         setError(null);
-        // const productsData = await getAllProducts();
+        // const productsData = await getAllProducts(); // commented out to exclude specific category
         const productsData = await getAllProductsWithoutCategory();
         setAllProducts(productsData);
         setProducts(productsData);
