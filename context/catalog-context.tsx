@@ -28,7 +28,7 @@ export const CatalogProvider = ({ children }: { children: ReactNode }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  // Load products from Sanity on component mount
+  // Load products from Sanity on component mountt
   useEffect(() => {
     const loadProducts = async () => {
       try {
